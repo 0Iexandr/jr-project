@@ -1,0 +1,56 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
+
+@tailwind base;
+
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  /* @apply font-body; */
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex whitespace-nowrap rounded bg-pink-600 px-4 py-2 font-bold uppercase text-slate-50 transition-colors hover:bg-pink-500;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 8rem 0 6rem;
+  }
+
+  .logo,
+  .thirteen {
+    position: relative;
+  }
+
+  .thirteen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 75px;
+    padding: 25px 10px;
+    margin-left: 16px;
+    transform: translateZ(0);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0px 2px 8px -1px #0000001a;
+  }
+}
