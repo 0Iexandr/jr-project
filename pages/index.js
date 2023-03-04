@@ -1,10 +1,9 @@
 import Head from 'next/head';
 import Image from 'next/image';
-// import { Hero } from '@/views';
 import { Container } from '@/components';
 import { Hero } from '@/views';
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -14,7 +13,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <Hero /> */}
       <Hero />
 
       <section>
@@ -42,4 +40,6 @@ export default function Home() {
       </section>
     </>
   );
-}
+};
+
+export default Home;
