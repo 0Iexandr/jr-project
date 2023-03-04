@@ -19,9 +19,4 @@ module.exports = {
   rules: {
     // 'require-jsdoc': 0,
   },
-  settings: {
-    react: {
-      version: 'latest',
-    },
-  },
 };
