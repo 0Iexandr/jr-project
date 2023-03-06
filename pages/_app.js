@@ -3,7 +3,7 @@ import { Layout } from 'layout';
 
 export default function App({ Component, pageProps }) {
   return (
-    <Layout data={pageProps}>
+    <Layout>
       <Component {...pageProps} />
     </Layout>
   );
