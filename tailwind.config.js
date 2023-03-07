@@ -26,23 +26,21 @@ module.exports = {
       },
 
       colors: {
-        red: '#EF4444',
-        yellow: '#FFD500',
-        // blueAccent: '#60A5FA',
-        // blueDark: '#5483C9',
-        // blueLight: '#BFDBFE',
-        // white: '#F8FAFC',
+        mainBlack: '#222222',
+        gray: '#585858',
+        white: '#FFFFFF',
+        additionalGray: '#ABABAB',
       },
 
       fontFamily: {
-        sans: ['Ubuntu', 'sans-serif'],
+        sans: ['Lato', 'sans-serif'],
       },
 
       fontSize: {
-        small: ['16px', '24px'], // class="text-small"
-        middle: ['20px', '24px'], // class='text-middle'
-        big: ['24px', '28px'], // class="text-big"
-        large: ['34px', '44px'], // class="text-large"
+        small: ['14px', '18px'], // class="text-small"
+        middle: ['18px', '23px'], // class='text-middle'
+        big: ['28px', '36px'], // class="text-big"
+        large: ['54px', '65px'], // class="text-large"
       },
     },
   },
