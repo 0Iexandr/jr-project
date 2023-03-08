@@ -1,10 +1,11 @@
 import { Container } from '@/components';
+import Slider from 'components/Slider/Slider';
 
-export const Hero = () => {
+export const Hero = ({ images }) => {
   return (
     <section>
       <Container>
-        <p>It is hero section</p>
+        <Slider images={images} />
       </Container>
     </section>
   );
