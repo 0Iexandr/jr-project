@@ -12,7 +12,7 @@ module.exports = {
     screens: {
       sm: '480px',
       md: '768px',
-      xl: '1440px',
+      xl: '1320px',
     },
     extend: {
       container: {
@@ -21,7 +21,7 @@ module.exports = {
           DEFAULT: '1.25rem',
           sm: '1.25rem',
           md: '3.75rem',
-          xl: '5rem',
+          xl: '1.25rem',
         },
       },
 

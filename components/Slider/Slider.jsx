@@ -13,6 +13,7 @@ export default function Slider({ images }) {
   return (
     <div>
       <Swiper
+        className=""
         modules={[EffectFade, Pagination, Autoplay]}
         effect="fade"
         pagination={{
@@ -20,6 +21,7 @@ export default function Slider({ images }) {
         }}
         autoplay={{
           delay: 2000,
+          disableOnInteraction: false,
         }}
       >
         {images.map(image => {
@@ -30,6 +32,7 @@ export default function Slider({ images }) {
                 src={image.image}
                 width={image.width}
                 height={image.height}
+                className="md: h-[420px] object-cover sm:h-[380px] xl:h-[656px]"
               />
             </SwiperSlide>
           );

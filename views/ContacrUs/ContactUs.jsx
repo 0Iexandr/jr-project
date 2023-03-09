@@ -1,10 +1,13 @@
+import { Container } from '@/components';
 import Action from 'components/Action/Action';
 
 function ContactUs({ sectionData }) {
   return (
-    <div>
-      <Action params={sectionData} />
-    </div>
+    <section>
+      <Container>
+        <Action params={sectionData} />
+      </Container>
+    </section>
   );
 }
 

@@ -17,8 +17,8 @@ const Home = ({ sectionData, images }) => {
       </Head>
 
       <Hero images={images} />
-      <Career sectionData={sectionData.career} />
       <ContactUs sectionData={sectionData.contact} />
+      <Career sectionData={sectionData.career} />
 
       <section>
         <Container>
@@ -43,6 +43,7 @@ const Home = ({ sectionData, images }) => {
           </div>
         </Container>
       </section>
+      <div id="contact">CONTACT</div>
     </>
   );
 };

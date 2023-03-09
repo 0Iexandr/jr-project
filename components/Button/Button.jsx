@@ -1,11 +1,14 @@
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { Link } from 'react-scroll';
 
-export const Button = ({ text, className = '' }) => {
-  return <button className={classNames('button', className)}>{text}</button>;
+export const Button = ({ text, href, className }) => {
+  return (
+    <Link href={href} className={className}>
+      {text}
+    </Link>
+  );
 };
 
 Button.propTypes = {
   text: PropTypes.node.isRequired,
-  className: PropTypes.string,
 };
