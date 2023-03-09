@@ -3,8 +3,7 @@ import Image from 'next/image';
 import { Container } from '@/components';
 import { Hero } from '@/views';
 import { gql, GraphQLClient } from 'graphql-request';
-import Career from 'views/Career/Career';
-import ContactUs from 'views/ContacrUs/ContactUs';
+import ActSection from 'components/ActSection/ActSection';
 
 const Home = ({ sectionData, images }) => {
   return (
@@ -17,8 +16,10 @@ const Home = ({ sectionData, images }) => {
       </Head>
 
       <Hero images={images} />
-      <ContactUs sectionData={sectionData.contact} />
-      <Career sectionData={sectionData.career} />
+
+      <ActSection params={sectionData.contact} />
+
+      <ActSection params={sectionData.career} />
 
       <section>
         <Container>
@@ -50,6 +51,7 @@ const Home = ({ sectionData, images }) => {
 
 export default Home;
 
+//================это мои запросы на датосмс, потом когда будет готовый бек можно будет их подправить
 const query = gql`
   query MyQuery {
     career {

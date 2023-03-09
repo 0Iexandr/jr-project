@@ -4,7 +4,6 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
-// import './styles.css';
 
 import { EffectFade, Pagination, Autoplay } from 'swiper';
 import Image from 'next/image';
