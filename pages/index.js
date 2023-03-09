@@ -2,8 +2,10 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Container } from '@/components';
 import { Hero } from '@/views';
+import Advantages from '../views/Advantages/Advantages';
+import Contact from '../views/Contact/Contact';
 
-const Home = () => {
+const Home = ({ advantages, projectTypes }) => {
   return (
     <>
       <Head>
@@ -14,7 +16,8 @@ const Home = () => {
       </Head>
 
       <Hero />
-
+      <Advantages advantages={advantages} />
+      <Contact projectTypes={projectTypes} />
       <section>
         <Container>
           <div className="center">
@@ -41,5 +44,34 @@ const Home = () => {
     </>
   );
 };
+
+export function getStaticProps() {
+  const advantages = [
+    {
+      title: 'Cost-Efficiency',
+      description:
+        'We deliver outstanding value by combining top-notch quality with affordable rates',
+    },
+    {
+      title: 'Designing experience',
+      description:
+        'Our team has in-depth architectural skills and expertise from years working on housing complexes, apartments, and commercial buildings',
+    },
+    {
+      title: 'Software Mastery',
+      description:
+        'We watch out for the latest trends and use innovative software to build photorealistic renders that convey the designer’s intent',
+    },
+    {
+      title: 'Value',
+      description:
+        'Our outstanding architectural rendering images and animations have investors, designers, juries, and potential buyers turning their heads',
+    },
+  ];
+  const projectTypes = ['Villa', 'Residential', 'Office', 'Other'];
+  return {
+    props: { advantages, projectTypes },
+  };
+}
 
 export default Home;
