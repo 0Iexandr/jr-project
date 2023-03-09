@@ -10,7 +10,7 @@ function Action({ params }) {
           <div className="mt-[50px] flex flex-col items-center justify-center gap-[20px] ">
             <h2 className="sectionTitle font-bold tracking-wide">{title}</h2>
             <p className=" tracking-teighter sectionSubtitle font-bold">
-              {subtitle} <a href="mailto:{email}">{email}</a>
+              {subtitle} <a href={`mailto:${email}`}>{email}</a>
             </p>
             <p className="text-middle font-normal text-gray md:w-[450px]">
               {description}
@@ -18,7 +18,7 @@ function Action({ params }) {
           </div>
           <Button
             text={buttonText}
-            href="email:mk@gf.com"
+            href={`mailto:${email}`}
             className="mx-auto my-0 mt-[24px] inline-block border-2 border-solid border-mainBlack px-[32px] py-[10px] text-small font-bold uppercase tracking-wider text-mainBlack"
           />
         </div>

@@ -18,6 +18,8 @@ export default function Slider({ images }) {
         effect="fade"
         pagination={{
           clickable: true,
+          bulletActiveClass: 'swiper-pagination-bullet-active',
+          bulletClass: 'swiper-pagination-bullet',
         }}
         autoplay={{
           delay: 2000,
@@ -32,7 +34,7 @@ export default function Slider({ images }) {
                 src={image.image}
                 width={image.width}
                 height={image.height}
-                className="md: h-[420px] object-cover sm:h-[380px] xl:h-[656px]"
+                className="h-[380px] object-cover md:h-[420px] xl:h-[656px]"
               />
             </SwiperSlide>
           );

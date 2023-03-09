@@ -3,7 +3,7 @@ import { Link } from 'react-scroll';
 
 export const Button = ({ text, href, className }) => {
   return (
-    <Link href={href} className={className}>
+    <Link to={href} href={'/'} className={className}>
       {text}
     </Link>
   );

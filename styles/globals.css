@@ -86,3 +86,14 @@ body {
     transform: translateY(15px);
   }
 }
+
+.swiper-pagination-bullet {
+  --swiper-pagination-color: black;
+  --swiper-pagination-bullet-inactive-color: white;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-size: 10px;
+  --swiper-pagination-bullet-horizontal-gap: 10px;
+}
+.swiper-pagination-bullet-active {
+  border: 2px solid white;
+}
