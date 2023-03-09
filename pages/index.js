@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { Container } from '@/components';
-import { Hero } from '@/views';
+import { Hero, Services } from '@/views';
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
       </Head>
 
       <Hero />
-
+      <Services />
       <section>
         <Container>
           <div className="center">
