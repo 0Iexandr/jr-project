@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   images: {
+    domains: ['res.cloudinary.com'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -10,7 +12,6 @@ const nextConfig = {
       },
     ],
   },
-  reactStrictMode: true,
   webpack: config => {
     config.module.rules.push({
       test: /\.svg$/,
