@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { Container } from '@/components';
-import { Hero } from '@/views';
+import { Hero, Services } from '@/views';
 import { gql, GraphQLClient } from 'graphql-request';
 import ActSection from 'components/ActSection/ActSection';
 
@@ -16,7 +16,7 @@ const Home = ({ sectionData, images }) => {
       </Head>
 
       <Hero images={images} />
-
+      <Services />
       <ActSection params={sectionData.contact} />
 
       <ActSection params={sectionData.career} />
