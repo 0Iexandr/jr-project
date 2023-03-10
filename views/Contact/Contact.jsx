@@ -1,5 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container } from '../../components';
+import DatePicker from 'react-datepicker';
+import { useForm } from 'react-hook-form';
+import { useForm as useFormspree } from '@formspree/react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import Check from 'public/check.svg';
+import 'react-datepicker/dist/react-datepicker.css';
+import { schema } from './schema';
 
 const PRICE_PER_ITEM = 100;
 
@@ -7,6 +14,23 @@ const Contact = ({ projectTypes }) => {
   const [aerial, setAerial] = useState(1);
   const [exterior, setExterior] = useState(0);
   const [interior, setInterior] = useState(0);
+  const [startDate, setStartDate] = useState('');
+
+  const [serverState, sendToFormspree] = useFormspree('xzbqvzvg');
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  useEffect(() => {
+    if (serverState.succeeded) {
+      reset();
+    }
+  }, [serverState.succeeded, reset]);
 
   const imageTypes = [
     { state: aerial, title: 'Aerial', name: 'aerial' },
@@ -33,8 +57,10 @@ const Contact = ({ projectTypes }) => {
     }
   };
 
-  const onSubmitForm = e => {
-    e.preventDefault();
+  console.log(errors);
+  const onSubmitForm = data => {
+    const form = { ...data, aerial, exterior, interior };
+    sendToFormspree(form);
   };
 
   const totalImgQty = aerial + exterior + interior;
@@ -49,39 +75,66 @@ const Contact = ({ projectTypes }) => {
         <p className="mb-[50px] text-[28px] font-[700] leading-[1.3]">
           Make request using form below or send e-mail to info@jazzrender.com
         </p>
-        <form className="w-full" onSubmit={onSubmitForm}>
+        <form className="w-full" onSubmit={handleSubmit(onSubmitForm)}>
           <div className="flex gap-[60px]">
             <div className="flex w-1/2 flex-col">
-              <label className="relative mb-[40px] flex">
-                <input
-                  type="text"
-                  className="peer w-full border-0 border-b-[1px] border-[#ABABAB] px-0 outline-none placeholder:opacity-0"
-                  placeholder="_"
-                />
-                <span className="absolute top-[50%] translate-y-[-200%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-200%] peer-focus:text-[12px]">
-                  Your Name*
-                </span>
-              </label>
-              <label className="relative mb-[40px] flex">
-                <input
-                  type="number"
-                  className="peer w-full border-0 border-b-[1px] border-[#ABABAB] px-0 outline-none placeholder:opacity-0"
-                  placeholder="_"
-                />
-                <span className="absolute top-[50%] translate-y-[-200%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-200%] peer-focus:text-[12px]">
-                  Telephone*
-                </span>
-              </label>
-              <label className="relative mb-[40px] flex">
-                <input
-                  type="text"
-                  className="peer w-full border-0 border-b-[1px] border-[#ABABAB] px-0 outline-none placeholder:opacity-0"
-                  placeholder="_"
-                />
-                <span className="absolute top-[50%] translate-y-[-200%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-200%] peer-focus:text-[12px]">
-                  Your Email*
-                </span>
-              </label>
+              <div className="relative mb-[40px]">
+                <label className="flex">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="_"
+                    {...register('name')}
+                    className="peer w-full border-0 border-b-[1px] border-[#ABABAB] px-0 outline-none placeholder:opacity-0"
+                  />
+                  <span className="absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px] ">
+                    Your Name*
+                  </span>
+                </label>
+                {errors?.name && (
+                  <p className="mt mb-24px absolute left-0 bottom-[-17px] text-[11px] leading-[13px] text-[#B60606]">
+                    {errors.name.message}
+                  </p>
+                )}
+              </div>
+              <div className="relative mb-[40px]">
+                <label className="flex">
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="_"
+                    {...register('phone')}
+                    className="peer w-full border-0 border-b-[1px] border-[#ABABAB] px-0 outline-none placeholder:opacity-0"
+                  />
+                  <span className="absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px] ">
+                    Telephone*
+                  </span>
+                </label>
+                {errors?.phone && (
+                  <p className="mt mb-24px absolute left-0 bottom-[-17px] text-[11px] leading-[13px] text-[#B60606]">
+                    {errors.phone.message}
+                  </p>
+                )}
+              </div>
+              <div className="relative mb-[40px]">
+                <label className="flex">
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="_"
+                    {...register('email')}
+                    className="peer w-full border-0 border-b-[1px] border-[#ABABAB] px-0 outline-none placeholder:opacity-0"
+                  />
+                  <span className="absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px] ">
+                    Your Email*
+                  </span>
+                </label>
+                {errors?.email && (
+                  <p className="mt mb-24px absolute left-0 bottom-[-17px] text-[11px] leading-[13px] text-[#B60606]">
+                    {errors.email.message}
+                  </p>
+                )}
+              </div>
               <p className="mb-[4px] text-[#585858]">
                 Feel free to leave your comments
               </p>
@@ -102,34 +155,28 @@ const Contact = ({ projectTypes }) => {
                       className="peer absolute h-0 w-0 cursor-pointer opacity-0"
                       defaultChecked={type === 'Villa'}
                     />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      className="absolute top-0 left-0 hidden h-[24px] w-[24px] border-[1.5px] border-additionalGray peer-checked:block peer-focus:outline"
-                    >
-                      <path
-                        fill="#222"
-                        stroke="#222"
-                        strokeWidth="1.5"
-                        d="M.75.75h22.5v22.5H.75z"
-                      />
-                      <path
-                        stroke="#fff"
-                        strokeLinecap="round"
-                        strokeWidth="1.5"
-                        d="m7 11.048 3.687 4.748a.2.2 0 0 0 .317-.001L17 8"
-                      />
-                    </svg>
+                    <Check className="absolute top-0 left-0 hidden h-[24px] w-[24px] border-[1.5px] border-additionalGray peer-checked:block peer-focus:outline" />
                     <span className="absolute top-0 h-[24px] w-[24px] border-[1.5px] border-additionalGray"></span>
                     <span className="ml-[35px]">{type}</span>
                   </label>
                 ))}
               </div>
-              <label className="mb-[55px] flex justify-between border-b-[1px] border-[#ABABAB] text-[18px]">
-                <span>Deadline</span>
-                <input type="date" />
+              <label className="calendar__container relative mb-[55px] flex justify-between border-b-[1px] border-[#ABABAB] text-[18px]">
+                <DatePicker
+                  selected={startDate}
+                  onChange={date => setStartDate(date)}
+                  minDate={new Date()}
+                  className='h-[50px] w-full border-none bg-[url("/calendar.svg")] bg-right-top bg-no-repeat py-0 px-0'
+                />
+                <span
+                  className={`calendar__label absolute left-0 bottom-2 text-gray ${
+                    startDate
+                      ? 'translate-y-[-150%] text-[12px]'
+                      : 'text-middle'
+                  }`}
+                >
+                  Deadline
+                </span>
               </label>
               <p className="mb-[24px] text-[18px]">Image Quantity:</p>
               <ul className="mb-[51px] flex justify-between">
@@ -203,6 +250,11 @@ const Contact = ({ projectTypes }) => {
             SEND
           </button>
         </form>
+        {serverState.succeeded && (
+          <p className="mt-[12px] text-[20px] font-[500] leading-[24px] text-[#777777]">
+            The email was sent successfully
+          </p>
+        )}
       </Container>
     </section>
   );

@@ -53,3 +53,8 @@ body {
     box-shadow: 0px 2px 8px -1px #0000001a;
   }
 }
+
+.calendar__container:focus-within .calendar__label {
+  font-size: 12px;
+  transform: translateY(-150%);
+}

@@ -14,18 +14,24 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@formspree/react": "^2.4.1",
+    "@hookform/resolvers": "^2.9.11",
     "classnames": "^2.3.2",
     "graphql": "^16.6.0",
     "graphql-request": "^5.2.0",
     "next": "13.2.3",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
+    "react-datepicker": "^4.10.0",
     "react-dom": "18.2.0",
-    "react-scroll": "^1.8.9"
+    "react-hook-form": "^7.43.5",
+    "react-scroll": "^1.8.9",
+    "yup": "^1.0.2"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
     "@tailwindcss/forms": "^0.5.3",
+    "@types/react-datepicker": "^4.10.0",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.35.0",
     "eslint-config-next": "^13.2.3",
