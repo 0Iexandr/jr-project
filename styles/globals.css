@@ -97,3 +97,7 @@ body {
 .swiper-pagination-bullet-active {
   border: 2px solid white;
 }
+
+.nav-active {
+  font-weight: 900;
+}
