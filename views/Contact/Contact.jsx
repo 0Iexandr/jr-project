@@ -4,14 +4,14 @@ import DatePicker from 'react-datepicker';
 import { useForm } from 'react-hook-form';
 import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { schema } from './schema';
 import Check from 'public/check.svg';
 import 'react-datepicker/dist/react-datepicker.css';
-import { schema } from './schema';
 
 const PRICE_PER_ITEM = 100;
 
 const Contact = ({ projectTypes }) => {
-  const [aerial, setAerial] = useState(1);
+  const [aerial, setAerial] = useState(0);
   const [exterior, setExterior] = useState(0);
   const [interior, setInterior] = useState(0);
   const [startDate, setStartDate] = useState('');
