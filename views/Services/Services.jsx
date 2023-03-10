@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Container } from 'components/Container/Container';
-import { Link } from 'react-scroll';
+import { ModalBtn } from 'components/ModalBtn/ModalBtn';
 
 const dataForServicesRender = [
   {
@@ -74,9 +74,7 @@ export const Services = () => {
                   <p className="mb-6 text-lg leading-[26px] text-gray xl:mb-8">
                     {el.textBlock.discription}
                   </p>
-                  <Link className="items-center justify-center bg-mainBlack px-[33px] py-[10px] text-sm font-bold uppercase leading-[18px] tracking-wider text-white">
-                    {el.textBlock.btnText}
-                  </Link>
+                  <ModalBtn text="start project" />
                 </div>
               </li>
             );

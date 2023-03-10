@@ -29,6 +29,7 @@ export default function Slider({ images }) {
           return (
             <SwiperSlide key={image.id}>
               <Image
+                priority
                 alt={image.title}
                 src={image.image}
                 width={image.width}

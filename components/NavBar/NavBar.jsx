@@ -68,7 +68,7 @@ export const NavBar = () => {
       <ModalBtn text="start project" className="max-xl:hidden" />
       <div className="flex xl:hidden">
         <button onClick={() => setIsNavOpen(prev => !prev)}>
-          <Image src="/burger.svg" alt="menu" width={35} height={16} />
+          <Image src="/burger.svg" alt="menu" width={35} height={18} />
         </button>
         <div
           className={

@@ -38,7 +38,7 @@ function ActSection({ params }) {
                   {description}
                 </p>
               </div>
-              <ModalBtn text={buttonText} />
+              <ModalBtn text="start project" />
             </div>
           </Container>
         </section>
