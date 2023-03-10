@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 
-export const ModalBtn = ({ text }) => {
+export const ModalBtn = ({ text, className }) => {
   return (
-    <button className="mt-[24px] inline-block border-none bg-mainBlack py-[10px] px-[33px] text-small font-bold uppercase tracking-wider text-white">
+    <button
+      className={`inline-block border-none bg-mainBlack py-[10px] px-[33px] text-small font-bold uppercase tracking-wider text-white ${className}`}
+    >
       {text}
     </button>
   );
@@ -10,4 +12,5 @@ export const ModalBtn = ({ text }) => {
 
 ModalBtn.propTypes = {
   text: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };
