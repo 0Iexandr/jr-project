@@ -9,6 +9,7 @@ import Check from 'public/check.svg';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const PRICE_PER_ITEM = 100;
+const FORMSPREE_API_KEY = process.env.FORMSPREE_API_KEY;
 
 const Contact = ({ projectTypes }) => {
   const [aerial, setAerial] = useState(0);
@@ -16,7 +17,10 @@ const Contact = ({ projectTypes }) => {
   const [interior, setInterior] = useState(0);
   const [startDate, setStartDate] = useState('');
 
-  const [serverState, sendToFormspree] = useFormspree('xzbqvzvg');
+  const totalImgQty = aerial + exterior + interior;
+  const totalPrice = totalImgQty * PRICE_PER_ITEM;
+
+  const [serverState, sendToFormspree] = useFormspree(`${FORMSPREE_API_KEY}`);
   const {
     register,
     handleSubmit,
@@ -57,14 +61,17 @@ const Contact = ({ projectTypes }) => {
     }
   };
 
-  console.log(errors);
   const onSubmitForm = data => {
-    const form = { ...data, aerial, exterior, interior };
+    const form = {
+      ...data,
+      deadline: startDate,
+      aerial,
+      exterior,
+      interior,
+      totalPrice,
+    };
     sendToFormspree(form);
   };
-
-  const totalImgQty = aerial + exterior + interior;
-  const totalPrice = totalImgQty * PRICE_PER_ITEM;
 
   return (
     <section id="contacts">
@@ -138,7 +145,10 @@ const Contact = ({ projectTypes }) => {
               <p className="mb-[4px] text-[#585858]">
                 Feel free to leave your comments
               </p>
-              <textarea className="h-full resize-none border-[1px] border-[#ABABAB] px-2 py-2 outline-none" />
+              <textarea
+                {...register('comments')}
+                className="h-full resize-none border-[1px] border-[#ABABAB] px-2 py-2 outline-none"
+              />
             </div>
             <div className="w-1/2">
               <p className="mb-[21px] text-[18px]">Choose Project Type*</p>
@@ -152,6 +162,7 @@ const Contact = ({ projectTypes }) => {
                       type="radio"
                       name="type"
                       value={type}
+                      {...register('project-type')}
                       className="peer absolute h-0 w-0 cursor-pointer opacity-0"
                       defaultChecked={type === 'Villa'}
                     />
