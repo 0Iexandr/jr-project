@@ -1,5 +1,7 @@
 import { Container, NavBar } from '@/components';
+import { HeaderTitle } from 'components/HeaderTitle/HeaderTitle';
 import { Logo } from 'components/Logo/Logo';
+import { ModalBtn } from 'components/ModalBtn/ModalBtn';
 
 export const Header = () => {
   return (
@@ -8,11 +10,12 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-x-[20px] md:gap-x-[40px]">
             <Logo isClickable={true} />
-            <p className="text-[10px] uppercase text-gray max-md:max-w-[135px] md:text-small xl:hidden">
-              3D Architectural Rendering Studio
-            </p>
+            <HeaderTitle />
           </div>
-          <NavBar />
+          <div className="flex gap-x-[50px]">
+            <NavBar />
+            <ModalBtn text="start project" className="max-xl:hidden" />
+          </div>
         </div>
       </Container>
     </header>
