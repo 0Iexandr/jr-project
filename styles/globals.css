@@ -54,6 +54,55 @@ body {
   }
 }
 
+.sectionTitle {
+  @apply text-[30px] leading-[36px] md:text-[34px] md:leading-[41px] xl:text-[54px] xl:leading-[65px];
+}
+.sectionSubtitle {
+  @apply text-[20px] leading-[26px] md:text-[24px] md:leading-[31px] xl:text-[28px] xl:leading-[41px];
+}
+
+.slide-bottom {
+  -webkit-animation: slide-bottom 2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    infinite both;
+  animation: slide-bottom 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite both;
+}
+
+@-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(15px);
+    transform: translateY(15px);
+  }
+}
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(15px);
+    transform: translateY(15px);
+  }
+}
+
+.swiper-pagination-bullet {
+  --swiper-pagination-color: black;
+  --swiper-pagination-bullet-inactive-color: white;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-size: 10px;
+  --swiper-pagination-bullet-horizontal-gap: 10px;
+}
+.swiper-pagination-bullet-active {
+  border: 2px solid white;
+}
+
+.nav-active {
+  font-weight: 900;
+}
+
 input[type='text']:focus,
 input[type='tel']:focus,
 textarea:focus {

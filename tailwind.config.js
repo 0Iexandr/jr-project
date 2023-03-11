@@ -38,7 +38,7 @@ module.exports = {
 
       fontSize: {
         small: ['14px', '18px'], // class="text-small"
-        middle: ['18px', '23px'], // class='text-middle'
+        middle: ['18px', '26px'], // class='text-middle'
         big: ['28px', '36px'], // class="text-big"
         large: ['54px', '65px'], // class="text-large"
       },
