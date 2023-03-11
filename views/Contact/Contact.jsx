@@ -14,7 +14,9 @@ import Comments from './Comments';
 const PRICE_PER_ITEM = 100;
 const FORMSPREE_API_KEY = process.env.FORMSPREE_API_KEY;
 
-const Contact = ({ projectTypes }) => {
+const projectTypes = ['Villa', 'Residential', 'Office', 'Other'];
+
+const Contact = () => {
   const [aerial, setAerial] = useState(0);
   const [exterior, setExterior] = useState(0);
   const [interior, setInterior] = useState(0);

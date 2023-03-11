@@ -7,7 +7,7 @@ import Advantages from '../views/Advantages/Advantages';
 import Contact from '../views/Contact/Contact';
 import ActSection from 'components/ActSection/ActSection';
 
-const Home = ({ advantages, projectTypes, sectionData, images }) => {
+const Home = ({ sectionData, images }) => {
   return (
     <>
       <Head>
@@ -17,10 +17,10 @@ const Home = ({ advantages, projectTypes, sectionData, images }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero images={images} />
-      <Advantages advantages={advantages} />
-      <Contact projectTypes={projectTypes} />
       <Services />
+      <Advantages />
       <ActSection params={sectionData.contact} />
+      <Contact />
       <section>
         <Container>
           <div className="center">
@@ -73,30 +73,6 @@ const query = gql`
   }
 `;
 
-const advantages = [
-  {
-    title: 'Cost-Efficiency',
-    description:
-      'We deliver outstanding value by combining top-notch quality with affordable rates',
-  },
-  {
-    title: 'Designing experience',
-    description:
-      'Our team has in-depth architectural skills and expertise from years working on housing complexes, apartments, and commercial buildings',
-  },
-  {
-    title: 'Software Mastery',
-    description:
-      'We watch out for the latest trends and use innovative software to build photorealistic renders that convey the designer’s intent',
-  },
-  {
-    title: 'Value',
-    description:
-      'Our outstanding architectural rendering images and animations have investors, designers, juries, and potential buyers turning their heads',
-  },
-];
-const projectTypes = ['Villa', 'Residential', 'Office', 'Other'];
-
 export async function getStaticProps() {
   const endpoint = 'https://graphql.datocms.com/';
   const graphQLClient = new GraphQLClient(endpoint, {
@@ -135,8 +111,6 @@ export async function getStaticProps() {
     props: {
       sectionData,
       images,
-      advantages,
-      projectTypes,
     },
   };
 }
