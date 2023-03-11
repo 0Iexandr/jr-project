@@ -4,7 +4,10 @@ import { Container } from '@/components';
 import { Hero } from '@/views';
 import { gql, GraphQLClient } from 'graphql-request';
 import ActSection from 'components/ActSection/ActSection';
+import HowWeWork from 'views/HowWeWork/HowWeWork';
+// import Controll from 'components/Controll';
 
+// <Controll images={images} />
 const Home = ({ sectionData, images }) => {
   return (
     <>
@@ -14,13 +17,10 @@ const Home = ({ sectionData, images }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Hero images={images} />
-
+      <HowWeWork images={images} />
       <ActSection params={sectionData.contact} />
-
       <ActSection params={sectionData.career} />
-
       <section>
         <Container>
           <div className="center">
