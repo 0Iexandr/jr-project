@@ -35,7 +35,8 @@ const Advantages = () => {
               className="flex flex-col justify-start md:w-[calc((100%-60px)/2)] xl:w-[calc((100%-180px)/4)]"
             >
               {/* <Image src={img} alt={title} width={54} height={54} className="mb-[30px]" /> */}
-              <p className="mb-[16px] text-[24px] font-[700] leading-[1.3]">
+              <div className="mb-[30px] h-[44px] w-[44px] border-[1px] border-gray md:h-[54px] md:w-[54px]"></div>
+              <p className="mb-[16px] text-[20px] font-[700] leading-[1.3] md:text-[24px]">
                 {title}
               </p>
               <p className="text-middle text-gray">{description}</p>

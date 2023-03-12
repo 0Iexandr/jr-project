@@ -5,11 +5,11 @@ import { useForm } from 'react-hook-form';
 import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
+import Comments from './Comments';
 import Check from 'public/check.svg';
 import Plus from 'public/plus.svg';
 import Minus from 'public/minus.svg';
 import 'react-datepicker/dist/react-datepicker.css';
-import Comments from './Comments';
 
 const PRICE_PER_ITEM = 100;
 const FORMSPREE_API_KEY = process.env.FORMSPREE_API_KEY;
@@ -183,9 +183,9 @@ const Contact = () => {
                   className='h-[50px] w-full border-none bg-[url("/calendar.svg")] bg-right-top bg-no-repeat py-0 px-0'
                 />
                 <span
-                  className={`calendar__label absolute left-0 bottom-2 text-gray ${
+                  className={`calendar__label absolute left-0 bottom-2 text-gray transition-transform ${
                     startDate
-                      ? 'translate-y-[-150%] text-[12px]'
+                      ? 'translate-y-[-110%] text-[12px]'
                       : 'text-middle'
                   }`}
                 >
