@@ -1,7 +1,13 @@
 import React from 'react';
 
-function Counter() {
-  return <div className="text-middle">01/06</div>;
+function Counter({ stages, current }) {
+  return (
+    <div className="text-middle">
+      <span>{current}</span>
+      <p>/</p>
+      <span>{stages.length}</span>
+    </div>
+  );
 }
 
 export default Counter;
