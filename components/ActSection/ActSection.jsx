@@ -8,7 +8,7 @@ function ActSection({ params }) {
     <>
       {email ? (
         //!==============================================Career
-        <section>
+        <section id="career">
           <Container>
             <div className="mx-auto text-center md:w-[450px] xl:w-[690px]">
               <div className="mt-[50px] flex flex-col items-center justify-center gap-[20px] ">
@@ -32,13 +32,13 @@ function ActSection({ params }) {
         <section>
           <Container>
             <div className="mx-auto text-center md:w-[375px] xl:w-[590px]">
-              <div className="mt-[50px] flex flex-col items-center justify-center gap-[20px]">
+              <div className="mt-[50px] mb-[24px] flex flex-col items-center justify-center gap-[20px]">
                 <h2 className="sectionTitle font-bold">{title}</h2>
                 <p className="text-middle font-normal text-gray">
                   {description}
                 </p>
               </div>
-              <ModalBtn text={buttonText} />
+              <ModalBtn text="start project" />
             </div>
           </Container>
         </section>

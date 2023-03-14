@@ -1,13 +1,14 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import { useSwiper } from 'swiper/react';
 import { EffectFade, Pagination, Autoplay, Controller } from 'swiper';
+import { useState } from 'react';
 import Image from 'next/image';
+import Counter from 'components/Counter/Counter';
+import NextBtn from '../../public/nextBtn.svg';
+import PrevBtn from '../../public/prevBtn.svg';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
-import { useState } from 'react';
-import Counter from 'components/Counter/Counter';
 
 const posts = [
   {
@@ -37,36 +38,6 @@ export default function WorkSlider({ images }) {
   const [textInstance, setTextInstance] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  //   const SwiperButtonNext = ({ children }) => {
-  //     const swiper = useSwiper();
-  //     return (
-  //       <button
-  //         onClick={() => swiper.slideNext()}
-  //         {...(currentIndex === images.length - 1 && { disabled: true })}
-  //         className="absolute top-[-50px] right-0 z-10 border bg-red-700"
-  //       >
-  //         {children}
-  //       </button>
-  //     );
-  //   };
-
-  //   const SwiperButtonPrev = ({ children }) => {
-  //     const swiper = useSwiper();
-  //     return (
-  //       <button
-  //         onClick={() => swiper.slidePrev()}
-  //         {...(currentIndex === 0 && { disabled: true })}
-  //         className="absolute top-[-50px] left-0 z-10 border bg-red-700"
-  //       >
-  //         {children}
-  //       </button>
-  //     );
-  //   };
-  // const goToSlide = index => {
-  //   textRef.current.slideTo(index); // вызываем метод slideTo на экземпляре Swiper, передавая нужный индекс слайда
-  // };
-  // <button onClick={() => goToSlide(2)}>Перейти к 3-му слайду</button>;
-
   const handlePrevButtonClick = () => {
     swiperInstance.slidePrev();
   };
@@ -77,37 +48,51 @@ export default function WorkSlider({ images }) {
 
   return (
     <div className="gap-[80px] xl:flex">
-      <div className="mt-[32px] xl:w-[255px]">
-        <div className="flex justify-between">
+      <div className="mb-[32px] md:mb-[40px] xl:w-[255px]">
+        <div className="mb-[32px] flex items-center justify-between md:mb-[24px] xl:mb-[32px]">
           <Counter images={images.length} current={currentIndex + 1} />
-          <div className="flex gap-[20px]">
+          <div className="flex gap-[8px]">
             <button
-              className="swiper-button-prev border bg-red-700"
+              className="swiper-button-prev"
               onClick={handlePrevButtonClick}
             >
-              Назад
+              <PrevBtn
+                className={` ${
+                  currentIndex > 0
+                    ? 'stroke-mainBlack'
+                    : 'stroke-additionalGray'
+                }`}
+              />
             </button>
             <button
-              className="swiper-button-next border bg-red-700"
+              className="swiper-button-next"
               onClick={handleNextButtonClick}
             >
-              Вперед
+              <NextBtn
+                className={` ${
+                  currentIndex === images.length - 1
+                    ? 'stroke-additionalGray'
+                    : 'stroke-mainBlack'
+                }`}
+              />
             </button>
           </div>
         </div>
         <Swiper
           modules={[EffectFade, Pagination, Autoplay, Controller]}
           effect="fade"
+          speed={150}
+          autoHeight={true}
           onSwiper={setTextInstance}
           fadeEffect={{ crossFade: true }}
-          allowTouchMove={false}
-          className="mt-[32px]"
         >
           {posts.map(post => {
             return (
               <SwiperSlide key={post.id}>
-                <h2 className="text-xl font-bold">{post.slideTitle}</h2>
-                <p className="mt-[16px]">{post.text}</p>
+                <h2 className="sectionSubtitle mb-[16px] font-bold xl:mb-[24px] xl:leading-[36px]  ">
+                  {post.slideTitle}
+                </h2>
+                <p className=" text-middle text-gray">{post.text}</p>
               </SwiperSlide>
             );
           })}
@@ -116,8 +101,7 @@ export default function WorkSlider({ images }) {
       <Swiper
         modules={[EffectFade, Pagination, Autoplay, Controller]}
         effect="fade"
-        speed={300}
-        autoheight={false}
+        speed={150}
         fadeEffect={{ crossFade: true }}
         onSwiper={setSwiperInstance}
         preventInteractionOnTransition={true}
@@ -143,6 +127,3 @@ export default function WorkSlider({ images }) {
     </div>
   );
 }
-
-// <SwiperButtonPrev>Prev Slide</SwiperButtonPrev>
-// <SwiperButtonNext>Next Slide </SwiperButtonNext>

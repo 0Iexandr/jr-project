@@ -9,7 +9,9 @@ function HowWeWork({ images }) {
   return (
     <section>
       <Container className="relative">
-        <h2 className="sectionTitle font-bold">How we work</h2>
+        <h2 className="sectionTitle mb-[32px] font-bold xl:mb-[76px]">
+          How we work
+        </h2>
         <WorkSlider images={images} />
       </Container>
     </section>

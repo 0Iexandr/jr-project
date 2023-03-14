@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { Container } from '@/components';
-import { Hero } from '@/views';
+import { Hero, Services } from '@/views';
 import { gql, GraphQLClient } from 'graphql-request';
 import ActSection from 'components/ActSection/ActSection';
 import HowWeWork from 'views/HowWeWork/HowWeWork';
@@ -18,6 +18,7 @@ const Home = ({ sectionData, images }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero images={images} />
+      <Services />
       <HowWeWork images={images} />
       <ActSection params={sectionData.contact} />
       <ActSection params={sectionData.career} />
