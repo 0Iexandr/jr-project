@@ -14,6 +14,7 @@ const Home = () => {
       <Hero />
       <Advantages />
       <Contact />
+      {/* <Modal /> */}
     </>
   );
 };

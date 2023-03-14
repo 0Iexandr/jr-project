@@ -30,6 +30,7 @@ module.exports = {
         gray: '#585858',
         white: '#FFFFFF',
         additionalGray: '#ABABAB',
+        modalBg: 'rgba(34, 34, 34, 0.75)',
       },
 
       fontFamily: {
