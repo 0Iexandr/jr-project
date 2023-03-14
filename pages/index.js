@@ -21,11 +21,9 @@ const Home = ({ data }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Hero />
-      <Advantages />
-      <Contact />
       <Hero data={data.hero} />
-      {/* <Modal /> */}
+      <Advantages data={data.whyChooseUsSection} />
+      <Contact data={data.contactSection} />
       <div id="contact">CONTACT</div>
     </>
   );

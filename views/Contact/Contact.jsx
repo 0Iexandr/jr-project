@@ -12,12 +12,10 @@ import Plus from 'public/plus.svg';
 import Minus from 'public/minus.svg';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const PRICE_PER_ITEM = 100;
 const FORMSPREE_API_KEY = process.env.FORMSPREE_CONTACT_API_KEY;
 
-const projectTypes = ['Villa', 'Residential', 'Office', 'Other'];
-
-export const Contact = () => {
+export const Contact = ({ data }) => {
+  const PRICE_PER_ITEM = data.price;
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1319px)' });
   const isDesktop = useMediaQuery({
     query: '(min-width: 1320px)',
@@ -92,8 +90,8 @@ export const Contact = () => {
         </h2>
         <p className="mx-auto mb-[50px] max-w-[237px] text-center text-middle leading-[1.3] text-gray md:mx-0 md:max-w-none md:text-left md:text-[24px] md:font-[700] md:text-mainBlack xl:text-[28px]">
           Make request using form below or send e-mail to{' '}
-          <a href="mailto:info@jazzrender.com" className="text-mainBlack">
-            info@jazzrender.com
+          <a href={`mailto:${data.email}`} className="text-mainBlack">
+            {data.email}
           </a>
         </p>
         <form className="w-full" onSubmit={handleSubmit(onSubmitForm)}>
@@ -108,7 +106,7 @@ export const Contact = () => {
                     {...register('name')}
                     className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
                   />
-                  <span className="absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px] ">
+                  <span className="pointer-events-none absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px]">
                     Your Name*
                   </span>
                 </label>
@@ -127,7 +125,7 @@ export const Contact = () => {
                     {...register('phone')}
                     className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
                   />
-                  <span className="absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px] ">
+                  <span className="pointer-events-none absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px]">
                     Telephone*
                   </span>
                 </label>
@@ -146,7 +144,7 @@ export const Contact = () => {
                     {...register('email')}
                     className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
                   />
-                  <span className="absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px] ">
+                  <span className="pointer-events-none absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px]">
                     Your Email*
                   </span>
                 </label>
@@ -163,20 +161,20 @@ export const Contact = () => {
                 Choose Project Type*
               </p>
               <ul className="mb-[46px] flex flex-col justify-between gap-[46px] text-middle md:mb-[60px] md:flex-row md:gap-0 xl:mb-[40px]">
-                {projectTypes.map(type => (
-                  <li key={type}>
+                {data.projectTypes.map(item => (
+                  <li key={item.id}>
                     <label className="relative flex cursor-pointer select-none gap-[12px]">
                       <input
                         type="radio"
                         name="type"
-                        value={type}
+                        value={item.projectType}
                         {...register('project-type')}
                         className="peer absolute h-0 w-0 cursor-pointer opacity-0"
-                        defaultChecked={type === 'Villa'}
+                        defaultChecked={item.projectType === 'Villa'}
                       />
-                      <Check className="absolute top-0 left-0 hidden h-[24px] w-[24px] border-[1.5px] border-additionalGray peer-checked:block peer-focus:outline" />
-                      <span className="absolute top-0 h-[24px] w-[24px] border-[1.5px] border-additionalGray"></span>
-                      <span className="ml-[35px]">{type}</span>
+                      <Check className="absolute top-0 left-0 hidden h-[24px] w-[24px] peer-checked:block peer-focus:outline" />
+                      <span className="absolute top-0 left-0 h-[24px] w-[24px] border-[1.5px] border-additionalGray peer-checked:border-mainBlack"></span>
+                      <span className="ml-[35px]">{item.projectType}</span>
                     </label>
                   </li>
                 ))}
@@ -191,9 +189,9 @@ export const Contact = () => {
                 />
 
                 <label
-                  className={`absolute left-0 bottom-2 z-10 text-gray group-focus-within:translate-y-[-170%] group-focus-within:text-[12px] ${
+                  className={`absolute left-0 bottom-2 z-10 text-gray group-focus-within:translate-y-[-180%] group-focus-within:text-[12px] ${
                     startDate
-                      ? 'translate-y-[-170%] text-[12px]'
+                      ? 'translate-y-[-180%] text-[12px]'
                       : 'text-middle'
                   }`}
                 >
