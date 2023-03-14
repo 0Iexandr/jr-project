@@ -96,9 +96,9 @@ const Contact = ({ projectTypes }) => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="_"
+                    placeholder=" "
                     {...register('name')}
-                    className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none placeholder:opacity-0"
+                    className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
                   />
                   <span className="absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px] ">
                     Your Name*
@@ -115,9 +115,9 @@ const Contact = ({ projectTypes }) => {
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="_"
+                    placeholder=" "
                     {...register('phone')}
-                    className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none placeholder:opacity-0"
+                    className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
                   />
                   <span className="absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px] ">
                     Telephone*
@@ -134,9 +134,9 @@ const Contact = ({ projectTypes }) => {
                   <input
                     type="text"
                     name="email"
-                    placeholder="_"
+                    placeholder=" "
                     {...register('email')}
-                    className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none placeholder:opacity-0"
+                    className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
                   />
                   <span className="absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px] ">
                     Your Email*
