@@ -1,7 +1,5 @@
 import Head from 'next/head';
-import { Hero } from '@/views';
-import Advantages from '../views/Advantages/Advantages';
-import Contact from '../views/Contact/Contact';
+import { Advantages, Contact, Hero } from '@/views';
 
 const Home = () => {
   return (
