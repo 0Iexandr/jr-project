@@ -4,7 +4,7 @@ import { Container } from '@/components';
 export const ContactUs = ({ data }) => {
   const { description } = data;
   return (
-    <section>
+    <section className="mb-[80px]">
       <Container>
         <div className="mx-auto text-center md:w-[375px] xl:w-[590px]">
           <div className="mt-[50px] mb-[24px] flex flex-col items-center justify-center gap-[20px]">
