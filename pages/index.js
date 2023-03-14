@@ -116,7 +116,7 @@ const query = gql`
 `;
 
 export async function getStaticProps() {
-  const endpoint = process.env.NEXT_DATOCMS_API_URL;
+  const endpoint = 'https://graphql.datocms.com/';
   const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
       'content-type': 'application/json',
