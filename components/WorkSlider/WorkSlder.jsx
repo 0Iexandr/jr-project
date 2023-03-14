@@ -48,7 +48,7 @@ export default function WorkSlider({ images }) {
 
   return (
     <div className="gap-[80px] xl:flex">
-      <div className="mb-[32px] md:mb-[40px] xl:w-[255px]">
+      <div className="mb-[32px] md:mb-[5px] xl:w-[255px]">
         <div className="mb-[32px] flex items-center justify-between md:mb-[24px] xl:mb-[32px]">
           <Counter images={images.length} current={currentIndex + 1} />
           <div className="flex gap-[8px]">
@@ -82,7 +82,6 @@ export default function WorkSlider({ images }) {
           modules={[EffectFade, Pagination, Autoplay, Controller]}
           effect="fade"
           speed={150}
-          autoHeight={true}
           onSwiper={setTextInstance}
           fadeEffect={{ crossFade: true }}
         >
