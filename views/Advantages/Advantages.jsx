@@ -1,7 +1,30 @@
 import { Container } from '@/components';
 // import Image from 'next/image';
 
-const Advantages = ({ advantages }) => {
+const advantages = [
+  {
+    title: 'Cost-Efficiency',
+    description:
+      'We deliver outstanding value by combining top-notch quality with affordable rates',
+  },
+  {
+    title: 'Designing experience',
+    description:
+      'Our team has in-depth architectural skills and expertise from years working on housing complexes, apartments, and commercial buildings',
+  },
+  {
+    title: 'Software Mastery',
+    description:
+      'We watch out for the latest trends and use innovative software to build photorealistic renders that convey the designer’s intent',
+  },
+  {
+    title: 'Value',
+    description:
+      'Our outstanding architectural rendering images and animations have investors, designers, juries, and potential buyers turning their heads',
+  },
+];
+
+const Advantages = () => {
   return (
     <section>
       <Container>
