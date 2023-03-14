@@ -46,7 +46,7 @@ const dataForServicesRender = [
 
 export const Services = () => {
   return (
-    <section id="services" className="mb-[80px]">
+    <section id="services" className="mb-[80px] md:mb-[100px] xl:mb-[120px]">
       <Container>
         <h2 className="mb-8 text-3xl font-bold md:mb-10 md:text-[34px] md:leading-10 xl:mb-[4.75rem] xl:text-large">
           Services
