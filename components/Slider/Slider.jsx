@@ -8,7 +8,7 @@ import 'swiper/css/autoplay';
 import { EffectFade, Pagination, Autoplay } from 'swiper';
 import Image from 'next/image';
 
-export default function Slider({ images }) {
+export default function Slider({ sliderImages }) {
   return (
     <div>
       <Swiper
@@ -25,14 +25,15 @@ export default function Slider({ images }) {
           disableOnInteraction: false,
         }}
       >
-        {images.map(image => {
+        {sliderImages.map(image => {
           return (
             <SwiperSlide key={image.id}>
               <Image
-                alt={image.title}
-                src={image.image}
-                width={image.width}
-                height={image.height}
+                priority
+                alt={image.alt}
+                src={image.image.url}
+                width={image.image.width}
+                height={image.image.height}
                 className="h-[380px] object-cover md:h-[420px] xl:h-[656px]"
               />
             </SwiperSlide>

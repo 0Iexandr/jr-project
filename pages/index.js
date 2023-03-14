@@ -1,11 +1,10 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import { Container } from '@/components';
 import { Hero, Services, Works } from '@/views';
 import { gql, GraphQLClient } from 'graphql-request';
-import ActSection from 'components/ActSection/ActSection';
+import { Career } from 'views/Career/Career';
+import { ContactUs } from 'views/ContactUs/ContactUs';
 
-const Home = ({ sectionData, images }) => {
+const Home = ({ data }) => {
   return (
     <>
       <Head>
@@ -15,36 +14,11 @@ const Home = ({ sectionData, images }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Hero images={images} />
-      <Services />
+      <Hero data={data.hero} />
+      <Services data={data.servicesSection} />
       <Works />
-      <ActSection params={sectionData.contact} />
-
-      <ActSection params={sectionData.career} />
-
-      <section>
-        <Container>
-          <div className="center">
-            <Image
-              className="logo"
-              src="/next.svg"
-              alt="Next.js Logo"
-              width={180}
-              height={37}
-              priority
-            />
-            <div className="thirteen">
-              <Image
-                src="/thirteen.svg"
-                alt="13"
-                width={40}
-                height={31}
-                priority
-              />
-            </div>
-          </div>
-        </Container>
-      </section>
+      <ContactUs data={data.feelFreeToContactUsSection} />
+      <Career data={data.careerSection} />
       <div id="contact">CONTACT</div>
     </>
   );
@@ -52,24 +26,92 @@ const Home = ({ sectionData, images }) => {
 
 export default Home;
 
-//================это мои запросы на датосмс, потом когда будет готовый бек можно будет их подправить
 const query = gql`
   query MyQuery {
-    career {
-      title
-      subtitle
-      id
+    careerSection {
+      description {
+        title
+        description
+      }
       email
-      description
-      buttonType
-      buttonText
     }
-    contact {
-      title
-      buttonType
-      description
-      id
-      buttonText
+    clientsSection {
+      sliderImages {
+        alt
+        image
+        id
+      }
+    }
+    contactSection {
+      email
+      price
+      projectTypes {
+        id
+        projectType
+      }
+    }
+    feelFreeToContactUsSection {
+      description {
+        description
+        title
+      }
+    }
+    footer {
+      address
+      email
+      socialIcons {
+        alt
+        id
+        image
+      }
+    }
+    hero {
+      sliderImages {
+        alt
+        id
+        image
+      }
+    }
+    howWeWorkSection {
+      step {
+        title
+        image
+        id
+        description
+      }
+    }
+    servicesSection {
+      service {
+        id
+        image
+        title
+        description
+      }
+    }
+    teamSection {
+      teamMember {
+        description
+        id
+        name
+        photo
+        role
+      }
+    }
+    whyChooseUsSection {
+      reason {
+        description
+        image
+        id
+        title
+      }
+    }
+    worksSection {
+      work {
+        alt
+        id
+        image
+        workType
+      }
     }
   }
 `;
@@ -79,39 +121,13 @@ export async function getStaticProps() {
   const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
       'content-type': 'application/json',
-      authorization: 'Barear ' + process.env.DATOCMS_API_KEY,
+      authorization: 'Barear ' + process.env.NEXT_DATOCMS_API_TOKEN,
     },
   });
-  const sectionData = await graphQLClient.request(query);
-
-  const response = await fetch(
-    `https://api.cloudinary.com/v1_1/${process.env.CLOUDANARY_CLOUD_NANE}/resources/image`,
-    {
-      headers: {
-        authorization: `Basic ${Buffer.from(
-          process.env.CLOUDANARY_API_KEY +
-            ':' +
-            process.env.CLOUDANARY_API_SECRET,
-        ).toString('base64')}`,
-      },
-    },
-  ).then(req => req.json());
-
-  const { resources } = response;
-
-  const images = resources.map(res => {
-    return {
-      id: res.asset_id,
-      title: res.public_id,
-      image: res.secure_url,
-      width: res.width,
-      height: res.height,
-    };
-  });
+  const data = await graphQLClient.request(query);
   return {
     props: {
-      sectionData,
-      images,
+      data,
     },
   };
 }
