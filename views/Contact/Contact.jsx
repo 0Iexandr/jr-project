@@ -13,7 +13,7 @@ import Minus from 'public/minus.svg';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const PRICE_PER_ITEM = 100;
-const FORMSPREE_API_KEY = process.env.FORMSPREE_API_KEY;
+const FORMSPREE_API_KEY = process.env.FORMSPREE_CONTACT_API_KEY;
 
 const projectTypes = ['Villa', 'Residential', 'Office', 'Other'];
 
@@ -181,23 +181,26 @@ export const Contact = () => {
                   </li>
                 ))}
               </ul>
-              <label className="calendar__container relative mb-[60px] flex justify-between border-b-[1px] border-additionalGray text-middle xl:mb-[55px]">
+              <div className="group relative mb-[60px] h-[51px] border-b-[1px] border-additionalGray xl:mb-[55px]">
                 <DatePicker
                   selected={startDate}
                   onChange={date => setStartDate(date)}
                   minDate={new Date()}
+                  wrapperClassName="group absolute top-0 left-0"
                   className='h-[50px] w-full border-none bg-[url("/calendar.svg")] bg-right-top bg-no-repeat py-0 px-0'
                 />
-                <span
-                  className={`calendar__label absolute left-0 bottom-2 text-gray transition-transform ${
+
+                <label
+                  className={`absolute left-0 bottom-2 z-10 text-gray group-focus-within:translate-y-[-170%] group-focus-within:text-[12px] ${
                     startDate
-                      ? 'translate-y-[-110%] text-[12px]'
+                      ? 'translate-y-[-170%] text-[12px]'
                       : 'text-middle'
                   }`}
                 >
                   Deadline
-                </span>
-              </label>
+                </label>
+              </div>
+
               <p className="mb-[24px] hidden text-middle md:block">
                 Image Quantity:
               </p>

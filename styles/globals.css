@@ -109,8 +109,3 @@ textarea:focus {
   box-shadow: none;
   border-color: #ababab;
 }
-
-.calendar__container:focus-within .calendar__label {
-  font-size: 12px;
-  transform: translateY(-150%);
-}
