@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Container } from '../../components';
 import DatePicker from 'react-datepicker';
 import { useForm } from 'react-hook-form';
+import { useMediaQuery } from 'react-responsive';
 import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
@@ -16,7 +17,12 @@ const FORMSPREE_API_KEY = process.env.FORMSPREE_API_KEY;
 
 const projectTypes = ['Villa', 'Residential', 'Office', 'Other'];
 
-const Contact = () => {
+export const Contact = () => {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1319px)' });
+  const isDesktop = useMediaQuery({
+    query: '(min-width: 1320px)',
+  });
+
   const [aerial, setAerial] = useState(0);
   const [exterior, setExterior] = useState(0);
   const [interior, setInterior] = useState(0);
@@ -98,9 +104,9 @@ const Contact = () => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="_"
+                    placeholder=" "
                     {...register('name')}
-                    className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none placeholder:opacity-0"
+                    className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
                   />
                   <span className="absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px] ">
                     Your Name*
@@ -117,9 +123,9 @@ const Contact = () => {
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="_"
+                    placeholder=" "
                     {...register('phone')}
-                    className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none placeholder:opacity-0"
+                    className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
                   />
                   <span className="absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px] ">
                     Telephone*
@@ -136,9 +142,9 @@ const Contact = () => {
                   <input
                     type="text"
                     name="email"
-                    placeholder="_"
+                    placeholder=" "
                     {...register('email')}
-                    className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none placeholder:opacity-0"
+                    className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
                   />
                   <span className="absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px] ">
                     Your Email*
@@ -150,7 +156,7 @@ const Contact = () => {
                   </p>
                 )}
               </div>
-              <Comments register={register} />
+              {isDesktop && <Comments register={register} />}
             </div>
             <div className="w-full xl:w-1/2">
               <p className="mb-[33px] text-middle md:mb-[25px] xl:mb-[21px]">
@@ -252,7 +258,7 @@ const Contact = () => {
                 <p>Total Image Quantity</p>
                 <span>{totalImgQty}</span>
               </div>
-              <Comments register={register} />
+              {isTabletOrMobile && <Comments register={register} />}
             </div>
           </div>
           <button
@@ -271,5 +277,3 @@ const Contact = () => {
     </section>
   );
 };
-
-export default Contact;

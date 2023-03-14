@@ -24,7 +24,7 @@ const advantages = [
   },
 ];
 
-const Advantages = () => {
+export const Advantages = () => {
   return (
     <section>
       <Container>
@@ -47,5 +47,3 @@ const Advantages = () => {
     </section>
   );
 };
-
-export default Advantages;

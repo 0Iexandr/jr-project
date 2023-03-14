@@ -1,13 +1,10 @@
 import { Container } from '@/components';
-import Slider from 'components/Slider/Slider';
-import Mouse from '../../public/mouse.svg';
 
-export const Hero = ({ images }) => {
+export const Hero = () => {
   return (
     <section>
       <Container>
-        <Slider images={images} />
-        <Mouse className="slide-bottom mx-auto mt-4" />
+        <p>It is hero section</p>
       </Container>
     </section>
   );
