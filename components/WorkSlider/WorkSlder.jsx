@@ -10,30 +10,7 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
-const posts = [
-  {
-    id: 1,
-    slideTitle: 'Project Preperation',
-    text: 'To start the project, we need to get maximum information about the project (references for landscaping, materials, wishes for mood, etc.). You could fill out a brief on our website, upload your project materials into it. Or send all materials to info@jazzrender.com. Then we consider the initial data, clarify details, agree on the camera angle, light, mood, etc.',
-  },
-  {
-    id: 2,
-    slideTitle: 'Preview Render',
-    text: 'At this stage, you will be able to evaluate what the overall composition looks like, the sky, chiaroscuro, materials, and color in the image. We will show the main plants, grass, shrubs that will affect the composition of the frame and show the figures of people.',
-  },
-  {
-    id: 3,
-    slideTitle: 'Prefinal Render',
-    text: 'At this stage, we make all your corrections and primarily work on the story within the image, which would enrich the overall mood of the illustration as well as support and clarify the purpose of the project.',
-  },
-  {
-    id: 4,
-    slideTitle: 'Final Render & Delivery',
-    text: 'We finalize the image, also taking into account all the client’s requirements. This also applies to general post-production.',
-  },
-];
-
-export default function WorkSlider({ images }) {
+export default function WorkSlider({ data }) {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [textInstance, setTextInstance] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -48,9 +25,9 @@ export default function WorkSlider({ images }) {
 
   return (
     <div className="gap-[80px] xl:flex">
-      <div className="mb-[32px] md:mb-[5px] xl:w-[255px]">
+      <div className="mb-[5px]  xl:w-[255px]">
         <div className="mb-[32px] flex items-center justify-between md:mb-[24px] xl:mb-[32px]">
-          <Counter images={images.length} current={currentIndex + 1} />
+          <Counter images={data.length} current={currentIndex + 1} />
           <div className="flex gap-[8px]">
             <button
               className="swiper-button-prev"
@@ -70,7 +47,7 @@ export default function WorkSlider({ images }) {
             >
               <NextBtn
                 className={` ${
-                  currentIndex === images.length - 1
+                  currentIndex === data.length - 1
                     ? 'stroke-additionalGray'
                     : 'stroke-mainBlack'
                 }`}
@@ -85,13 +62,13 @@ export default function WorkSlider({ images }) {
           onSwiper={setTextInstance}
           fadeEffect={{ crossFade: true }}
         >
-          {posts.map(post => {
+          {data.map(post => {
             return (
               <SwiperSlide key={post.id}>
                 <h2 className="sectionSubtitle mb-[16px] font-bold xl:mb-[24px] xl:leading-[36px]  ">
-                  {post.slideTitle}
+                  {post.title}
                 </h2>
-                <p className=" text-middle text-gray">{post.text}</p>
+                <p className=" text-middle text-gray">{post.description}</p>
               </SwiperSlide>
             );
           })}
@@ -109,15 +86,15 @@ export default function WorkSlider({ images }) {
           textInstance.slideTo(slide.activeIndex);
         }}
       >
-        {images.map(image => {
+        {data.map(step => {
           return (
-            <SwiperSlide key={image.id}>
+            <SwiperSlide key={step.id}>
               <Image
-                className="h-[159px] w-[945px] object-cover md:h-[368px] xl:h-[540px]"
-                alt={image.title}
-                src={image.image}
-                width={image.width}
-                height={image.height}
+                className="min-h-[159px] object-cover md:h-[368px] xl:h-[540px] xl:w-[945px]"
+                alt={step.title}
+                src={step.image.url}
+                width={step.image.width}
+                height={step.image.height}
               />
             </SwiperSlide>
           );

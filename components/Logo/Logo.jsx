@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
-export const Logo = ({ isClickable }) => {
+export const Logo = ({ isClickable, className = '' }) => {
   return (
     <>
       {!isClickable && (
@@ -11,7 +11,7 @@ export const Logo = ({ isClickable }) => {
           height="100"
           src="/logo.svg"
           alt="logo"
-          className="h-[24px] w-[40px] md:h-[30px] md:w-[50px] xl:h-[48px] xl:w-[80px]"
+          className={className}
         ></Image>
       )}
       {isClickable && (
@@ -21,7 +21,7 @@ export const Logo = ({ isClickable }) => {
             height="100"
             src="/logo.svg"
             alt="logo"
-            className="h-[24px] w-[40px] md:h-[30px] md:w-[50px] xl:h-[48px] xl:w-[80px]"
+            className={className}
           ></Image>
         </Link>
       )}
