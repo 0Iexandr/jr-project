@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import { Advantages, Contact, Hero } from '@/views';
-// import { Career } from 'views/Career/Career';
-// import { ContactUs } from 'views/ContactUs/ContactUs';
 import { DataRequest } from 'utils/request';
 
 export async function getStaticProps() {
@@ -13,7 +11,7 @@ export async function getStaticProps() {
   };
 }
 
-const Home = () => {
+const Home = ({ data }) => {
   return (
     <>
       <Head>
@@ -26,7 +24,9 @@ const Home = () => {
       <Hero />
       <Advantages />
       <Contact />
+      <Hero data={data.hero} />
       {/* <Modal /> */}
+      <div id="contact">CONTACT</div>
     </>
   );
 };

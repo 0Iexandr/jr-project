@@ -10,7 +10,12 @@ export const schema = yup.object().shape({
     .matches(latinRegExp, '*Name can only contain Latin letters!')
     .min(2, '*Min length 2 chars!')
     .max(100, '*Max length 100 chars!'),
-  phone: yup.string().matches(phoneRegExp, '*Enter your correct phone number!'),
+  phone: yup
+    .string()
+    .matches(
+      phoneRegExp,
+      '*Enter your correct phone number in +XXXXXXXXXXXX format!',
+    ),
   email: yup
     .string()
     .required('*Enter your correct email!')
