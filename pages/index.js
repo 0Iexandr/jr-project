@@ -13,31 +13,55 @@ import { DataRequest } from 'utils/request';
 
 export async function getStaticProps() {
   const data = await DataRequest();
+
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
-      data,
+      hero: data.hero,
+      servicesSection: data.servicesSection,
+      whyChooseUsSection: data.whyChooseUsSection,
+      howWeWorkSection: data.howWeWorkSection,
+      feelFreeToContactUsSection: data.feelFreeToContactUsSection,
+      teamSection: data.teamSection,
+      contactSection: data.contactSection,
+      careerSection: data.careerSection,
+      footer: data.footer,
     },
   };
 }
 
-const Home = ({ data }) => {
+const Home = props => {
+  // console.log(props);
+  const {
+    hero,
+    servicesSection,
+    whyChooseUsSection,
+    howWeWorkSection,
+    feelFreeToContactUsSection,
+    teamSection,
+    contactSection,
+    careerSection,
+  } = props;
+
   return (
     <>
       <Head>
         <title>Next App Template</title>
-        <meta name="description" content="Next app template" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Hero data={data.hero} />
-      <Services data={data.servicesSection} />
-      <Advantages data={data.whyChooseUsSection} />
-      <HowWeWork data={data.howWeWorkSection.step} />
-      <ContactUs data={data.feelFreeToContactUsSection} />
-      <Team data={data.teamSection.teamMember} />
-      <Contact data={data.contactSection} />
-      <Career data={data.careerSection} />
+      <Hero data={hero} />
+      <Services data={servicesSection} />
+      <Advantages data={whyChooseUsSection} />
+      <HowWeWork data={howWeWorkSection.step} />
+      <ContactUs data={feelFreeToContactUsSection} />
+      <Team data={teamSection.teamMember} />
+      <Contact data={contactSection} />
+      <Career data={careerSection} />
     </>
   );
 };
