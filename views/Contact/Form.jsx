@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { useForm } from 'react-hook-form';
-import { useMediaQuery } from 'react-responsive';
 import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
@@ -14,11 +13,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 const FORMSPREE_API_KEY = process.env.FORMSPREE_CONTACT_API_KEY;
 
 const Form = ({ price, projectTypes }) => {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1319px)' });
-  const isDesktop = useMediaQuery({
-    query: '(min-width: 1320px)',
-  });
-
   const [aerial, setAerial] = useState(0);
   const [exterior, setExterior] = useState(0);
   const [interior, setInterior] = useState(0);
@@ -140,7 +134,7 @@ const Form = ({ price, projectTypes }) => {
               </p>
             )}
           </div>
-          {isDesktop && <Comments register={register} />}
+          <Comments register={register} className="max-xl:hidden" />
         </div>
         <div className="w-full xl:w-1/2">
           <p className="mb-[33px] text-middle md:mb-[25px] xl:mb-[21px]">
@@ -241,7 +235,7 @@ const Form = ({ price, projectTypes }) => {
             <p>Total Image Quantity</p>
             <span>{totalImgQty}</span>
           </div>
-          {isTabletOrMobile && <Comments register={register} />}
+          <Comments register={register} className="xl:hidden" />
         </div>
       </div>
       <button

@@ -2,6 +2,10 @@ import { Container } from '../../components';
 import Form from './Form';
 
 export const Contact = ({ data }) => {
+  if (!data) {
+    return null;
+  }
+
   return (
     <section id="contact">
       <Container>

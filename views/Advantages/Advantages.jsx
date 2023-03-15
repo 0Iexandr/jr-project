@@ -2,6 +2,10 @@ import { Container } from '@/components';
 import Image from 'next/image';
 
 export const Advantages = ({ data }) => {
+  if (!data) {
+    return null;
+  }
+
   return (
     <section id="advantages">
       <Container>
