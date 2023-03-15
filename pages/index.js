@@ -1,10 +1,6 @@
 import Head from 'next/head';
-import { Hero, Services } from '@/views';
-import { Career } from 'views/Career/Career';
-import { ContactUs } from 'views/ContactUs/ContactUs';
+import { Career, ContactUs, Hero, HowWeWork, Services, Team } from '@/views';
 import { DataRequest } from 'utils/request';
-import HowWeWork from 'views/HowWeWork/HowWeWork';
-import Team from 'views/Team/Team';
 
 export async function getStaticProps() {
   const data = await DataRequest();
