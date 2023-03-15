@@ -2,7 +2,7 @@ import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { schema } from '../Contact/schema';
+import { schema } from '../../views/Contact/schema';
 import { Modal } from '@mui/material';
 import Close from 'public/close.svg';
 
@@ -38,7 +38,12 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
           <h1 className="mb-[40px] max-w-[80%] text-[20px] font-[550] leading-[1.3] tracking-[0.02em] md:max-w-[292px] md:text-[24px]">
             HAVE ANY QUESTIONS? CONTACT US!
           </h1>
-          <Close />
+          <button
+            className="block h-[24px] w-[24px]"
+            onClick={() => setIsModalOpen(false)}
+          >
+            <Close />
+          </button>
         </div>
 
         <form className="w-full" onSubmit={handleSubmit(sendToFormspree)}>
