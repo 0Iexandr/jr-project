@@ -2,7 +2,7 @@ import { Container } from '@/components';
 import WorkSlider from 'components/WorkSlider/WorkSlder';
 import React from 'react';
 
-function HowWeWork({ data }) {
+export const HowWeWork = ({ data }) => {
   return (
     <section className="mb-[80px]" id="HowWeWork">
       <Container>
@@ -13,6 +13,4 @@ function HowWeWork({ data }) {
       </Container>
     </section>
   );
-}
-
-export default HowWeWork;
+};
