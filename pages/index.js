@@ -1,5 +1,14 @@
 import Head from 'next/head';
-import { Career, ContactUs, Hero, HowWeWork, Services, Team } from '@/views';
+import {
+  Career,
+  ContactUs,
+  Hero,
+  HowWeWork,
+  Services,
+  Team,
+  Advantages,
+  Contact,
+} from '@/views';
 import { DataRequest } from 'utils/request';
 
 export async function getStaticProps() {
@@ -23,11 +32,12 @@ const Home = ({ data }) => {
 
       <Hero data={data.hero} />
       <Services data={data.servicesSection} />
+      <Advantages data={data.whyChooseUsSection} />
       <HowWeWork data={data.howWeWorkSection.step} />
       <ContactUs data={data.feelFreeToContactUsSection} />
       <Team data={data.teamSection.teamMember} />
+      <Contact data={data.contactSection} />
       <Career data={data.careerSection} />
-      <div id="contact">CONTACT</div>
     </>
   );
 };
