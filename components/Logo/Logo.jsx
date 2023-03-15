@@ -1,0 +1,34 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
+
+export const Logo = ({ isClickable, className = '' }) => {
+  return (
+    <>
+      {!isClickable && (
+        <Image
+          width="100"
+          height="100"
+          src="/logo.svg"
+          alt="logo"
+          className={className}
+        ></Image>
+      )}
+      {isClickable && (
+        <Link href="/">
+          <Image
+            width="100"
+            height="100"
+            src="/logo.svg"
+            alt="logo"
+            className={className}
+          ></Image>
+        </Link>
+      )}
+    </>
+  );
+};
+
+Logo.propTypes = {
+  isClickable: PropTypes.bool,
+};

@@ -83,7 +83,7 @@ export const Contact = ({ data }) => {
   };
 
   return (
-    <section id="contacts">
+    <section id="contact">
       <Container>
         <h2 className="mb-[24px] text-center text-[30px] font-[700] leading-[1.2] md:mb-[32px] md:text-left md:text-[54px] xl:mb-[76px]">
           Contacts

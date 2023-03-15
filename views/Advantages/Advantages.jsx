@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const Advantages = ({ data }) => {
   return (
-    <section>
+    <section id="advantages">
       <Container>
         <ul className="flex flex-wrap gap-x-[60px] gap-y-[50px]">
           {data.reason.map(({ id, title, description, image }) => (
