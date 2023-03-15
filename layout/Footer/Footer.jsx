@@ -34,24 +34,25 @@ export const Footer = () => {
               {data.email}
             </a> */}
             <div className="flex flex-col gap-[50px] xl:flex-row xl:gap-[30px]">
-              <div className="grid grid-cols-3 gap-x-[24px] gap-y-[22px] md:grid-cols-6">
+              <ul className="grid grid-cols-3 gap-x-[24px] gap-y-[22px] md:grid-cols-6">
                 {/* {data.socialIcons.map(icon => (
-                  <a
-                    className="h-[44px] w-[44px] cursor-pointer"
-                    key={icon.id}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                  >
-                    <Image
-                      src={icon.image.secure_url}
-                      alt={icon.alt}
-                      width={icon.image.width}
-                      height={icon.image.height}
-                      // className="transition-all hover:contrast-[2] hover:invert-[90%]"
-                    />
-                  </a>
+                  <li key={icon.id}>
+                    <a
+                      className="h-[44px] w-[44px] cursor-pointer"
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                    >
+                      <Image
+                        src={icon.image.secure_url}
+                        alt={icon.alt}
+                        width={icon.image.width}
+                        height={icon.image.height}
+                        // className="transition-all hover:contrast-[2] hover:invert-[90%]"
+                      />
+                    </a>
+                  </li>
                 ))} */}
-              </div>
+              </ul>
               <button
                 className="group flex flex-col items-center justify-end"
                 onClick={scrollToTop}
