@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Hero, Services } from '@/views';
+import { Clients, Hero, Services } from '@/views';
 import { Career } from 'views/Career/Career';
 import { ContactUs } from 'views/ContactUs/ContactUs';
 import { DataRequest } from 'utils/request';
@@ -29,6 +29,7 @@ const Home = ({ data }) => {
       <Services data={data.servicesSection} />
       <HowWeWork data={data.howWeWorkSection.step} />
       <ContactUs data={data.feelFreeToContactUsSection} />
+      <Clients data={data.clientsSection} />
       <Team data={data.teamSection.teamMember} />
       <Career data={data.careerSection} />
       <div id="contact">CONTACT</div>
