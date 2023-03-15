@@ -4,3 +4,6 @@ export * from './Services/Services';
 export * from './Advantages/Advantages';
 export * from './Contact/Contact';
 export * from '../components/ModalForm/ModalForm';
+export * from './Career/Career';
+export * from './ContactUs/ContactUs';
+export * from './Team/Team';

@@ -3,8 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { ModalBtn } from 'components/ModalBtn/ModalBtn';
 
-function Team({ data }) {
-  console.log('data', data);
+export const Team = ({ data }) => {
   return (
     <section id="team" className="mb-[80px]">
       <Container>
@@ -40,6 +39,4 @@ function Team({ data }) {
       </Container>
     </section>
   );
-}
-
-export default Team;
+};
