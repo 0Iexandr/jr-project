@@ -8,6 +8,8 @@ import {
   Team,
   Advantages,
   Contact,
+  Clients,
+  Works,
 } from '@/views';
 import { DataRequest } from 'utils/request';
 
@@ -30,6 +32,8 @@ export async function getStaticProps() {
       teamSection: data.teamSection,
       contactSection: data.contactSection,
       careerSection: data.careerSection,
+      worksSection: data.worksSection,
+      clientsSection: data.clientsSection,
       footer: data.footer,
     },
   };
@@ -45,6 +49,8 @@ const Home = props => {
     teamSection,
     contactSection,
     careerSection,
+    worksSection,
+    clientsSection,
   } = props;
 
   return (
@@ -55,9 +61,11 @@ const Home = props => {
 
       <Hero data={hero} />
       <Services data={servicesSection} />
+      <Works data={worksSection} />
       <Advantages data={whyChooseUsSection} />
       <HowWeWork data={howWeWorkSection.step} />
       <ContactUs data={feelFreeToContactUsSection} />
+      <Clients data={clientsSection} />
       <Team data={teamSection.teamMember} />
       <Contact data={contactSection} />
       <Career data={careerSection} />
