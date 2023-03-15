@@ -53,6 +53,7 @@ body {
     box-shadow: 0px 2px 8px -1px #0000001a;
   }
 }
+
 .sectionTitle {
   @apply text-[30px] leading-[36px] md:text-[34px] md:leading-[41px] xl:text-[54px] xl:leading-[65px];
 }
@@ -99,4 +100,11 @@ body {
 
 .nav-active {
   font-weight: 900;
+}
+
+input[type='text']:focus,
+input[type='tel']:focus,
+textarea:focus {
+  box-shadow: none;
+  border-color: #ababab;
 }
