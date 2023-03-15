@@ -6,6 +6,7 @@ import 'swiper/css/autoplay';
 
 import { EffectFade, Pagination, Autoplay } from 'swiper';
 import Image from 'next/image';
+import { convertImage, toBase64 } from 'utils/blur';
 
 export default function Slider({ sliderImages }) {
   return (
@@ -34,6 +35,10 @@ export default function Slider({ sliderImages }) {
                 width={image.image.width}
                 height={image.image.height}
                 className="h-[380px] object-cover md:h-[420px] xl:h-[656px]"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  convertImage(image.image.width, image.image.height),
+                )}`}
               />
             </SwiperSlide>
           );
