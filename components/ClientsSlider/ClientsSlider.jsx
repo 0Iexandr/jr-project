@@ -8,7 +8,6 @@ import { EffectFade, Pagination, Autoplay } from 'swiper';
 import Image from 'next/image';
 
 export default function ClientsSlider({ sliderImages }) {
-  console.log(sliderImages);
   return (
     <div className="clients-swiper">
       <Swiper
@@ -44,7 +43,7 @@ export default function ClientsSlider({ sliderImages }) {
           disableOnInteraction: false,
         }}
       >
-        {sliderImages.map(image => {
+        {sliderImages?.map(image => {
           return (
             <SwiperSlide key={image.id}>
               <Image

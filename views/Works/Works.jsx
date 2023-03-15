@@ -6,8 +6,7 @@ import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 export const Works = ({ data }) => {
-  const formatedData = data.work.map(el => {
-    console.log(el);
+  const formatedData = data?.work.map(el => {
     return {
       id: el.id,
       alt: el.alt,
