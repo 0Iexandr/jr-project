@@ -3,8 +3,9 @@ import CVButton from 'components/CVButton/CVButton';
 
 export const Career = ({ data }) => {
   const { description, email } = data;
+
   return (
-    <section id="career">
+    <section id="career" className="mb-[80px]">
       <Container>
         <div className="mx-auto text-center md:w-[450px] xl:w-[690px]">
           <div className="mt-[50px] flex flex-col items-center justify-center gap-[20px] ">

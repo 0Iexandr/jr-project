@@ -4,10 +4,12 @@ import Mouse from '../../public/mouse.svg';
 
 export const Hero = ({ data }) => {
   return (
-    <section>
+    <section className="relative mb-[80px]">
       <Container>
         <Slider sliderImages={data.sliderImages} />
-        <Mouse className="slide-bottom mx-auto mt-4" />
+        <div className="absolute bottom-[-48px] left-1/2 -translate-x-1/2 transform">
+          <Mouse className="slide-bottom" />
+        </div>
       </Container>
     </section>
   );

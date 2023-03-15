@@ -5,107 +5,20 @@ import { MobileGallery } from 'components/MasonryGallery/MobileGallery';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-const imagesForMasonry = [
-  {
-    url: 'https://images.pexels.com/photos/2693208/pexels-photo-2693208.png',
-    alt: 'abstraction',
-    type: 'interior',
-    width: 1260,
-    height: 750,
-    title: 'Short Title',
-  },
-  {
-    url: 'https://images.pexels.com/photos/2693212/pexels-photo-2693212.png',
-    alt: 'abstraction',
-    type: 'interior',
-    width: 1260,
-    height: 750,
-    title: 'Short Title',
-  },
-  {
-    url: 'https://images.pexels.com/photos/3780104/pexels-photo-3780104.png',
-    alt: 'abstraction',
-    type: 'interior',
-    width: 1260,
-    height: 750,
-    title: 'Short Title',
-  },
-  {
-    url: 'https://images.pexels.com/photos/2249961/pexels-photo-2249961.jpeg',
-    alt: 'abstraction',
-    type: 'interior',
-    width: 1260,
-    height: 750,
-    title: 'Short Title',
-  },
-  {
-    url: 'https://images.pexels.com/photos/2110951/pexels-photo-2110951.jpeg',
-    alt: 'abstraction',
-    type: 'interior',
-    width: 500,
-    height: 750,
-    title: 'Short Title',
-  },
-  {
-    url: 'https://images.pexels.com/photos/3435272/pexels-photo-3435272.jpeg',
-    alt: 'abstraction',
-    type: 'interior',
-    width: 563,
-    height: 750,
-    title: 'Short Title',
-  },
-  {
-    url: 'https://images.pexels.com/photos/1910230/pexels-photo-1910230.jpeg',
-    alt: 'abstraction',
-    type: 'interior',
-    width: 500,
-    height: 750,
-    title: 'Short Title',
-  },
-  {
-    url: 'https://images.pexels.com/photos/4046718/pexels-photo-4046718.jpeg',
-    alt: 'abstraction',
-    type: 'interior',
-    width: 600,
-    height: 900,
-    title: 'Short Title',
-  },
-  {
-    url: 'https://images.pexels.com/photos/2892606/pexels-photo-2892606.jpeg',
-    alt: 'abstraction',
-    type: 'interior',
-    width: 600,
-    height: 900,
-    title: 'Short Title',
-  },
-  {
-    url: 'https://images.pexels.com/photos/4068339/pexels-photo-4068339.jpeg',
-    alt: 'abstraction',
-    type: 'interior',
-    width: 600,
-    height: 900,
-    title: 'Short Title',
-  },
-  {
-    url: 'https://images.pexels.com/photos/5022847/pexels-photo-5022847.jpeg',
-    alt: 'abstraction',
-    type: 'interior',
-    width: 900,
-    height: 900,
-    title: 'Short Title',
-  },
-  {
-    url: 'https://images.pexels.com/photos/1934846/pexels-photo-1934846.jpeg',
-    alt: 'abstraction',
-    type: 'exterior',
-    width: 600,
-    height: 900,
-    title: 'Short Title',
-  },
-];
-
-export const Works = () => {
-  const [allImages, setAllImages] = useState(null);
+export const Works = ({ data }) => {
+  const formatedData = data.work.map(el => {
+    console.log(el);
+    return {
+      id: el.id,
+      alt: el.alt,
+      title: el.alt,
+      url: el.image.url,
+      type: el.workType,
+      width: el.image.width,
+      height: el.image.height,
+    };
+  });
+  const [allImages, setAllImages] = useState();
   const [filteredImages, setFilteredImages] = useState(null);
   const [renderImages, setRenderImages] = useState(null);
   const [showMoreBtnShouldRender, setshowMoreBtnShouldRender] = useState(false);
@@ -131,9 +44,9 @@ export const Works = () => {
     if (allImages) {
       return;
     }
-    setAllImages(imagesForMasonry);
-    setFilteredImages([...imagesForMasonry]);
-  }, [allImages]);
+    setAllImages(formatedData);
+    setFilteredImages([...formatedData]);
+  }, [allImages, formatedData]);
 
   const onFilterBtnClick = btnName => {
     switch (btnName) {
@@ -178,7 +91,7 @@ export const Works = () => {
         )}
         {showMoreBtnShouldRender && (
           <button
-            className="mx-auto mt-[60px] block text-small font-bold uppercase tracking-wider text-gray hover:text-[#333333] md:mt-[100px] xl:mt-0"
+            className="mx-auto mt-[60px] block text-small font-bold uppercase tracking-wider text-gray hover:text-[#333333] md:mt-[100px]"
             onClick={onShowMoreBtnClick}
           >
             show more

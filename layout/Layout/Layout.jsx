@@ -1,6 +1,6 @@
 import { Footer, Header } from 'layout';
 
-export const Layout = ({ children }) => {
+export const Layout = ({ data, children }) => {
   return (
     <div>
       <Header />

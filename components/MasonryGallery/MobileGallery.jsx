@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { convertImage, toBase64 } from 'utils/blur';
 
 export const MobileGallery = ({ itemData }) => {
   return (
@@ -11,6 +12,9 @@ export const MobileGallery = ({ itemData }) => {
             alt={item.alt}
             width={item.width}
             height={item.height}
+            blurDataURL={`data:image/svg+xml;base64,${toBase64(
+              convertImage(item.width, item.height),
+            )}`}
           />
         </li>
       ))}

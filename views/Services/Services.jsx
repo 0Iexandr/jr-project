@@ -32,7 +32,7 @@ export const Services = ({ data }) => {
                   <p className="mb-6 text-lg leading-[26px] text-gray xl:mb-8">
                     {el.description}
                   </p>
-                  <ModalBtn text="start project" />
+                  <ModalBtn text="start project" className="blackBtn" />
                 </div>
               </li>
             );
