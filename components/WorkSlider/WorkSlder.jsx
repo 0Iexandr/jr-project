@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
+import { convertImage, toBase64 } from 'utils/blur';
 
 export default function WorkSlider({ data }) {
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -95,6 +96,10 @@ export default function WorkSlider({ data }) {
                 src={step.image.url}
                 width={step.image.width}
                 height={step.image.height}
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  convertImage(step.image.width, step.image.height),
+                )}`}
               />
             </SwiperSlide>
           );

@@ -7,11 +7,13 @@ export const Team = ({ data }) => {
   return (
     <section id="team" className="mb-[80px]">
       <Container>
-        <h2 className="sectionTitle mb-[32px] font-bold xl:mb-[76px]">Team</h2>
-        <div className="flex flex-col gap-[60px] md:gap-[100px] xl:flex-row xl:justify-between xl:gap-[60px] ">
+        <h2 className="sectionTitle mb-[32px] font-bold md:mb-[50px] xl:mb-[76px]">
+          Team
+        </h2>
+        <ul className="flex flex-col gap-[60px] md:gap-[100px] xl:flex-row xl:justify-between xl:gap-[60px] ">
           {data.map(person => {
             return (
-              <div
+              <li
                 key={person.id}
                 className="mx-auto text-start md:w-[412px] xl:w-[386px]"
               >
@@ -31,11 +33,11 @@ export const Team = ({ data }) => {
                 <p className="mb-[24px] text-middle font-normal text-gray">
                   {person.description}
                 </p>
-                <ModalBtn text="send message" />
-              </div>
+                <ModalBtn text="send message" className="whiteBtn" />
+              </li>
             );
           })}
-        </div>
+        </ul>
       </Container>
     </section>
   );

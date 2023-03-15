@@ -36,7 +36,6 @@ export async function getStaticProps() {
 }
 
 const Home = props => {
-  // console.log(props);
   const {
     hero,
     servicesSection,

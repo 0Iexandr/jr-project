@@ -47,7 +47,7 @@ export const Footer = ({ data }) => {
                             alt={icon.alt}
                             width={icon.image.width}
                             height={icon.image.height}
-                            // className="transition-all hover:contrast-[2] hover:invert-[90%]"
+                            className="transition-all hover:contrast-[2] hover:invert-[90%]"
                           />
                         </a>
                       </li>
