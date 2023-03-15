@@ -98,6 +98,36 @@ body {
   border: 2px solid white;
 }
 
+.clients-swiper .swiper-wrapper {
+  margin-bottom: 42px;
+}
+@media screen and (min-width: 768px) {
+  .clients-swiper .swiper-wrapper {
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (min-width: 1320px) {
+  .clients-swiper .swiper-wrapper {
+    margin-bottom: 52px;
+  }
+}
+
+.clients-swiper .swiper-pagination-bullet {
+  border: 2px solid black;
+  --swiper-pagination-bullet-size: 10px;
+  --swiper-pagination-bullet-horizontal-gap: 20px;
+}
+
+.clients-swiper .swiper-pagination {
+  --swiper-pagination-bottom: 0;
+  line-height: 0;
+}
+
+.clients-swiper .swiper-slide {
+  width: fit-content !important;
+}
+
 .nav-active {
   font-weight: 900;
 }

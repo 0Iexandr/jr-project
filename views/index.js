@@ -7,3 +7,4 @@ export * from '../components/ModalForm/ModalForm';
 export * from './Career/Career';
 export * from './ContactUs/ContactUs';
 export * from './Team/Team';
+export * from './Clients/Clients';
