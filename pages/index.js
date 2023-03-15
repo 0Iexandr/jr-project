@@ -9,6 +9,7 @@ import {
   Advantages,
   Contact,
   Clients,
+  Works,
 } from '@/views';
 import { DataRequest } from 'utils/request';
 
@@ -33,6 +34,7 @@ const Home = ({ data }) => {
 
       <Hero data={data.hero} />
       <Services data={data.servicesSection} />
+      <Works data={data.worksSection} />
       <Advantages data={data.whyChooseUsSection} />
       <HowWeWork data={data.howWeWorkSection.step} />
       <ContactUs data={data.feelFreeToContactUsSection} />

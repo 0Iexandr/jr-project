@@ -8,3 +8,4 @@ export * from './Career/Career';
 export * from './ContactUs/ContactUs';
 export * from './Team/Team';
 export * from './Clients/Clients';
+export * from './Works/Works';

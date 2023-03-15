@@ -4,7 +4,7 @@ import { ModalBtn } from 'components/ModalBtn/ModalBtn';
 
 export const Services = ({ data }) => {
   return (
-    <section id="services" className="mb-[80px]">
+    <section id="services" className="mb-[80px] md:mb-[100px] xl:mb-[120px]">
       <Container>
         <h2 className="mb-8 text-3xl font-bold md:mb-10 md:text-[34px] md:leading-10 xl:mb-[4.75rem] xl:text-large">
           Services
@@ -16,7 +16,7 @@ export const Services = ({ data }) => {
                 key={el.id}
                 className="mb-[60px] last:mb-0 md:mb-20 xl:mb-[100px] xl:flex xl:gap-[60px] xl:even:flex-row-reverse"
               >
-                <div className="-mb-2 h-[100vw] pb-10 sm:mb-8 sm:h-[440px] sm:w-[440px] sm:pb-0 md:h-[329px] md:w-[648px] xl:mb-0 xl:h-[480px] xl:w-[945px]">
+                <div className="mb-8 h-[calc(100vw-40px)] sm:h-[440px] sm:w-[440px] sm:pb-0 md:h-[329px] md:w-[648px] xl:mb-0 xl:h-[480px] xl:w-[945px]">
                   <Image
                     className="h-full w-full object-cover"
                     src={el.image.url}

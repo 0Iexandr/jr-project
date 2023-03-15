@@ -1,0 +1,8 @@
+.overlay {
+  background-color: #222222;
+  background-image: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(34, 34, 34, 0) 0%,
+    #222222 97.92%
+  );
+}
