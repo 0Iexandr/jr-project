@@ -61,12 +61,12 @@ const Home = props => {
 
       <Hero data={hero} />
       <Services data={servicesSection} />
-      <Works data={worksSection} />
       <Advantages data={whyChooseUsSection} />
       <HowWeWork data={howWeWorkSection.step} />
       <ContactUs data={feelFreeToContactUsSection} />
       <Clients data={clientsSection} />
       <Team data={teamSection.teamMember} />
+      <Works data={worksSection} />
       <Contact data={contactSection} />
       <Career data={careerSection} />
     </>

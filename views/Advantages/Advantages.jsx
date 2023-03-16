@@ -7,8 +7,11 @@ export const Advantages = ({ data }) => {
   }
 
   return (
-    <section id="advantages">
+    <section id="about us" className="mb-[80px] md:mb-[100px] xl:mb-[120px]">
       <Container>
+        <h2 className="sectionTitle mb-[32px] font-bold md:mb-[50px] xl:mb-[76px]">
+          Why choose us
+        </h2>
         <ul className="flex flex-wrap gap-x-[60px] gap-y-[50px]">
           {data.reason.map(({ id, title, description, image }) => (
             <li

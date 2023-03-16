@@ -74,7 +74,7 @@ export const Works = ({ data }) => {
     setshowMoreBtnShouldRender(false);
   };
   return (
-    <section className="mb-[80px] md:mb-[100px] xl:mb-[120px]">
+    <section id="works" className="mb-[80px] md:mb-[100px] xl:mb-[120px]">
       <Container>
         <div className="mb-[24px] flex flex-col gap-8 md:mb-[17px] md:flex-row md:items-baseline md:justify-between md:gap-0">
           <h2 className=" text-3xl font-bold md:text-[34px] md:leading-10 xl:text-large">
