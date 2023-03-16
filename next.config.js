@@ -3,14 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['res.cloudinary.com'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.pexels.com',
-        port: '',
-        pathname: '/photos/**',
-      },
-    ],
   },
   webpack: config => {
     config.module.rules.push({
