@@ -16,7 +16,7 @@ export const Contact = ({ data }) => {
           Make request using form below or send e-mail to{' '}
           <a
             href={`mailto:${data.email}`}
-            className="text-mainBlack hover:underline"
+            className="text-mainBlack hover:underline focus:underline"
           >
             {data.email}
           </a>

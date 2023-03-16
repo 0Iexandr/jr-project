@@ -3,14 +3,14 @@ import DatePicker from 'react-datepicker';
 import { useForm } from 'react-hook-form';
 import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { schema } from './schema';
+import { schema } from '../../utils/schema';
 import Comments from './Comments';
 import Check from 'public/check.svg';
 import Plus from 'public/plus.svg';
 import Minus from 'public/minus.svg';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const FORMSPREE_API_KEY = process.env.FORMSPREE_CONTACT_API_KEY;
+const FORMSPREE_API_KEY = process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_API_KEY;
 
 const Form = ({ price, projectTypes }) => {
   const [aerial, setAerial] = useState(0);
@@ -137,30 +137,37 @@ const Form = ({ price, projectTypes }) => {
           <Comments register={register} className="max-xl:hidden" />
         </div>
         <div className="w-full xl:w-1/2">
-          <p className="mb-[33px] text-middle md:mb-[25px] xl:mb-[21px]">
-            Choose Project Type*
-          </p>
-          <ul className="mb-[46px] flex flex-col justify-between gap-[46px] text-middle md:mb-[60px] md:flex-row md:gap-0 xl:mb-[40px]">
-            {projectTypes.map(item => (
-              <li key={item.id}>
-                <label className="relative flex cursor-pointer select-none gap-[12px]">
-                  <input
-                    type="radio"
-                    name="type"
-                    value={item.projectType}
-                    {...register('project-type')}
-                    className="peer absolute h-0 w-0 cursor-pointer opacity-0"
-                    defaultChecked={item.projectType === 'Villa'}
-                  />
-                  <Check className="absolute top-0 left-0 hidden h-[24px] w-[24px] peer-checked:block peer-focus:outline" />
-                  <span className="absolute top-0 left-0 h-[24px] w-[24px] border-[1.5px] border-additionalGray peer-checked:border-mainBlack"></span>
-                  <span className="ml-[35px]">{item.projectType}</span>
-                </label>
-              </li>
-            ))}
-          </ul>
+          <div className="relative mb-[46px] md:mb-[60px] xl:mb-[40px]">
+            <p className="mb-[33px] text-middle md:mb-[25px] xl:mb-[21px]">
+              Choose Project Type*
+            </p>
+            <ul className="flex flex-col justify-between gap-[46px] text-middle md:flex-row md:gap-0">
+              {projectTypes.map(item => (
+                <li key={item.id}>
+                  <label className="relative flex cursor-pointer select-none gap-[12px]">
+                    <input
+                      type="radio"
+                      name="type"
+                      value={item.projectType}
+                      {...register('projectType')}
+                      className="peer absolute h-0 w-0 cursor-pointer opacity-0"
+                    />
+                    <Check className="absolute top-0 left-0 hidden h-[24px] w-[24px] peer-checked:block peer-focus:outline" />
+                    <span className="absolute top-0 left-0 h-[24px] w-[24px] border-[1.5px] border-additionalGray peer-checked:border-mainBlack"></span>
+                    <span className="ml-[35px]">{item.projectType}</span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+            {errors?.projectType && (
+              <p className="mb-24px absolute left-0 bottom-[-30px] text-[11px] leading-[13px] text-[#B60606]">
+                {errors.projectType.message}
+              </p>
+            )}
+          </div>
           <div className="group relative mb-[60px] h-[51px] border-b-[1px] border-additionalGray xl:mb-[55px]">
             <DatePicker
+              id="deadline"
               selected={startDate}
               onChange={date => setStartDate(date)}
               minDate={new Date()}
@@ -169,6 +176,7 @@ const Form = ({ price, projectTypes }) => {
             />
 
             <label
+              htmlFor="deadline"
               className={`absolute left-0 bottom-2 z-10 text-gray group-focus-within:translate-y-[-180%] group-focus-within:text-[12px] ${
                 startDate ? 'translate-y-[-180%] text-[12px]' : 'text-middle'
               }`}
@@ -189,6 +197,7 @@ const Form = ({ price, projectTypes }) => {
                 <div className="flex w-[113px] items-center justify-between md:mb-[16px] xl:mb-[8px]">
                   <button
                     type="button"
+                    aria-label="Minus"
                     name={type.name}
                     onClick={setQty}
                     value="-"
@@ -210,6 +219,7 @@ const Form = ({ price, projectTypes }) => {
                   </span>
                   <button
                     type="button"
+                    aria-label="Plus"
                     name={type.name}
                     value="+"
                     onClick={setQty}

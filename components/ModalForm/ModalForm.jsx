@@ -2,11 +2,11 @@ import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { schema } from '../../views/Contact/schema';
-import { Modal } from '@mui/material';
+import { schema } from '../../utils/schema';
+import Modal from '@mui/material/Modal';
 import Close from 'public/close.svg';
 
-const FORMSPREE_API_KEY = process.env.FORMSPREE_QUESTIONS_API_KEY;
+const FORMSPREE_API_KEY = process.env.NEXT_PUBLIC_FORMSPREE_QUESTIONS_API_KEY;
 
 export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
   const [serverState, sendToFormspree] = useFormspree(`${FORMSPREE_API_KEY}`);
@@ -39,6 +39,8 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
             HAVE ANY QUESTIONS? CONTACT US!
           </h1>
           <button
+            type="button"
+            aria-label="Close"
             className="block h-[24px] w-[24px]"
             onClick={() => setIsModalOpen(false)}
           >

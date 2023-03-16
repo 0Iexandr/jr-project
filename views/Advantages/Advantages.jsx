@@ -9,7 +9,7 @@ export const Advantages = ({ data }) => {
   return (
     <section id="about us" className="mb-[80px] md:mb-[100px] xl:mb-[120px]">
       <Container>
-        <h2 className="sectionTitle mb-[32px] font-bold md:mb-[50px] xl:mb-[76px]">
+        <h2 className="mb-[40px] text-[30px] font-[700] leading-[1.2] md:mb-[50px] md:text-[34px] xl:mb-[76px] xl:text-[54px]">
           Why choose us
         </h2>
         <ul className="flex flex-wrap gap-x-[60px] gap-y-[50px]">
