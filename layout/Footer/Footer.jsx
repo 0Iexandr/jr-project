@@ -1,11 +1,9 @@
 import { Container } from '@/components';
 import Image from 'next/image';
-// import Image from 'next/image';
 import ArrowTop from 'public/arrow-top.svg';
 import { Logo } from '../../components/Logo/Logo';
 
 export const Footer = ({ data }) => {
-  // console.log(data);
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
