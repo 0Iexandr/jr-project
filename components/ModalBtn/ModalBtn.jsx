@@ -1,13 +1,21 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
+import { ModalForm } from '../ModalForm/ModalForm';
 
 export const ModalBtn = ({ text, className }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-    <button
-      className={`inline-block py-[10px] px-[33px] text-small font-bold uppercase tracking-wider ${className}`}
-      // className={`inline-block border-none bg-mainBlack py-[10px] px-[33px] text-small font-bold uppercase tracking-wider text-white ${className}`}
-    >
-      {text}
-    </button>
+    <>
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className={`inline-block py-[10px] px-[33px] text-small font-bold uppercase tracking-wider ${className}`}
+      >
+        {text}
+      </button>
+      {isModalOpen && (
+        <ModalForm isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      )}
+    </>
   );
 };
 

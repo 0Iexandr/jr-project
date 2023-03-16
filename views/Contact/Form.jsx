@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import { useForm } from 'react-hook-form';
 import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { schema } from './schema';
+import { schema } from '../../utils/schema';
 import Comments from './Comments';
 import Check from 'public/check.svg';
 import Plus from 'public/plus.svg';

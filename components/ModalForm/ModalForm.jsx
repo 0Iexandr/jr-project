@@ -2,8 +2,8 @@ import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { schema } from '../../views/Contact/schema';
-import { Modal } from '@mui/material';
+import { schema } from '../../utils/schema';
+import Modal from '@mui/material/Modal';
 import Close from 'public/close.svg';
 
 const FORMSPREE_API_KEY = process.env.NEXT_PUBLIC_FORMSPREE_QUESTIONS_API_KEY;
