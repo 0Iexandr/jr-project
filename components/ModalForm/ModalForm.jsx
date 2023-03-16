@@ -109,7 +109,7 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
 
           <button
             type="submit"
-            className="bg-black py-[10px] px-[70px] font-[700] leading-[1.3] tracking-[0.05em] text-white"
+            className="bg-black py-[10px] px-[70px] font-[700] leading-[1.3] tracking-[0.05em] text-white  hover:bg-[#333333] focus:bg-[#333333]"
           >
             SEND
           </button>
