@@ -5,7 +5,6 @@ import Image from 'next/image';
 import css from './MansoryGallery.module.css';
 import { convertImage, toBase64 } from 'utils/blur';
 export const MasonryGallery = ({ itemData }) => {
-  console.log(itemData);
   return (
     <ImageList
       variant="masonry"
@@ -16,7 +15,6 @@ export const MasonryGallery = ({ itemData }) => {
       }}
     >
       {itemData.map(item => {
-        console.log(item.height);
         return (
           <ImageListItem key={item.url} className="group pb-[160px] ">
             <Image

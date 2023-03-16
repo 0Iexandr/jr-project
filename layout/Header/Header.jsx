@@ -17,7 +17,7 @@ export const Header = () => {
           </div>
           <div className="flex gap-x-[50px]">
             <NavBar />
-            <ModalBtn text="start project" className="max-xl:hidden" />
+            <ModalBtn text="start project" className="blackBtn max-xl:hidden" />
           </div>
         </div>
       </Container>
