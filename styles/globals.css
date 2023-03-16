@@ -102,11 +102,9 @@ body {
 }
 
 .blackBtn {
-  border: none;
   background-color: #222222;
   color: white;
 }
 .whiteBtn {
-  border: 2px solid #222222;
   color: #222222;
 }

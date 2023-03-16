@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 export const ModalBtn = ({ text, className }) => {
   return (
     <button
-      className={`inline-block py-[10px] px-[33px] text-small font-bold uppercase tracking-wider ${className}`}
-      // className={`inline-block border-none bg-mainBlack py-[10px] px-[33px] text-small font-bold uppercase tracking-wider text-white ${className}`}
+      className={`inline-block border-2 border-solid border-mainBlack py-[8px] px-[30px] text-small font-bold uppercase tracking-wider ${className} hover:border-[#333333] hover:bg-[#333333] hover:text-white focus:border-[#333333] focus:bg-[#333333] focus:text-white`}
     >
       {text}
     </button>

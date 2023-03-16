@@ -28,9 +28,10 @@ export default function WorkSlider({ data }) {
     <div className="gap-[80px] xl:flex">
       <div className="mb-[5px]  xl:w-[255px]">
         <div className="mb-[32px] flex items-center justify-between md:mb-[24px] xl:mb-[32px]">
-          <Counter images={data.length} current={currentIndex + 1} />
+          <Counter steps={data.length} current={currentIndex + 1} />
           <div className="flex gap-[8px]">
             <button
+              aria-label="previous-element"
               className="swiper-button-prev"
               onClick={handlePrevButtonClick}
             >
@@ -43,6 +44,7 @@ export default function WorkSlider({ data }) {
               />
             </button>
             <button
+              aria-label="next-element"
               className="swiper-button-next"
               onClick={handleNextButtonClick}
             >
@@ -60,6 +62,7 @@ export default function WorkSlider({ data }) {
           modules={[EffectFade, Pagination, Autoplay, Controller]}
           effect="fade"
           speed={150}
+          allowTouchMove={false}
           onSwiper={setTextInstance}
           fadeEffect={{ crossFade: true }}
         >
@@ -78,6 +81,7 @@ export default function WorkSlider({ data }) {
       <Swiper
         modules={[EffectFade, Pagination, Autoplay, Controller]}
         effect="fade"
+        lazy="true"
         speed={150}
         fadeEffect={{ crossFade: true }}
         onSwiper={setSwiperInstance}
@@ -89,8 +93,9 @@ export default function WorkSlider({ data }) {
       >
         {data.map(step => {
           return (
-            <SwiperSlide key={step.id}>
+            <SwiperSlide key={step.id} className="slide">
               <Image
+                loading="lazy"
                 className="min-h-[159px] object-cover md:h-[368px] xl:h-[540px] xl:w-[945px]"
                 alt={step.title}
                 src={step.image.url}
@@ -101,6 +106,7 @@ export default function WorkSlider({ data }) {
                   convertImage(step.image.width, step.image.height),
                 )}`}
               />
+              <div className="swiper-lazy-preloader"></div>
             </SwiperSlide>
           );
         })}

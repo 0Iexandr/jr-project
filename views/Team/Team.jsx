@@ -18,6 +18,7 @@ export const Team = ({ data }) => {
                 className="mx-auto text-start md:w-[412px] xl:w-[386px]"
               >
                 <Image
+                  loading="lazy"
                   src={person.photo.url}
                   alt={person.name}
                   width={person.photo.width}
