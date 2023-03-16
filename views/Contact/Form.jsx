@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import { useForm } from 'react-hook-form';
 import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { schema } from '../../utils/schema';
+import { contactFormSchema as schema } from '../../utils/schema';
 import Comments from './Comments';
 import Check from 'public/check.svg';
 import Plus from 'public/plus.svg';
@@ -17,11 +17,11 @@ const Form = ({ price, projectTypes }) => {
   const [exterior, setExterior] = useState(0);
   const [interior, setInterior] = useState(0);
   const [startDate, setStartDate] = useState('');
+  const [serverState, sendToFormspree] = useFormspree(`${FORMSPREE_API_KEY}`);
 
   const totalImgQty = aerial + exterior + interior;
   const totalPrice = totalImgQty * price;
 
-  const [serverState, sendToFormspree] = useFormspree(`${FORMSPREE_API_KEY}`);
   const {
     register,
     handleSubmit,
@@ -84,11 +84,9 @@ const Form = ({ price, projectTypes }) => {
                 name="name"
                 placeholder=" "
                 {...register('name')}
-                className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
+                className="form__input"
               />
-              <span className="pointer-events-none absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px]">
-                Your Name*
-              </span>
+              <span className="form__label">Your Name*</span>
             </label>
             {errors?.name && (
               <p className="mb-24px absolute left-0 bottom-[-17px] text-[11px] leading-[13px] text-[#B60606]">
@@ -103,11 +101,9 @@ const Form = ({ price, projectTypes }) => {
                 name="phone"
                 placeholder=" "
                 {...register('phone')}
-                className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
+                className="form__input"
               />
-              <span className="pointer-events-none absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px]">
-                Telephone*
-              </span>
+              <span className="form__label">Telephone*</span>
             </label>
             {errors?.phone && (
               <p className="mb-24px absolute left-0 bottom-[-17px] text-[11px] leading-[13px] text-[#B60606]">
@@ -122,11 +118,9 @@ const Form = ({ price, projectTypes }) => {
                 name="email"
                 placeholder=" "
                 {...register('email')}
-                className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
+                className="form__input"
               />
-              <span className="pointer-events-none absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px]">
-                Your Email*
-              </span>
+              <span className="form__label">Your Email*</span>
             </label>
             {errors?.email && (
               <p className="mb-24px absolute left-0 bottom-[-17px] text-[11px] leading-[13px] text-[#B60606]">
@@ -160,7 +154,7 @@ const Form = ({ price, projectTypes }) => {
               ))}
             </ul>
             {errors?.projectType && (
-              <p className="mb-24px absolute left-0 bottom-[-30px] text-[11px] leading-[13px] text-[#B60606]">
+              <p className="mb-24px absolute left-0 bottom-[-25px] text-[11px] leading-[13px] text-[#B60606]">
                 {errors.projectType.message}
               </p>
             )}
@@ -177,8 +171,8 @@ const Form = ({ price, projectTypes }) => {
 
             <label
               htmlFor="deadline"
-              className={`absolute left-0 bottom-2 z-10 text-gray group-focus-within:translate-y-[-180%] group-focus-within:text-[12px] ${
-                startDate ? 'translate-y-[-180%] text-[12px]' : 'text-middle'
+              className={`absolute left-0 top-[50%] z-10 translate-y-[-50%] text-gray transition-all group-focus-within:translate-y-[-200%] group-focus-within:text-[12px] ${
+                startDate ? 'translate-y-[-200%] text-[12px]' : 'text-middle'
               }`}
             >
               Deadline
@@ -248,17 +242,20 @@ const Form = ({ price, projectTypes }) => {
           <Comments register={register} className="xl:hidden" />
         </div>
       </div>
-      <button
-        type="submit"
-        className="bg-black py-[10px] px-[70px] font-[700] leading-[1.3] tracking-[0.05em] text-white xl:mt-[45px]"
-      >
-        SEND
-      </button>
-      {serverState.succeeded && (
-        <p className="mt-[12px] text-[20px] font-[500] leading-[24px] text-[#777777]">
-          The email was sent successfully
-        </p>
-      )}
+      <div className="relative">
+        <button
+          type="submit"
+          disabled={serverState.submitting}
+          className="form__submitBtn"
+        >
+          SEND
+        </button>
+        {serverState.succeeded && (
+          <p className="absolute bottom-[-33px] left-0 text-[20px] font-[500] leading-[24px] text-[#777777]">
+            The email was sent successfully
+          </p>
+        )}
+      </div>
     </form>
   );
 };
