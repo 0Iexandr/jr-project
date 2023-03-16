@@ -149,3 +149,25 @@ textarea:focus {
   box-shadow: none;
   border-color: #ababab;
 }
+
+.overlay {
+  background-color: #222222;
+  background-image: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(34, 34, 34, 0) 0%,
+    #222222 97.92%
+  );
+}
+
+.MuiMasonry-root {
+  margin-bottom: -90px !important;
+}
+
+.MuiMasonry-root li {
+  width: calc(50% - 30px);
+  margin-bottom: 130px !important;
+}
+
+.MuiMasonry-root li:nth-last-child(-n + 3) {
+  margin-bottom: 30px !important;
+}
