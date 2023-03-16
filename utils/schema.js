@@ -7,6 +7,7 @@ export const schema = yup.object().shape({
   name: yup
     .string()
     .required('*Enter your name!')
+    .trim('*Enter your name!')
     .matches(latinRegExp, '*Name can only contain Latin letters!')
     .min(2, '*Min length 2 chars!')
     .max(100, '*Max length 100 chars!'),
@@ -22,4 +23,5 @@ export const schema = yup.object().shape({
     .email('*Enter your correct email!')
     .matches(/^[a-zA-Z]{3}/, '*Enter your correct email!')
     .max(63, '*Enter your correct email!'),
+  projectType: yup.string().required('*Choose Project Type!'),
 });
