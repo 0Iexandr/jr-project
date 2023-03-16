@@ -10,7 +10,7 @@ import Plus from 'public/plus.svg';
 import Minus from 'public/minus.svg';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const FORMSPREE_API_KEY = process.env.FORMSPREE_CONTACT_API_KEY;
+const FORMSPREE_API_KEY = process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_API_KEY;
 
 const Form = ({ price, projectTypes }) => {
   const [aerial, setAerial] = useState(0);

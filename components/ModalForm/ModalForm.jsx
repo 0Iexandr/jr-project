@@ -6,7 +6,7 @@ import { schema } from '../../views/Contact/schema';
 import { Modal } from '@mui/material';
 import Close from 'public/close.svg';
 
-const FORMSPREE_API_KEY = process.env.FORMSPREE_QUESTIONS_API_KEY;
+const FORMSPREE_API_KEY = process.env.NEXT_PUBLIC_FORMSPREE_QUESTIONS_API_KEY;
 
 export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
   const [serverState, sendToFormspree] = useFormspree(`${FORMSPREE_API_KEY}`);

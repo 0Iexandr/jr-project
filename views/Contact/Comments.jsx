@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 const Comments = ({ register, className }) => {
   return (
     <>
@@ -10,4 +12,4 @@ const Comments = ({ register, className }) => {
   );
 };
 
-export default Comments;
+export default memo(Comments);
