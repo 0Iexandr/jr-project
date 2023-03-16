@@ -39,6 +39,8 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
             HAVE ANY QUESTIONS? CONTACT US!
           </h1>
           <button
+            type="button"
+            aria-label="Close"
             className="block h-[24px] w-[24px]"
             onClick={() => setIsModalOpen(false)}
           >

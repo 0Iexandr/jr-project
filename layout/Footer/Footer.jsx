@@ -11,6 +11,10 @@ export const Footer = ({ data }) => {
     });
   };
 
+  if (!data) {
+    return null;
+  }
+
   return (
     <>
       {data?.footer && (
@@ -27,7 +31,7 @@ export const Footer = ({ data }) => {
               <div className="flex flex-col items-center gap-[40px] md:gap-[24px] xl:mb-[5px] xl:items-start xl:gap-[20px]">
                 <a
                   href={`mailto:${data.footer.email}`}
-                  className="text-[16px] text-mainBlack hover:underline"
+                  className="text-[16px] text-mainBlack hover:underline focus:underline"
                 >
                   {data.footer.email}
                 </a>
@@ -36,16 +40,16 @@ export const Footer = ({ data }) => {
                     {data.footer.socialIcons.map(icon => (
                       <li key={icon.id}>
                         <a
-                          className="h-[44px] w-[44px] cursor-pointer"
+                          className="group block h-[44px] w-[44px] cursor-pointer transition-colors hover:bg-mainBlack focus:bg-mainBlack"
                           target="_blank"
                           rel="noopener noreferrer nofollow"
                         >
                           <Image
                             src={icon.image.secure_url}
                             alt={icon.alt}
-                            width={icon.image.width}
-                            height={icon.image.height}
-                            className="transition-all hover:contrast-[2] hover:invert-[90%]"
+                            width={44}
+                            height={44}
+                            className="transition-all group-hover:contrast-[2] group-hover:invert-[100%] group-focus:contrast-[2] group-focus:invert-[100%]"
                           />
                         </a>
                       </li>
@@ -55,8 +59,8 @@ export const Footer = ({ data }) => {
                     className="group flex flex-col items-center justify-end"
                     onClick={scrollToTop}
                   >
-                    <ArrowTop className="mb-[8px] fill-mainBlack transition-colors group-hover:fill-gray" />
-                    <span className="text-[12px] font-[700] leading-[14px] tracking-[0.05em] transition-colors group-hover:text-gray">
+                    <ArrowTop className="mb-[8px] fill-mainBlack transition-colors group-hover:fill-gray group-focus:fill-gray" />
+                    <span className="text-[12px] font-[700] leading-[14px] tracking-[0.05em] transition-colors group-hover:text-gray group-focus:text-gray">
                       BACK TO TOP
                     </span>
                   </button>
