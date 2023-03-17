@@ -154,6 +154,25 @@ textarea:focus {
   border-color: #ababab;
 }
 
+.overlay {
+  background-color: #222222;
+  background-image: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(34, 34, 34, 0) 0%,
+    #222222 97.92%
+  );
+}
+
+.MuiMasonry-root {
+  margin-bottom: -125px !important;
+  margin-top: -65px !important;
+}
+
+.MuiMasonry-root li {
+  width: calc(50% - 30px);
+  margin: 65px 30px !important;
+}
+
 .contact__title {
   @apply mb-[24px] text-center text-[30px] font-[700] leading-[1.2] md:mb-[32px] md:text-left md:text-[54px] xl:mb-[76px];
 }

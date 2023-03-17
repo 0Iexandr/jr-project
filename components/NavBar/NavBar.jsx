@@ -1,35 +1,15 @@
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
-// import { useState } from 'react';
-// import { useMediaQuery } from 'react-responsive';
-import { Link } from 'react-scroll';
+import { NavSections } from 'components/NavSections/NavSections';
+import { useState } from 'react';
 
 export const NavBar = () => {
-  // const isDesktop = useMediaQuery({
-  //   query: '(min-width: 1320px)',
-  // });
-  // const [isNavOpen, setIsNavOpen] = useState(false);
-  const sections = ['Services', 'About us', 'Works', 'Contact', 'Career'];
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  isNavOpen ? disableBodyScroll(BurgerMenu) : enableBodyScroll(BurgerMenu);
   return (
     <nav className="flex items-center xl:gap-x-[50px]">
-      <ul className="hidden gap-x-[36px] text-middle xl:flex">
-        {sections?.map((sectionName, idx) => {
-          return (
-            <li key={idx}>
-              <Link
-                activeClass="nav-active"
-                smooth={true}
-                spy={true}
-                className="cursor-pointer"
-                to={sectionName.toLowerCase()}
-                // onClick={!isDesktop ? () => setIsNavOpen(false) : null}
-              >
-                {sectionName}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-      <BurgerMenu />
+      <NavSections className="hidden gap-x-[36px] text-middle xl:flex" />
+      <BurgerMenu isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
     </nav>
   );
 };

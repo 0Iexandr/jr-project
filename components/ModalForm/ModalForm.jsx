@@ -35,7 +35,7 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
       closeAfterTransition
       onClose={() => setIsModalOpen(false)}
       aria-labelledby="modal-contact-us"
-      className="flex items-center justify-center bg-modalBg"
+      className="flex items-center justify-center bg-modalBg transition-all"
     >
       <div className="w-[90%] bg-white px-[40px] pt-[60px] pb-[76px] outline-none md:w-[630px] md:py-[76px] md:px-[79px]">
         <div className="flex justify-between">

@@ -6,17 +6,6 @@ import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 export const Works = ({ data }) => {
-  const formatedData = data?.work.map(el => {
-    return {
-      id: el.id,
-      alt: el.alt,
-      title: el.alt,
-      url: el.image.url,
-      type: el.workType,
-      width: el.image.width,
-      height: el.image.height,
-    };
-  });
   const [allImages, setAllImages] = useState();
   const [filteredImages, setFilteredImages] = useState(null);
   const [renderImages, setRenderImages] = useState(null);
@@ -43,9 +32,20 @@ export const Works = ({ data }) => {
     if (allImages) {
       return;
     }
+    const formatedData = data?.work.map(el => {
+      return {
+        id: el.id,
+        alt: el.alt,
+        title: el.alt,
+        url: el.image.url,
+        type: el.workType,
+        width: el.image.width,
+        height: el.image.height,
+      };
+    });
     setAllImages(formatedData);
     setFilteredImages([...formatedData]);
-  }, [allImages, formatedData]);
+  }, [allImages, data?.work]);
 
   const onFilterBtnClick = btnName => {
     switch (btnName) {

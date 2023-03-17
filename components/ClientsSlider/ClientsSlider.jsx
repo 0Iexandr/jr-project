@@ -6,29 +6,19 @@ import 'swiper/css/autoplay';
 
 import { EffectFade, Pagination, Autoplay } from 'swiper';
 import Image from 'next/image';
+import { useMediaQuery } from 'react-responsive';
 
 export default function ClientsSlider({ sliderImages }) {
+  const isDesctop = useMediaQuery({
+    query: '(min-width: 1320px)',
+  });
   return (
     <div className="clients-swiper">
       <Swiper
-        slidesPerGroupAuto={true}
-        breakpoints={{
-          320: {
-            slidesPerView: 'auto',
-            spaceBetween: 37,
-            slidesPerGroup: 2,
-          },
-          768: {
-            slidesPerView: 'auto',
-            spaceBetween: 40,
-            slidesPerGroup: 3,
-          },
-          1320: {
-            slidesPerView: 'auto',
-            spaceBetween: 87,
-            slidesPerGroup: 3,
-          },
-        }}
+        loop={true}
+        slidesPerView={5}
+        spaceBetween={isDesctop ? 87 : 40}
+        freeMode={true}
         wrapperClass="swiper-wrapper"
         slideClass="swiper-slide"
         modules={[EffectFade, Pagination, Autoplay]}
@@ -37,15 +27,17 @@ export default function ClientsSlider({ sliderImages }) {
           bulletActiveClass: 'swiper-pagination-bullet-active',
           bulletClass: 'swiper-pagination-bullet',
           horizontalClass: 'swiper-pagination-horizontal-clients',
+          dynamicBullets: true,
+          dynamicMainBullets: 1,
         }}
         autoplay={{
           delay: 2000,
           disableOnInteraction: false,
         }}
       >
-        {sliderImages?.map(image => {
+        {sliderImages.map((image, idx) => {
           return (
-            <SwiperSlide key={image.id}>
+            <SwiperSlide key={image.id + idx}>
               <Image
                 className="h-[38px] w-min md:h-[42px] xl:h-[84px]"
                 priority
