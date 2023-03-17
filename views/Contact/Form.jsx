@@ -171,7 +171,7 @@ const Form = ({ price, projectTypes }) => {
 
             <label
               htmlFor="deadline"
-              className={`absolute top-[50%] left-0 z-10 translate-y-[-50%] text-gray transition-all group-focus-within:translate-y-[-180%] group-focus-within:text-[12px] ${
+              className={`absolute left-0 bottom-2 z-10 text-gray transition-all group-focus-within:translate-y-[-180%] group-focus-within:text-[12px] ${
                 startDate ? 'translate-y-[-180%] text-[12px]' : 'text-middle'
               }`}
             >
