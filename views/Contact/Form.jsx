@@ -34,6 +34,10 @@ const Form = ({ price, projectTypes }) => {
   useEffect(() => {
     if (serverState.succeeded) {
       reset();
+      setAerial(0);
+      setExterior(0);
+      setInterior(0);
+      setStartDate('');
     }
   }, [serverState.succeeded, reset]);
 

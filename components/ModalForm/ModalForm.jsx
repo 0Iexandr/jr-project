@@ -25,7 +25,7 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
       reset();
       setTimeout(() => {
         setIsModalOpen(false);
-      }, 5000);
+      }, 3000);
     }
   }, [serverState.succeeded, reset]);
 
