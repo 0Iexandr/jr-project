@@ -10,6 +10,7 @@ import {
   Contact,
   Clients,
   Works,
+  TeamCopy,
 } from '@/views';
 import { DataRequest } from 'utils/request';
 
@@ -66,6 +67,7 @@ const Home = props => {
       <ContactUs data={feelFreeToContactUsSection} />
       <Clients data={clientsSection} />
       <Team data={teamSection.teamMember} />
+      <TeamCopy data={teamSection.teamMember} />
       <Works data={worksSection} />
       <Contact data={contactSection} />
       <Career data={careerSection} />
