@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-function Counter({ steps, current }) {
+const Counter = ({ steps, current }) => {
   return (
     <div className="text-middle">
       <span className="align-baseline text-[30px] font-bold leading-none md:text-[24px]  xl:text-[44px] ">
@@ -22,5 +23,11 @@ function Counter({ steps, current }) {
       </span>
     </div>
   );
-}
+};
+
 export default Counter;
+
+Counter.propTypes = {
+  current: PropTypes.number.isRequired,
+  steps: PropTypes.number.isRequired,
+};

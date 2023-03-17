@@ -4,7 +4,8 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Image from 'next/image';
 import css from './MansoryGallery.module.css';
 import { convertImage, toBase64 } from 'utils/blur';
-export const MasonryGallery = ({ itemData }) => {
+
+const MasonryGallery = ({ itemData }) => {
   return (
     <ImageList
       variant="masonry"
@@ -40,3 +41,4 @@ export const MasonryGallery = ({ itemData }) => {
     </ImageList>
   );
 };
+export default MasonryGallery;

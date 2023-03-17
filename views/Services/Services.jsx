@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import { Container } from 'components/Container/Container';
-import { ModalBtn } from 'components/ModalBtn/ModalBtn';
+import Container from 'components/Container/Container';
+import ModalBtn from 'components/ModalBtn/ModalBtn';
 
-export const Services = ({ data }) => {
+const Services = ({ data }) => {
   return (
     <section id="services" className="mb-[80px] md:mb-[100px] xl:mb-[120px]">
       <Container>
@@ -42,3 +42,5 @@ export const Services = ({ data }) => {
     </section>
   );
 };
+
+export default Services;

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { convertImage, toBase64 } from 'utils/blur';
 
-export const MobileGallery = ({ itemData }) => {
+const MobileGallery = ({ itemData }) => {
   return (
     <ul className=" flex flex-col gap-[60px] md:gap-[100px]">
       {itemData.map(item => (
@@ -21,3 +21,4 @@ export const MobileGallery = ({ itemData }) => {
     </ul>
   );
 };
+export default MobileGallery;

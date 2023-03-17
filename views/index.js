@@ -6,7 +6,5 @@ export * from './Contact/Contact';
 export * from './Career/Career';
 export * from './ContactUs/ContactUs';
 export * from './Team/Team';
-export * from './Team/Team1';
-export * from './Team/TeamCopy';
 export * from './Clients/Clients';
 export * from './Works/Works';

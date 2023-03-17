@@ -1,13 +1,12 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { ModalBtn } from 'components/ModalBtn/ModalBtn';
-import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import ModalBtn from 'components/ModalBtn/ModalBtn';
 
-const DynamicImage = dynamic(() => import('next/image'));
-
-export default function TeamMember({ person }) {
+const TeamMember = ({ person }) => {
   return (
     <>
-      <DynamicImage
+      <Image
         loading="lazy"
         src={person.photo.url}
         alt={person.name}
@@ -25,6 +24,18 @@ export default function TeamMember({ person }) {
       <ModalBtn text="send message" className="whiteBtn" />
     </>
   );
-}
+};
+export default TeamMember;
 
-// export default TeamMember;
+TeamMember.propTypes = {
+  person: PropTypes.shape({
+    description: PropTypes.string,
+    name: PropTypes.string,
+    photo: PropTypes.shape({
+      height: PropTypes.number,
+      url: PropTypes.string,
+      width: PropTypes.number,
+    }),
+    role: PropTypes.string,
+  }),
+};

@@ -1,11 +1,11 @@
-import { Container } from '@/components';
-import { FilterBtnList } from 'components/FilterBtnList/FilterBtnList';
-import { MasonryGallery } from 'components/MasonryGallery/MasonryGallery';
-import { MobileGallery } from 'components/MasonryGallery/MobileGallery';
+import Container from 'components/Container/Container';
+import FilterBtnList from 'components/FilterBtnList/FilterBtnList';
+import MasonryGallery from 'components/MasonryGallery/MasonryGallery';
+import MobileGallery from 'components/MasonryGallery/MobileGallery';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-export const Works = ({ data }) => {
+const Works = ({ data }) => {
   const formatedData = data?.work.map(el => {
     return {
       id: el.id,
@@ -100,3 +100,5 @@ export const Works = ({ data }) => {
     </section>
   );
 };
+
+export default Works;

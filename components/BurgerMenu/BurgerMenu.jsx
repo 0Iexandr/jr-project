@@ -1,10 +1,10 @@
-import { Logo } from 'components/Logo/Logo';
-import { ModalBtn } from 'components/ModalBtn/ModalBtn';
+import Logo from 'components/Logo/Logo';
+import ModalBtn from 'components/ModalBtn/ModalBtn';
 import Image from 'next/image';
 import { useState } from 'react';
 import { Link } from 'react-scroll';
 
-export const BurgerMenu = () => {
+const BurgerMenu = () => {
   const sections = ['Services', 'About us', 'Works', 'Contact', 'Career'];
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
@@ -48,3 +48,5 @@ export const BurgerMenu = () => {
     </div>
   );
 };
+
+export default BurgerMenu;

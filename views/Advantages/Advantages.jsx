@@ -1,7 +1,7 @@
-import { Container } from '@/components';
+import Container from 'components/Container/Container';
 import Image from 'next/image';
 
-export const Advantages = ({ data }) => {
+const Advantages = ({ data }) => {
   if (!data) {
     return null;
   }
@@ -36,3 +36,4 @@ export const Advantages = ({ data }) => {
     </section>
   );
 };
+export default Advantages;

@@ -1,9 +1,13 @@
-import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
+// import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
 // import { useState } from 'react';
 // import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-scroll';
+import dynamic from 'next/dynamic';
 
-export const NavBar = () => {
+const DynamicBurgerMenu = dynamic(() =>
+  import(/* webpackChunkName: "BurgerMenu" */ '../BurgerMenu/BurgerMenu'),
+);
+const NavBar = () => {
   // const isDesktop = useMediaQuery({
   //   query: '(min-width: 1320px)',
   // });
@@ -29,7 +33,8 @@ export const NavBar = () => {
           );
         })}
       </ul>
-      <BurgerMenu />
+      <DynamicBurgerMenu />
     </nav>
   );
 };
+export default NavBar;

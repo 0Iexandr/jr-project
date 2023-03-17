@@ -1,9 +1,9 @@
-import { Container } from '@/components';
+import Container from 'components/Container/Container';
+import Logo from 'components/Logo/Logo';
 import Image from 'next/image';
 import ArrowTop from 'public/arrow-top.svg';
-import { Logo } from '../../components/Logo/Logo';
 
-export const Footer = ({ data }) => {
+const Footer = ({ data }) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -76,3 +76,4 @@ export const Footer = ({ data }) => {
     </>
   );
 };
+export default Footer;

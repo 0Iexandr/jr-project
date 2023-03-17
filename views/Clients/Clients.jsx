@@ -1,7 +1,7 @@
-import { Container } from '@/components';
+import Container from 'components/Container/Container';
 import ClientsSlider from 'components/ClientsSlider/ClientsSlider';
 
-export const Clients = ({ data }) => {
+const Clients = ({ data }) => {
   return (
     <section className="mb-[80px]">
       <Container>
@@ -13,3 +13,4 @@ export const Clients = ({ data }) => {
     </section>
   );
 };
+export default Clients;

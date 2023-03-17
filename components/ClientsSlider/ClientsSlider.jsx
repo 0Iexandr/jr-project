@@ -7,7 +7,7 @@ import 'swiper/css/autoplay';
 import { EffectFade, Pagination, Autoplay } from 'swiper';
 import Image from 'next/image';
 
-export default function ClientsSlider({ sliderImages }) {
+const ClientsSlider = ({ sliderImages }) => {
   return (
     <div className="clients-swiper">
       <Swiper
@@ -60,4 +60,6 @@ export default function ClientsSlider({ sliderImages }) {
       </Swiper>
     </div>
   );
-}
+};
+
+export default ClientsSlider;
