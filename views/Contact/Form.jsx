@@ -255,6 +255,11 @@ const Form = ({ price, projectTypes }) => {
             The email was sent successfully
           </p>
         )}
+        {serverState.errors.length ? (
+          <p className="absolute bottom-[-33px] left-0 text-[20px] font-[500] leading-[24px] text-[#B60606]">
+            Something went wrong, please try again later
+          </p>
+        ) : null}
       </div>
     </form>
   );

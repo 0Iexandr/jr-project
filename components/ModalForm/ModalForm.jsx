@@ -23,12 +23,16 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
   useEffect(() => {
     if (serverState.succeeded) {
       reset();
+      setTimeout(() => {
+        setIsModalOpen(false);
+      }, 5000);
     }
   }, [serverState.succeeded, reset]);
 
   return (
     <Modal
       open={isModalOpen}
+      closeAfterTransition
       onClose={() => setIsModalOpen(false)}
       aria-labelledby="modal-contact-us"
       className="flex items-center justify-center bg-modalBg transition-all"
@@ -109,10 +113,15 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
               SEND
             </button>
             {serverState.succeeded && (
-              <p className="absolute bottom-[-53px] left-0 text-[20px] font-[500] leading-[24px] text-[#777777] min-[392px]:bottom-[-33px]">
+              <p className="absolute bottom-[-55px] left-0 text-[20px] font-[500] leading-[24px] text-[#777777] min-[392px]:bottom-[-33px]">
                 The email was sent successfully
               </p>
             )}
+            {serverState.errors.length ? (
+              <p className="absolute bottom-[-55px] left-0 text-[20px] font-[500] leading-[24px] text-[#B60606] min-[524px]:bottom-[-33px]">
+                Something went wrong, please try again later
+              </p>
+            ) : null}
           </div>
         </form>
       </div>
