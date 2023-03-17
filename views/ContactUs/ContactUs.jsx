@@ -1,8 +1,9 @@
-import { ModalBtn } from 'components/ModalBtn/ModalBtn';
-import { Container } from '@/components';
+import ModalBtn from 'components/ModalBtn/ModalBtn';
+import Container from 'components/Container/Container';
+import PropTypes from 'prop-types';
 import Markdown from 'markdown-to-jsx';
 
-export const ContactUs = ({ data }) => {
+const ContactUs = ({ data }) => {
   const { description } = data;
   return (
     <section className="mb-[80px]">
@@ -19,4 +20,17 @@ export const ContactUs = ({ data }) => {
       </Container>
     </section>
   );
+};
+
+export default ContactUs;
+
+ContactUs.propTypes = {
+  data: PropTypes.shape({
+    description: PropTypes.arrayOf(
+      PropTypes.shape({
+        description: PropTypes.string,
+        title: PropTypes.string,
+      }),
+    ),
+  }),
 };

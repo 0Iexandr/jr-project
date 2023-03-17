@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
-export const Logo = ({ isClickable, className = '' }) => {
+const Logo = ({ isClickable, className = '' }) => {
   return (
     <>
       {!isClickable && (
@@ -28,6 +28,8 @@ export const Logo = ({ isClickable, className = '' }) => {
     </>
   );
 };
+
+export default Logo;
 
 Logo.propTypes = {
   isClickable: PropTypes.bool,

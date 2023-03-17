@@ -1,7 +1,9 @@
 import '@/styles/globals.css';
-import { Layout } from 'layout';
+
+import Spinner from 'components/Spinner/Spinner';
+import Layout from 'layout/Layout/Layout';
+
 import { useEffect, useState } from 'react';
-import { Spinner } from '../components';
 
 export default function App({ Component, pageProps }) {
   return (

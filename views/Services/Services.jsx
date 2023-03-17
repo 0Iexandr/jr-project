@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { Container } from 'components/Container/Container';
-import { ModalBtn } from 'components/ModalBtn/ModalBtn';
+import Container from 'components/Container/Container';
+import ModalBtn from 'components/ModalBtn/ModalBtn';
 import Aos from 'aos';
 import { useEffect } from 'react';
 import 'aos/dist/aos.css';
 
-export const Services = ({ data }) => {
+const Services = ({ data }) => {
   useEffect(() => {
     Aos.init();
   }, []);
@@ -55,3 +55,5 @@ export const Services = ({ data }) => {
     </section>
   );
 };
+
+export default Services;

@@ -1,17 +1,33 @@
 import Head from 'next/head';
-import {
-  Career,
-  ContactUs,
-  Hero,
-  HowWeWork,
-  Services,
-  Team,
-  Advantages,
-  Contact,
-  Clients,
-  Works,
-} from '@/views';
 import { DataRequest } from 'utils/request';
+import dynamic from 'next/dynamic';
+import Hero from 'views/Hero/Hero';
+import Services from 'views/Services/Services';
+
+const DynamicCareer = dynamic(() =>
+  import(/* webpackChunkName: "Career" */ '../views/Career/Career'),
+);
+const DynamicContactUs = dynamic(() =>
+  import(/* webpackChunkName: "ContactUs" */ '../views/ContactUs/ContactUs'),
+);
+const DynamicHowWeWork = dynamic(() =>
+  import(/* webpackChunkName: "HowWeWork" */ '../views/HowWeWork/HowWeWork'),
+);
+const DynamicAdvantages = dynamic(() =>
+  import(/* webpackChunkName: "Advantages" */ '../views/Advantages/Advantages'),
+);
+const DynamicContact = dynamic(() =>
+  import(/* webpackChunkName: "Contact" */ '../views/Contact/Contact'),
+);
+const DynamicClients = dynamic(() =>
+  import(/* webpackChunkName: "Clients" */ '../views/Clients/Clients'),
+);
+const DynamicWorks = dynamic(() =>
+  import(/* webpackChunkName: "Works" */ '../views/Works/Works'),
+);
+const DynamicTeam = dynamic(() =>
+  import(/* webpackChunkName: "Team" */ '../views/Team/Team'),
+);
 
 export async function getStaticProps() {
   const data = await DataRequest();
@@ -59,16 +75,16 @@ const Home = props => {
         <title>Jazz Render</title>
       </Head>
 
-      <Hero data={hero} />
+      <Hero data={hero.sliderImages} />
       <Services data={servicesSection} />
-      <Advantages data={whyChooseUsSection} />
-      <HowWeWork data={howWeWorkSection.step} />
-      <ContactUs data={feelFreeToContactUsSection} />
-      <Clients data={clientsSection} />
-      <Team data={teamSection.teamMember} />
-      <Works data={worksSection} />
-      <Contact data={contactSection} />
-      <Career data={careerSection} />
+      <DynamicAdvantages data={whyChooseUsSection} />
+      <DynamicHowWeWork data={howWeWorkSection.step} />
+      <DynamicContactUs data={feelFreeToContactUsSection} />
+      <DynamicClients data={clientsSection} />
+      <DynamicTeam data={teamSection.teamMember} />
+      <DynamicWorks data={worksSection} />
+      <DynamicContact data={contactSection} />
+      <DynamicCareer data={careerSection} />
     </>
   );
 };

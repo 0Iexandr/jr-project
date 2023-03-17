@@ -1,8 +1,9 @@
-import { Container } from '@/components';
+import Container from 'components/Container/Container';
 import WorkSlider from 'components/WorkSlider/WorkSlder';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export const HowWeWork = ({ data }) => {
+const HowWeWork = ({ data }) => {
   return (
     <section className="mb-[80px]" id="HowWeWork">
       <Container>
@@ -13,4 +14,10 @@ export const HowWeWork = ({ data }) => {
       </Container>
     </section>
   );
+};
+
+export default HowWeWork;
+
+HowWeWork.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape),
 };

@@ -1,8 +1,14 @@
+// import ModalForm from 'components/ModalForm/ModalForm';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { ModalForm } from '../ModalForm/ModalForm';
 
-export const ModalBtn = ({ text, className }) => {
+import dynamic from 'next/dynamic';
+
+const DynamicModalForm = dynamic(() =>
+  import(/* webpackChunkName: "ModalForm" */ '../ModalForm/ModalForm'),
+);
+
+const ModalBtn = ({ text, className }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>
@@ -13,11 +19,15 @@ export const ModalBtn = ({ text, className }) => {
         {text}
       </button>
       {isModalOpen && (
-        <ModalForm isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+        <DynamicModalForm
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
       )}
     </>
   );
 };
+export default ModalBtn;
 
 ModalBtn.propTypes = {
   text: PropTypes.node.isRequired,

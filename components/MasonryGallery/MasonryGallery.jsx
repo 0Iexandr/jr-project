@@ -49,3 +49,4 @@ export const MasonryGallery = ({ itemData }) => {
     </Masonry>
   );
 };
+export default MasonryGallery;

@@ -1,6 +1,6 @@
-import { Logo } from 'components/Logo/Logo';
-import { ModalBtn } from 'components/ModalBtn/ModalBtn';
-import { NavSections } from 'components/NavSections/NavSections';
+import Logo from 'components/Logo/Logo';
+import ModalBtn from 'components/ModalBtn/ModalBtn';
+import NavSections from 'components/NavSections/NavSections';
 import Image from 'next/image';
 
 export const BurgerMenu = ({ isNavOpen, setIsNavOpen }) => {
@@ -40,3 +40,5 @@ export const BurgerMenu = ({ isNavOpen, setIsNavOpen }) => {
     </div>
   );
 };
+
+export default BurgerMenu;

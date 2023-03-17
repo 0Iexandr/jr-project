@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Pagination, Autoplay, Controller } from 'swiper';
 import { useState } from 'react';
@@ -5,13 +6,14 @@ import Image from 'next/image';
 import Counter from 'components/Counter/Counter';
 import NextBtn from '../../public/nextBtn.svg';
 import PrevBtn from '../../public/prevBtn.svg';
+import { convertImage, toBase64 } from 'utils/blur';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
-import { convertImage, toBase64 } from 'utils/blur';
 
-export default function WorkSlider({ data }) {
+const WorkSlider = ({ data }) => {
+  console.log('data', data);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [textInstance, setTextInstance] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -106,11 +108,27 @@ export default function WorkSlider({ data }) {
                   convertImage(step.image.width, step.image.height),
                 )}`}
               />
-              <div className="swiper-lazy-preloader"></div>
             </SwiperSlide>
           );
         })}
       </Swiper>
     </div>
   );
-}
+};
+
+export default WorkSlider;
+
+WorkSlider.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string,
+      title: PropTypes.string,
+      id: PropTypes.string,
+      image: PropTypes.shape({
+        height: PropTypes.number,
+        url: PropTypes.string,
+        width: PropTypes.number,
+      }),
+    }),
+  ),
+};

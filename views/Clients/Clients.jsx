@@ -1,8 +1,8 @@
-import { Container } from '@/components';
+import Container from 'components/Container/Container';
 import ClientsSlider from 'components/ClientsSlider/ClientsSlider';
 import { useEffect, useState } from 'react';
 
-export const Clients = ({ data }) => {
+const Clients = ({ data }) => {
   const [sliderImages, setSliderImages] = useState(null);
   useEffect(() => {
     const updateArray = arr => {
@@ -25,3 +25,4 @@ export const Clients = ({ data }) => {
     </section>
   );
 };
+export default Clients;

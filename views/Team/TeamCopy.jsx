@@ -1,15 +1,16 @@
-import PropTypes from 'prop-types';
-import Container from 'components/Container/Container';
-import React from 'react';
-import TeamMember from 'components/TeamMember/TeamMember';
+import { Container } from '@/components';
+import dynamic from 'next/dynamic';
 
-const Team = ({ data }) => {
-  console.log('data', data);
+const DynamicTeamMember = dynamic(() =>
+  import('../../components/TeamMember/TeamMember'),
+);
+
+export const TeamCopy = ({ data }) => {
   return (
     <section id="team" className="mb-[80px]">
       <Container>
         <h2 className="sectionTitle mb-[32px] font-bold md:mb-[50px] xl:mb-[76px]">
-          Team
+          TeamCopy
         </h2>
         <ul className="flex flex-col gap-[60px] md:gap-[100px] xl:flex-row xl:justify-between xl:gap-[60px] ">
           {data.map(person => {
@@ -18,7 +19,7 @@ const Team = ({ data }) => {
                 key={person.id}
                 className="mx-auto text-start md:w-[412px] xl:w-[386px]"
               >
-                <TeamMember person={person} />
+                <DynamicTeamMember person={person} />
               </li>
             );
           })}
@@ -26,10 +27,4 @@ const Team = ({ data }) => {
       </Container>
     </section>
   );
-};
-
-export default Team;
-
-Team.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape),
 };

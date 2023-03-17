@@ -1,13 +1,20 @@
-import { Footer, Header } from 'layout';
+import Footer from 'layout/Footer/Footer';
+import Header from 'layout/Header/Header';
+import dynamic from 'next/dynamic';
 
-export const Layout = ({ data, children }) => {
+const DynamicFooter = dynamic(() =>
+  import(/* webpackChunkName: "Career" */ '../Footer/Footer'),
+);
+
+const Layout = ({ data, children }) => {
   return (
     <div>
       <Header />
 
       <main>{children}</main>
 
-      <Footer data={data} />
+      <DynamicFooter data={data} />
     </div>
   );
 };
+export default Layout;

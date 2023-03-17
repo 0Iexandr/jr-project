@@ -1,10 +1,15 @@
-import PropTypes from 'prop-types';
-import Container from 'components/Container/Container';
+// import Image from 'next/image';
 import React from 'react';
-import TeamMember from 'components/TeamMember/TeamMember';
+import { ModalBtn } from '@/components';
+import { Container } from '@/components';
+// import dynamic from 'next/dynamic';
+// import TeamMember from 'components/TeamMember/TeamMember';
 
-const Team = ({ data }) => {
-  console.log('data', data);
+// const DynamicTeamMember = dynamic(() =>
+//   import('../../components/TeamMember/TeamMember'),
+// );
+//  <TeamMember person={person} />;
+export const Team1 = ({ data }) => {
   return (
     <section id="team" className="mb-[80px]">
       <Container>
@@ -18,7 +23,7 @@ const Team = ({ data }) => {
                 key={person.id}
                 className="mx-auto text-start md:w-[412px] xl:w-[386px]"
               >
-                <TeamMember person={person} />
+                <ModalBtn text="send message" className="whiteBtn" />
               </li>
             );
           })}
@@ -26,10 +31,4 @@ const Team = ({ data }) => {
       </Container>
     </section>
   );
-};
-
-export default Team;
-
-Team.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape),
 };
