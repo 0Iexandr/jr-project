@@ -2,7 +2,15 @@ import * as React from 'react';
 import Image from 'next/image';
 import Masonry from '@mui/lab/Masonry';
 import { convertImage, toBase64 } from 'utils/blur';
+import * as basicLightbox from 'basiclightbox';
+import 'node_modules/basiclightbox/dist/basicLightbox.min.css';
 export const MasonryGallery = ({ itemData }) => {
+  function onImageClick(src) {
+    const instance = basicLightbox.create(`
+      <img src="${src}" width="800" height="600">
+    `);
+    instance.show();
+  }
   return (
     <Masonry
       columns={2}
@@ -12,7 +20,14 @@ export const MasonryGallery = ({ itemData }) => {
     >
       {itemData?.map(item => {
         return (
-          <li key={item.id} className="group relative">
+          <li
+            onClick={() => {
+              console.log(item.url);
+              onImageClick(item.url);
+            }}
+            key={item.id}
+            className="group relative"
+          >
             <Image
               className="h-auto w-full "
               src={item.url}

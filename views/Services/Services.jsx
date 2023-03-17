@@ -1,8 +1,14 @@
 import Image from 'next/image';
 import { Container } from 'components/Container/Container';
 import { ModalBtn } from 'components/ModalBtn/ModalBtn';
+import Aos from 'aos';
+import { useEffect } from 'react';
+import 'aos/dist/aos.css';
 
 export const Services = ({ data }) => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <section id="services" className="mb-[80px] md:mb-[100px] xl:mb-[120px]">
       <Container>
@@ -10,22 +16,29 @@ export const Services = ({ data }) => {
           Services
         </h2>
         <ul>
-          {data.service.map(el => {
+          {data.service.map((el, idx) => {
+            const isOdd = idx === 0 || idx % 2 === 0;
             return (
               <li
                 key={el.id}
                 className="mb-[60px] last:mb-0 md:mb-20 xl:mb-[100px] xl:flex xl:gap-[60px] xl:even:flex-row-reverse"
               >
-                <div className="mb-8 h-[calc(100vw-40px)] sm:h-[440px] sm:w-[440px] sm:pb-0 md:h-[329px] md:w-[648px] xl:mb-0 xl:h-[480px] xl:w-[945px]">
+                <div
+                  data-aos={isOdd ? 'fade-right' : 'fade-left'}
+                  className="mb-8 h-[calc(100vw-40px)] sm:h-[440px] sm:w-[440px] sm:pb-0 md:h-[329px] md:w-[648px] xl:mb-0 xl:h-[480px] xl:w-[945px]"
+                >
                   <Image
                     className="h-full w-full object-cover"
                     src={el.image.url}
                     alt={el.title}
-                    width={500}
-                    height={500}
+                    width={el.image.width}
+                    height={el.image.height}
                   />
                 </div>
-                <div className="xl:w-[275px]">
+                <div
+                  data-aos={isOdd ? 'fade-left' : 'fade-right'}
+                  className="xl:w-[275px]"
+                >
                   <h3 className="mb-4 text-xl font-bold leading-[26px] md:text-[24px] md:leading-[30px] xl:mb-6 xl:text-big ">
                     {el.title}
                   </h3>
