@@ -26,7 +26,7 @@ export const Services = ({ data }) => {
                   />
                 </div>
                 <div className="xl:w-[275px]">
-                  <h3 className="mb-4 text-xl font-bold leading-[26px] md:text-[24px] md:leading-[30px] xl:mb-6 xl:text-big">
+                  <h3 className="mb-4 text-xl font-bold leading-[26px] md:text-[24px] md:leading-[30px] xl:mb-6 xl:text-big ">
                     {el.title}
                   </h3>
                   <p className="mb-6 text-lg leading-[26px] text-gray xl:mb-8">
