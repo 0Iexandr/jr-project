@@ -37,6 +37,7 @@ export const query = gql`
         alt
         id
         image
+        url
       }
     }
     hero {

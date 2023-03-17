@@ -1,5 +1,6 @@
 import Container from 'components/Container/Container';
 import Logo from 'components/Logo/Logo';
+import Markdown from 'markdown-to-jsx';
 import Image from 'next/image';
 import ArrowTop from 'public/arrow-top.svg';
 
@@ -23,10 +24,10 @@ const Footer = ({ data }) => {
             <div className="mb-[50px] flex w-full flex-col items-center justify-between xl:mb-[24px] xl:flex-row xl:items-end">
               <div className="mb-[50px] flex flex-col items-center md:mb-[46px] xl:mb-0 xl:items-start">
                 <Logo className="mb-[21px] h-[49px] w-[82px] border-[1px] md:h-[51px] md:w-[84px]" />
-                <p className="flex max-w-[162px] flex-col items-center text-[16px] text-gray xl:items-start">
+                <div className="flex flex-col items-center text-[16px] text-gray xl:items-start">
                   <span>Jazz Render</span>
-                  <span>{data.footer.address}</span>
-                </p>
+                  <Markdown>{data.footer.address}</Markdown>
+                </div>
               </div>
               <div className="flex flex-col items-center gap-[40px] md:gap-[24px] xl:mb-[5px] xl:items-start xl:gap-[20px]">
                 <a
@@ -43,6 +44,7 @@ const Footer = ({ data }) => {
                           className="group block h-[44px] w-[44px] cursor-pointer transition-colors hover:bg-mainBlack focus:bg-mainBlack"
                           target="_blank"
                           rel="noopener noreferrer nofollow"
+                          href={icon.url}
                         >
                           <Image
                             src={icon.image.secure_url}

@@ -13,10 +13,12 @@ const Slider = ({ sliderImages }) => {
   return (
     <div>
       <Swiper
-        className=""
+        loop={true}
         modules={[EffectFade, Pagination, Autoplay]}
         effect="fade"
         pagination={{
+          dynamicBullets: true,
+          dynamicMainBullets: 1,
           clickable: true,
           bulletActiveClass: 'swiper-pagination-bullet-active',
           bulletClass: 'swiper-pagination-bullet',

@@ -14,3 +14,4 @@ export * from './ModalForm/ModalForm';
 export * from './Slider/Slider';
 export * from './TeamMember/TeamMember';
 export * from './WorkSlider/WorkSlder';
+export * from './Spinner/Spinner';

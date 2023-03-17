@@ -171,8 +171,8 @@ const Form = ({ price, projectTypes }) => {
 
             <label
               htmlFor="deadline"
-              className={`absolute left-0 top-[50%] z-10 translate-y-[-50%] text-gray transition-all group-focus-within:translate-y-[-200%] group-focus-within:text-[12px] ${
-                startDate ? 'translate-y-[-200%] text-[12px]' : 'text-middle'
+              className={`absolute left-0 bottom-2 z-10 text-gray transition-all group-focus-within:translate-y-[-180%] group-focus-within:text-[12px] ${
+                startDate ? 'translate-y-[-180%] text-[12px]' : 'text-middle'
               }`}
             >
               Deadline
@@ -255,6 +255,11 @@ const Form = ({ price, projectTypes }) => {
             The email was sent successfully
           </p>
         )}
+        {serverState.errors.length ? (
+          <p className="absolute bottom-[-33px] left-0 text-[20px] font-[500] leading-[24px] text-[#B60606]">
+            Something went wrong, please try again later
+          </p>
+        ) : null}
       </div>
     </form>
   );

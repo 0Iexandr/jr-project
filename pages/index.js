@@ -72,7 +72,7 @@ const Home = props => {
   return (
     <>
       <Head>
-        <title>Next App Template</title>
+        <title>Jazz Render</title>
       </Head>
 
       <Hero data={hero.sliderImages} />

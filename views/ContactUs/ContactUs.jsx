@@ -1,6 +1,7 @@
 import ModalBtn from 'components/ModalBtn/ModalBtn';
 import Container from 'components/Container/Container';
 import PropTypes from 'prop-types';
+import Markdown from 'markdown-to-jsx';
 
 const ContactUs = ({ data }) => {
   const { description } = data;
@@ -10,9 +11,9 @@ const ContactUs = ({ data }) => {
         <div className="mx-auto text-center md:w-[375px] xl:w-[590px]">
           <div className="mb-[24px] flex flex-col items-center justify-center gap-[20px]">
             <h2 className="sectionTitle font-bold">Feel Free to Contact Us</h2>
-            <p className="text-middle font-normal text-gray">
-              {description[0].description}
-            </p>
+            <div className="text-middle font-normal text-gray">
+              <Markdown>{description[0].description}</Markdown>
+            </div>
           </div>
           <ModalBtn text="start project" className="blackBtn" />
         </div>

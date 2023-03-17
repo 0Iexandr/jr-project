@@ -9,7 +9,9 @@ const Contact = ({ data }) => {
   return (
     <section id="contact">
       <Container>
-        <h2 className="contact__title">Contacts</h2>
+        <h2 className="sectionTitle mb-[24px] font-bold tracking-wide md:mb-[32px] md:text-left xl:mb-[76px]">
+          Contacts
+        </h2>
         <p className="contact__text">
           Make request using form below or send e-mail to{' '}
           <a
