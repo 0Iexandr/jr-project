@@ -133,15 +133,19 @@ body {
 }
 
 .blackBtn {
-  border: none;
   background-color: #222222;
   color: white;
 }
-
 .whiteBtn {
-  border: 2px solid #222222;
   color: #222222;
 }
+
+/* button:hover,
+button:focus {
+  border-color: #333333;
+  background-color: #333333;
+  color: white;
+} */
 
 input[type='text']:focus,
 input[type='tel']:focus,
