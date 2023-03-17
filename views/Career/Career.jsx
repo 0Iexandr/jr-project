@@ -1,5 +1,6 @@
 import { Container } from '@/components';
 import CVButton from 'components/CVButton/CVButton';
+import Markdown from 'markdown-to-jsx';
 
 export const Career = ({ data }) => {
   const { description, email } = data;
@@ -13,9 +14,11 @@ export const Career = ({ data }) => {
             <p className=" tracking-teighter sectionSubtitle font-bold">
               {description[0]?.title}
             </p>
-            <p className="text-middle font-normal text-gray md:w-[450px]">
+            {/* <p className="text-middle font-normal text-gray md:w-[450px]"> */}
+            <Markdown className="text-middle font-normal text-gray">
               {description[0].description}
-            </p>
+            </Markdown>
+            {/* </p> */}
           </div>
           <CVButton href={`mailto:${email}`} text="download cv" />
         </div>
