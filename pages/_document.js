@@ -24,7 +24,6 @@ export default function Document() {
         <meta property="og:url" content="https://jr-project-lpqw.vercel.app/" />
         <meta property="og:site_name" content="Jazz Render" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="robots" content="noindex, nofollow" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

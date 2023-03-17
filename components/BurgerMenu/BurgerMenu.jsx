@@ -6,7 +6,10 @@ import Image from 'next/image';
 export const BurgerMenu = ({ isNavOpen, setIsNavOpen }) => {
   return (
     <div className="flex xl:hidden ">
-      <button onClick={() => setIsNavOpen(prev => !prev)}>
+      <button
+        onClick={() => setIsNavOpen(prev => !prev)}
+        aria-label="next-element"
+      >
         <Image src="/burger.svg" alt="menu" width={35} height={18} />
       </button>
       <div
@@ -21,7 +24,7 @@ export const BurgerMenu = ({ isNavOpen, setIsNavOpen }) => {
             isClickable={true}
             className="h-[24px] w-[40px] md:h-[30px] md:w-[50px] xl:h-[48px] xl:w-[80px]"
           />
-          <button onClick={() => setIsNavOpen(false)}>
+          <button onClick={() => setIsNavOpen(false)} aria-label="next-element">
             <Image src="/close.svg" alt="close" width={16} height={16} />
           </button>
         </div>
