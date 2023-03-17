@@ -25,7 +25,9 @@ export const Footer = ({ data }) => {
                 <Logo className="mb-[21px] h-[49px] w-[82px] border-[1px] md:h-[51px] md:w-[84px]" />
                 <p className="flex max-w-[162px] flex-col items-center text-[16px] text-gray xl:items-start">
                   <span>Jazz Render</span>
-                  <span>{data.footer.address}</span>
+                  <span className="text-center xl:text-left">
+                    {data.footer.address}
+                  </span>
                 </p>
               </div>
               <div className="flex flex-col items-center gap-[40px] md:gap-[24px] xl:mb-[5px] xl:items-start xl:gap-[20px]">
