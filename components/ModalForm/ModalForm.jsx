@@ -2,7 +2,7 @@ import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { schema } from '../../utils/schema';
+import { modalFormSchema as schema } from '../../utils/schema';
 import Modal from '@mui/material/Modal';
 import Close from 'public/close.svg';
 
@@ -56,14 +56,12 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
                 name="name"
                 placeholder=" "
                 {...register('name')}
-                className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
+                className="form__input"
               />
-              <span className="pointer-events-none absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px]">
-                Your Name*
-              </span>
+              <span className="form__label">Your Name*</span>
             </label>
             {errors?.name && (
-              <p className="mb-24px absolute left-0 bottom-[-17px] text-[11px] leading-[13px] text-[#B60606]">
+              <p className="absolute left-0 bottom-[-17px] text-[11px] leading-[13px] text-[#B60606]">
                 {errors.name.message}
               </p>
             )}
@@ -75,14 +73,12 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
                 name="phone"
                 placeholder=" "
                 {...register('phone')}
-                className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
+                className="form__input"
               />
-              <span className="pointer-events-none absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px]">
-                Telephone*
-              </span>
+              <span className="form__label">Telephone*</span>
             </label>
             {errors?.phone && (
-              <p className="mb-24px absolute left-0 bottom-[-17px] text-[11px] leading-[13px] text-[#B60606]">
+              <p className="absolute left-0 bottom-[-17px] text-[11px] leading-[13px] text-[#B60606]">
                 {errors.phone.message}
               </p>
             )}
@@ -94,31 +90,31 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
                 name="email"
                 placeholder=" "
                 {...register('email')}
-                className="peer w-full border-0 border-b-[1px] border-additionalGray px-0 outline-none"
+                className="form__input"
               />
-              <span className="pointer-events-none absolute top-[50%] translate-y-[-170%] text-[12px] text-gray transition-transform peer-placeholder-shown:translate-y-[-50%] peer-placeholder-shown:text-middle peer-focus:translate-y-[-170%] peer-focus:text-[12px]">
-                Your Email*
-              </span>
+              <span className="form__label">Your Email*</span>
             </label>
             {errors?.email && (
-              <p className="mb-24px absolute left-0 bottom-[-17px] text-[11px] leading-[13px] text-[#B60606]">
+              <p className="absolute left-0 bottom-[-17px] text-[11px] leading-[13px] text-[#B60606]">
                 {errors.email.message}
               </p>
             )}
           </div>
-
-          <button
-            type="submit"
-            className="bg-black py-[10px] px-[70px] font-[700] leading-[1.3] tracking-[0.05em] text-white  hover:bg-[#333333] focus:bg-[#333333]"
-          >
-            SEND
-          </button>
+          <div className="relative">
+            <button
+              type="submit"
+              disabled={serverState.submitting}
+              className="bg-black py-[10px] px-[70px] font-[700] leading-[1.3] tracking-[0.05em] text-white disabled:bg-additionalGray"
+            >
+              SEND
+            </button>
+            {true && (
+              <p className="absolute bottom-[-33px] left-0 text-[20px] font-[500] leading-[24px] text-[#777777]">
+                The email was sent successfully
+              </p>
+            )}
+          </div>
         </form>
-        {serverState.succeeded && (
-          <p className="mt-[12px] text-[20px] font-[500] leading-[24px] text-[#777777]">
-            The email was sent successfully
-          </p>
-        )}
       </div>
     </Modal>
   );
