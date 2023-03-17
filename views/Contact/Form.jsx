@@ -21,7 +21,7 @@ const Form = ({ price, projectTypes }) => {
 
   const totalImgQty = aerial + exterior + interior;
   const totalPrice = totalImgQty * price;
-  console.log(!!startDate);
+
   const {
     register,
     handleSubmit,
