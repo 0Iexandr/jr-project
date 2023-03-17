@@ -104,7 +104,7 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
             <button
               type="submit"
               disabled={serverState.submitting}
-              className="bg-black py-[10px] px-[70px] font-[700] leading-[1.3] tracking-[0.05em] text-white disabled:bg-additionalGray"
+              className="bg-black py-[10px] px-[70px] font-[700] leading-[1.3] tracking-[0.05em] text-white transition-colors hover:bg-[#333333] disabled:bg-additionalGray"
             >
               SEND
             </button>
