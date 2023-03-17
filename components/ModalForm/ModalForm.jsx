@@ -108,7 +108,7 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
             >
               SEND
             </button>
-            {true && (
+            {serverState.succeeded && (
               <p className="absolute bottom-[-53px] left-0 text-[20px] font-[500] leading-[24px] text-[#777777] min-[392px]:bottom-[-33px]">
                 The email was sent successfully
               </p>
