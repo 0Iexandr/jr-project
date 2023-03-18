@@ -13,7 +13,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
 const WorkSlider = ({ data }) => {
-  console.log('data', data);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [textInstance, setTextInstance] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -4,7 +4,6 @@ import React from 'react';
 import TeamMember from 'components/TeamMember/TeamMember';
 
 const Team = ({ data }) => {
-  console.log('data', data);
   return (
     <section id="team" className="mb-[80px]">
       <Container>
