@@ -22,7 +22,6 @@ export const MasonryGallery = ({ itemData }) => {
         return (
           <li
             onClick={() => {
-              console.log(item.url);
               onImageClick(item.url);
             }}
             key={item.id}
@@ -49,3 +48,4 @@ export const MasonryGallery = ({ itemData }) => {
     </Masonry>
   );
 };
+export default MasonryGallery;

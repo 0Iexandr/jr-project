@@ -8,7 +8,7 @@ import { EffectFade, Pagination, Autoplay } from 'swiper';
 import Image from 'next/image';
 import { useMediaQuery } from 'react-responsive';
 
-export default function ClientsSlider({ sliderImages }) {
+const ClientsSlider = ({ sliderImages }) => {
   const isDesctop = useMediaQuery({
     query: '(min-width: 1320px)',
   });
@@ -52,4 +52,6 @@ export default function ClientsSlider({ sliderImages }) {
       </Swiper>
     </div>
   );
-}
+};
+
+export default ClientsSlider;

@@ -1,7 +1,7 @@
-import { Container } from '../../components';
+import Container from 'components/Container/Container';
 import Form from './Form';
 
-export const Contact = ({ data }) => {
+const Contact = ({ data }) => {
   if (!data) {
     return null;
   }
@@ -26,3 +26,4 @@ export const Contact = ({ data }) => {
     </section>
   );
 };
+export default Contact;

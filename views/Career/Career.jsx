@@ -1,8 +1,9 @@
-import { Container } from '@/components';
-import CVButton from 'components/CVButton/CVButton';
+import PropTypes from 'prop-types';
 import Markdown from 'markdown-to-jsx';
+import CVButton from 'components/CVButton/CVButton';
+import Container from 'components/Container/Container';
 
-export const Career = ({ data }) => {
+const Career = ({ data }) => {
   const { description, email } = data;
 
   return (
@@ -25,4 +26,16 @@ export const Career = ({ data }) => {
       </Container>
     </section>
   );
+};
+export default Career;
+Career.propTypes = {
+  data: PropTypes.shape({
+    description: PropTypes.arrayOf(
+      PropTypes.shape({
+        description: PropTypes.string,
+        title: PropTypes.string,
+      }),
+    ),
+    email: PropTypes.string,
+  }),
 };

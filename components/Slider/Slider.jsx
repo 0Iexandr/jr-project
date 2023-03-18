@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -8,14 +9,16 @@ import { EffectFade, Pagination, Autoplay } from 'swiper';
 import Image from 'next/image';
 import { convertImage, toBase64 } from 'utils/blur';
 
-export default function Slider({ sliderImages }) {
+const Slider = ({ sliderImages }) => {
   return (
     <div>
       <Swiper
-        className=""
+        loop={true}
         modules={[EffectFade, Pagination, Autoplay]}
         effect="fade"
         pagination={{
+          dynamicBullets: true,
+          dynamicMainBullets: 1,
           clickable: true,
           bulletActiveClass: 'swiper-pagination-bullet-active',
           bulletClass: 'swiper-pagination-bullet',
@@ -46,4 +49,18 @@ export default function Slider({ sliderImages }) {
       </Swiper>
     </div>
   );
-}
+};
+export default Slider;
+Slider.propTypes = {
+  sliderImages: PropTypes.arrayOf(
+    PropTypes.shape({
+      alt: PropTypes.string,
+      id: PropTypes.string,
+      image: PropTypes.shape({
+        height: PropTypes.number,
+        url: PropTypes.string,
+        width: PropTypes.number,
+      }),
+    }),
+  ),
+};
