@@ -263,3 +263,12 @@ textarea:focus {
     transform: translate(24px, 0);
   }
 }
+
+.footer__address {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: center;
+}

@@ -9,7 +9,7 @@ const Contact = ({ data }) => {
   return (
     <section id="contact">
       <Container>
-        <h2 className="sectionTitle mb-[24px] font-bold tracking-wide md:mb-[32px] md:text-left xl:mb-[76px]">
+        <h2 className="sectionTitle mt-[50px] mb-[24px] font-bold tracking-wide md:mb-[32px] md:text-left xl:mb-[76px] text-center">
           Contacts
         </h2>
         <p className="contact__text">

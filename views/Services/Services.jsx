@@ -4,6 +4,7 @@ import ModalBtn from 'components/ModalBtn/ModalBtn';
 import Aos from 'aos';
 import { useEffect } from 'react';
 import 'aos/dist/aos.css';
+import { convertImage, toBase64 } from 'utils/blur';
 
 const Services = ({ data }) => {
   useEffect(() => {
@@ -11,7 +12,7 @@ const Services = ({ data }) => {
   }, []);
   return (
     <section id="services" className="mb-[80px] md:mb-[100px] xl:mb-[120px]">
-      <Container>
+      <Container className="overflow-hidden">
         <h2 className="mb-8 text-3xl font-bold md:mb-10 md:text-[34px] md:leading-10 xl:mb-[4.75rem] xl:text-large">
           Services
         </h2>
@@ -29,10 +30,13 @@ const Services = ({ data }) => {
                 >
                   <Image
                     className="h-full w-full object-cover"
-                    src={el.image.url}
+                    src={el.image.secure_url}
                     alt={el.title}
                     width={el.image.width}
                     height={el.image.height}
+                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                      convertImage(el.image.width, el.image.height),
+                    )}`}
                   />
                 </div>
                 <div

@@ -11,6 +11,7 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
+import Markdown from 'markdown-to-jsx';
 
 const WorkSlider = ({ data }) => {
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -73,7 +74,9 @@ const WorkSlider = ({ data }) => {
                 <h2 className="sectionSubtitle mb-[16px] font-bold xl:mb-[24px] xl:leading-[36px]  ">
                   {post.title}
                 </h2>
-                <p className=" text-middle text-gray">{post.description}</p>
+                <div className=" text-middle text-gray prose">
+                  <Markdown>{post.description}</Markdown>
+                </div>
               </SwiperSlide>
             );
           })}
@@ -99,7 +102,7 @@ const WorkSlider = ({ data }) => {
                 loading="lazy"
                 className="min-h-[159px] object-cover md:h-[368px] xl:h-[540px] xl:w-[945px]"
                 alt={step.title}
-                src={step.image.url}
+                src={step.image.secure_url}
                 width={step.image.width}
                 height={step.image.height}
                 placeholder="blur"

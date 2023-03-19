@@ -9,17 +9,15 @@ const Career = ({ data }) => {
   return (
     <section id="career" className="mb-[80px]">
       <Container>
-        <div className="mx-auto text-center md:w-[450px] xl:w-[690px]">
-          <div className="mt-[50px] flex flex-col items-center justify-center gap-[20px] ">
+        <div className="mx-auto text-center xl:w-[700px]">
+          <div className="mt-[50px] flex flex-col items-center justify-center gap-[20px]">
             <h2 className="sectionTitle font-bold tracking-wide">Career</h2>
-            <p className=" tracking-teighter sectionSubtitle font-bold">
+            <p className=" tracking-teighter sectionSubtitle font-bold sm:w-[280px] md:w-[400px] xl:w-max">
               {description[0]?.title}
             </p>
-            {/* <p className="text-middle font-normal text-gray md:w-[450px]"> */}
-            <Markdown className="text-middle font-normal text-gray">
-              {description[0].description}
-            </Markdown>
-            {/* </p> */}
+            <div className="prose text-middle font-normal text-gray w-[280px] md:w-[440px] xl:w-[500px]">
+              <Markdown>{description[0].description}</Markdown>
+            </div>
           </div>
           <CVButton href={`mailto:${email}`} text="download cv" />
         </div>
