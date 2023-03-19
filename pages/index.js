@@ -29,32 +29,6 @@ const DynamicTeam = dynamic(() =>
   import(/* webpackChunkName: "Team" */ '../views/Team/Team'),
 );
 
-export async function getStaticProps() {
-  const data = await DataRequest();
-
-  if (!data) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      hero: data.hero,
-      servicesSection: data.servicesSection,
-      whyChooseUsSection: data.whyChooseUsSection,
-      howWeWorkSection: data.howWeWorkSection,
-      feelFreeToContactUsSection: data.feelFreeToContactUsSection,
-      teamSection: data.teamSection,
-      contactSection: data.contactSection,
-      careerSection: data.careerSection,
-      worksSection: data.worksSection,
-      clientsSection: data.clientsSection,
-      footer: data.footer,
-    },
-  };
-}
-
 const Home = props => {
   const {
     hero,
@@ -90,3 +64,29 @@ const Home = props => {
 };
 
 export default Home;
+
+export async function getStaticProps() {
+  const data = await DataRequest();
+
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      hero: data.hero,
+      servicesSection: data.servicesSection,
+      whyChooseUsSection: data.whyChooseUsSection,
+      howWeWorkSection: data.howWeWorkSection,
+      feelFreeToContactUsSection: data.feelFreeToContactUsSection,
+      teamSection: data.teamSection,
+      contactSection: data.contactSection,
+      careerSection: data.careerSection,
+      worksSection: data.worksSection,
+      clientsSection: data.clientsSection,
+      footer: data.footer,
+    },
+  };
+}

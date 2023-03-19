@@ -1,13 +1,19 @@
 import Container from 'components/Container/Container';
 import Form from './Form';
+import { useInView } from 'react-intersection-observer';
 
 const Contact = ({ data }) => {
+  const { ref, inView } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+
   if (!data) {
     return null;
   }
 
   return (
-    <section id="contact">
+    <section id="contact" ref={ref}>
       <Container>
         <h2 className="sectionTitle mt-[50px] mb-[24px] text-center font-bold tracking-wide md:mb-[32px] md:text-left xl:mb-[76px]">
           Contacts
@@ -21,7 +27,7 @@ const Contact = ({ data }) => {
             {data.email}
           </a>
         </p>
-        <Form price={data.price} projectTypes={data.projectTypes} />
+        {inView && <Form price={data.price} projectTypes={data.projectTypes} />}
       </Container>
     </section>
   );
