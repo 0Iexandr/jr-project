@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { useForm } from 'react-hook-form';
@@ -270,3 +271,13 @@ const Form = ({ price, projectTypes }) => {
 };
 
 export default Form;
+
+Form.propTypes = {
+  price: PropTypes.number.isRequired,
+  projectTypes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};

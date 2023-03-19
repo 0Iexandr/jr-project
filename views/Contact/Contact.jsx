@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Container from 'components/Container/Container';
 import Form from '../../components/Form/Form';
 import { useInView } from 'react-intersection-observer';
@@ -33,3 +34,16 @@ const Contact = ({ data }) => {
   );
 };
 export default Contact;
+
+Contact.propTypes = {
+  data: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    projectTypes: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        title: PropTypes.string,
+      }),
+    ).isRequired,
+  }),
+};

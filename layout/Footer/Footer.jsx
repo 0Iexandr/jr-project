@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Container from 'components/Container/Container';
 import Logo from 'components/Logo/Logo';
 import Markdown from 'markdown-to-jsx';
@@ -81,3 +82,22 @@ const Footer = ({ data }) => {
   );
 };
 export default Footer;
+
+Footer.propTypes = {
+  data: PropTypes.shape({
+    footer: PropTypes.shape({
+      address: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      socialIcons: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          url: PropTypes.string.isRequired,
+          image: PropTypes.shape({
+            secure_url: PropTypes.string.isRequired,
+          }).isRequired,
+          alt: PropTypes.string.isRequired,
+        }),
+      ).isRequired,
+    }).isRequired,
+  }),
+};
