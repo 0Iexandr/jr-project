@@ -9,6 +9,7 @@ const nextConfig = {
       },
     ],
     domains: ['res.cloudinary.com'],
+    minimumCacheTTL: 60,
   },
   webpack: config => {
     config.module.rules.push({

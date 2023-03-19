@@ -34,7 +34,7 @@ const Slider = ({ sliderImages }) => {
               <Image
                 priority
                 alt={image.alt}
-                src={image.image.url}
+                src={image.image.secure_url}
                 width={image.image.width}
                 height={image.image.height}
                 className="h-[380px] object-cover md:h-[420px] xl:h-[656px]"

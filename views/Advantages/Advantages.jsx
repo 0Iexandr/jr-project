@@ -19,7 +19,7 @@ const Advantages = ({ data }) => {
               className="flex flex-col justify-start md:w-[calc((100%-60px)/2)] xl:w-[calc((100%-180px)/4)]"
             >
               <Image
-                src={image.url}
+                src={image.secure_url}
                 alt={title}
                 width={54}
                 height={54}

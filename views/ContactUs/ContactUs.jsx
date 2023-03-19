@@ -11,7 +11,7 @@ const ContactUs = ({ data }) => {
         <div className="mx-auto text-center md:w-[375px] xl:w-[590px]">
           <div className="mb-[24px] flex flex-col items-center justify-center gap-[20px]">
             <h2 className="sectionTitle font-bold">Feel Free to Contact Us</h2>
-            <div className="text-middle font-normal text-gray">
+            <div className="prose w-[230px] text-middle font-normal text-gray md:w-[380px]">
               <Markdown>{description[0].description}</Markdown>
             </div>
           </div>

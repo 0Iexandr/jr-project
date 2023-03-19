@@ -42,7 +42,7 @@ const ClientsSlider = ({ sliderImages }) => {
                 className="h-[38px] w-min md:h-[42px] xl:h-[84px]"
                 priority
                 alt={image.alt}
-                src={image.image.url}
+                src={image.image.secure_url}
                 width={image.image.width}
                 height={image.image.height}
               />

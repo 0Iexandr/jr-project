@@ -37,7 +37,7 @@ const Works = ({ data }) => {
         id: el.id,
         alt: el.alt,
         title: el.alt,
-        url: el.image.url,
+        url: el.image.secure_url,
         type: el.workType,
         width: el.image.width,
         height: el.image.height,
