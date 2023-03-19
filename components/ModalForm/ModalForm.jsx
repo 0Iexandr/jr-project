@@ -27,7 +27,7 @@ const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
         setIsModalOpen(false);
       }, 5000);
     }
-  }, [serverState.succeeded, reset]);
+  }, [serverState.succeeded, reset, setIsModalOpen]);
 
   return (
     <Modal

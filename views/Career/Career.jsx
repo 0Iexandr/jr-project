@@ -15,7 +15,7 @@ const Career = ({ data }) => {
             <p className=" tracking-teighter sectionSubtitle font-bold sm:w-[280px] md:w-[400px] xl:w-max">
               {description[0]?.title}
             </p>
-            <div className="prose text-middle font-normal text-gray w-[280px] md:w-[440px] xl:w-[500px]">
+            <div className="prose w-[280px] text-middle font-normal text-gray md:w-[440px] xl:w-[500px]">
               <Markdown>{description[0].description}</Markdown>
             </div>
           </div>

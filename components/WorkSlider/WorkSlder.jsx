@@ -74,7 +74,7 @@ const WorkSlider = ({ data }) => {
                 <h2 className="sectionSubtitle mb-[16px] font-bold xl:mb-[24px] xl:leading-[36px]  ">
                   {post.title}
                 </h2>
-                <div className=" text-middle text-gray prose">
+                <div className=" prose text-middle text-gray">
                   <Markdown>{post.description}</Markdown>
                 </div>
               </SwiperSlide>

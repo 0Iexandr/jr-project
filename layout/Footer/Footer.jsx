@@ -26,7 +26,7 @@ const Footer = ({ data }) => {
                 <Logo className="mb-[21px] h-[49px] w-[82px] border-[1px] md:h-[51px] md:w-[84px]" />
                 <div className="flex flex-col items-center text-[16px] text-gray xl:items-start">
                   <span>Jazz Render</span>
-                  <div className="footer__address prose text-center xl:text-start text-gray">
+                  <div className="footer__address prose text-center text-gray xl:text-start">
                     <Markdown>{data.footer.address}</Markdown>
                   </div>
                 </div>
