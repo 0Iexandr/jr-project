@@ -14,7 +14,7 @@ export default function Document() {
         <meta name="robots" content="noindex, follow" />
         <meta name="google" content="notranslate" />
         <meta name="format-detection" content="telephone=no" />
-        {/* <meta property="og:title" content="Jazz Render" /> */}
+        <meta property="og:title" content="Jazz Render" />
         <meta property="og:image" content="/linkimg.png" />
         <meta property="og:image:width" content="800" />
         <meta property="og:image:height" content="600" />

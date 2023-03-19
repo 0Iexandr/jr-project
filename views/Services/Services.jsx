@@ -11,7 +11,10 @@ const Services = ({ data }) => {
     Aos.init();
   }, []);
   return (
-    <section id="services" className="mb-[80px] md:mb-[100px] xl:mb-[120px]">
+    <section
+      id="services"
+      className="sections__padding pt-[80px] xl:pt-[100px]"
+    >
       <Container className="overflow-hidden">
         <h2 className="mb-8 text-3xl font-bold md:mb-10 md:text-[34px] md:leading-10 xl:mb-[4.75rem] xl:text-large">
           Services
@@ -34,6 +37,7 @@ const Services = ({ data }) => {
                     alt={el.title}
                     width={el.image.width}
                     height={el.image.height}
+                    placeholder="blur"
                     blurDataURL={`data:image/svg+xml;base64,${toBase64(
                       convertImage(el.image.width, el.image.height),
                     )}`}

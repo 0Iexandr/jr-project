@@ -51,11 +51,13 @@ const Home = props => {
 
       <Hero data={hero.sliderImages} />
       <Services data={servicesSection} />
-      <DynamicAdvantages data={whyChooseUsSection} />
-      <DynamicHowWeWork data={howWeWorkSection.step} />
-      <DynamicContactUs data={feelFreeToContactUsSection} />
-      <DynamicClients data={clientsSection} />
-      <DynamicTeam data={teamSection.teamMember} />
+      <div id="about us">
+        <DynamicAdvantages data={whyChooseUsSection} />
+        <DynamicHowWeWork data={howWeWorkSection.step} />
+        <DynamicContactUs data={feelFreeToContactUsSection} />
+        <DynamicClients data={clientsSection} />
+        <DynamicTeam data={teamSection.teamMember} />
+      </div>
       <DynamicWorks data={worksSection} />
       <DynamicContact data={contactSection} />
       <DynamicCareer data={careerSection} />

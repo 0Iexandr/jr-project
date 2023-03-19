@@ -81,11 +81,7 @@ const Works = ({ data }) => {
   };
 
   return (
-    <section
-      ref={ref}
-      id="works"
-      className="mb-[80px] md:mb-[100px] xl:mb-[120px]"
-    >
+    <section ref={ref} id="works" className="sections__padding">
       <Container>
         {inView && (
           <div>

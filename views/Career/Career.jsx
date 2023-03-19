@@ -7,10 +7,10 @@ const Career = ({ data }) => {
   const { description, email } = data;
 
   return (
-    <section id="career" className="mb-[80px]">
+    <section id="career" className="sections__padding">
       <Container>
         <div className="mx-auto text-center xl:w-[700px]">
-          <div className="mt-[50px] flex flex-col items-center justify-center gap-[20px]">
+          <div className="flex flex-col items-center justify-center gap-[20px]">
             <h2 className="sectionTitle font-bold tracking-wide">Career</h2>
             <p className=" tracking-teighter sectionSubtitle font-bold sm:w-[280px] md:w-[400px] xl:w-max">
               {description[0]?.title}

@@ -1,5 +1,5 @@
 import Container from 'components/Container/Container';
-import Form from './Form';
+import Form from '../../components/Form/Form';
 import { useInView } from 'react-intersection-observer';
 
 const Contact = ({ data }) => {
@@ -13,9 +13,9 @@ const Contact = ({ data }) => {
   }
 
   return (
-    <section id="contact" ref={ref}>
+    <section id="contact" className="sections__padding" ref={ref}>
       <Container>
-        <h2 className="sectionTitle mt-[50px] mb-[24px] text-center font-bold tracking-wide md:mb-[32px] md:text-left xl:mb-[76px]">
+        <h2 className="sectionTitle mb-[24px] text-center font-bold tracking-wide md:mb-[32px] md:text-left xl:mb-[76px]">
           Contacts
         </h2>
         <p className="contact__text">

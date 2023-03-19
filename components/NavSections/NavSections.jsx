@@ -1,5 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-scroll';
+import PropTypes from 'prop-types';
 
 const NavSections = ({ className, setIsNavOpen }) => {
   const sections = ['Services', 'About us', 'Works', 'Contact', 'Career'];
@@ -13,7 +14,7 @@ const NavSections = ({ className, setIsNavOpen }) => {
         return (
           <li key={idx}>
             <Link
-              offset={-80}
+              offset={-77}
               href="/"
               activeClass="nav-active"
               smooth={true}
@@ -31,3 +32,7 @@ const NavSections = ({ className, setIsNavOpen }) => {
   );
 };
 export default NavSections;
+
+NavSections.propTypes = {
+  className: PropTypes.string,
+};

@@ -21,11 +21,6 @@ body {
 }
 
 @layer components {
-  /* example with tailwind */
-  /* .btn {
-    @apply inline-flex whitespace-nowrap rounded bg-pink-600 px-4 py-2 font-bold uppercase text-slate-50 transition-colors hover:bg-pink-500;
-  } */
-
   .center {
     display: flex;
     justify-content: center;
@@ -139,13 +134,6 @@ body {
 .whiteBtn {
   color: #222222;
 }
-
-/* button:hover,
-button:focus {
-  border-color: #333333;
-  background-color: #333333;
-  color: white;
-} */
 
 input[type='text']:focus,
 input[type='tel']:focus,
@@ -271,4 +259,8 @@ textarea:focus {
   font-size: 16px;
   line-height: 23px;
   text-align: center;
+}
+
+.sections__padding {
+  @apply sm:pb-[80px] md:pb-[100px] xl:pb-[120px];
 }

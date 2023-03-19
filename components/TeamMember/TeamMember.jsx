@@ -14,6 +14,7 @@ const TeamMember = ({ person }) => {
         width={person.photo.width}
         height={person.photo.height}
         className="mb-[24px]"
+        placeholder="blur"
         blurDataURL={`data:image/svg+xml;base64,${toBase64(
           convertImage(person.photo.width, person.photo.height),
         )}`}

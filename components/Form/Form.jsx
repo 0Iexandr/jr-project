@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { contactFormSchema as schema } from '../../utils/schema';
-import Comments from './Comments';
+import Comments from '../Comments/Comments';
 import Check from 'public/check.svg';
 import Plus from 'public/plus.svg';
 import Minus from 'public/minus.svg';
@@ -13,7 +13,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 const FORMSPREE_API_KEY = process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_API_KEY;
 
 const Form = ({ price, projectTypes }) => {
-  console.log('inView');
   const [aerial, setAerial] = useState(0);
   const [exterior, setExterior] = useState(0);
   const [interior, setInterior] = useState(0);

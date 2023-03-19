@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const HowWeWork = ({ data }) => {
   return (
-    <section className="mb-[80px]" id="HowWeWork">
+    <section className="sections__padding" id="HowWeWork">
       <Container>
         <h2 className="sectionTitle mb-[32px] font-bold xl:mb-[76px]">
           How we work

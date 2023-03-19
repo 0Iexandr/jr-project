@@ -5,7 +5,7 @@ import TeamMember from 'components/TeamMember/TeamMember';
 
 const Team = ({ data }) => {
   return (
-    <section id="team" className="mb-[80px]">
+    <section id="team" className="sections__padding">
       <Container>
         <h2 className="sectionTitle mb-[32px] font-bold md:mb-[50px] xl:mb-[76px]">
           Team

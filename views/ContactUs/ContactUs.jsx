@@ -6,7 +6,7 @@ import Markdown from 'markdown-to-jsx';
 const ContactUs = ({ data }) => {
   const { description } = data;
   return (
-    <section className="mb-[80px]">
+    <section className="sections__padding">
       <Container>
         <div className="mx-auto text-center md:w-[375px] xl:w-[590px]">
           <div className="mb-[24px] flex flex-col items-center justify-center gap-[20px]">

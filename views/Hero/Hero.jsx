@@ -5,7 +5,7 @@ import Mouse from '../../public/mouse.svg';
 
 const Hero = ({ data }) => {
   return (
-    <section className="relative mb-[80px]">
+    <section className="relative">
       <Container>
         <h2 className="hidden">Hero Slider</h2>
         <Slider sliderImages={data} />

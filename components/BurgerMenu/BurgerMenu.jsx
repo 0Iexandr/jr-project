@@ -19,7 +19,7 @@ export const BurgerMenu = ({ isNavOpen, setIsNavOpen }) => {
             : 'hidden'
         }
       >
-        <div className="container absolute top-[17px] right-0 flex justify-between">
+        <div className="container absolute top-[13px] right-0 flex justify-between">
           <Logo
             isClickable={true}
             className="h-[24px] w-[40px] md:h-[30px] md:w-[50px] xl:h-[48px] xl:w-[80px]"
