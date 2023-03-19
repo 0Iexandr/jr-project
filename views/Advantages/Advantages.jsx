@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Container from 'components/Container/Container';
 import Image from 'next/image';
 
@@ -37,3 +38,18 @@ const Advantages = ({ data }) => {
   );
 };
 export default Advantages;
+
+Advantages.propTypes = {
+  data: PropTypes.shape({
+    reason: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        image: PropTypes.shape({
+          secure_url: PropTypes.string.isRequired,
+        }),
+      }),
+    ).isRequired,
+  }).isRequired,
+};
