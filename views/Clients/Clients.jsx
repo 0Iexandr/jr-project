@@ -1,8 +1,8 @@
-import { Container } from '@/components';
+import Container from 'components/Container/Container';
 import ClientsSlider from 'components/ClientsSlider/ClientsSlider';
 import { useEffect, useState } from 'react';
 
-export const Clients = ({ data }) => {
+const Clients = ({ data }) => {
   const [sliderImages, setSliderImages] = useState(null);
   useEffect(() => {
     const updateArray = arr => {
@@ -15,7 +15,7 @@ export const Clients = ({ data }) => {
     setSliderImages(updateArray(data.sliderImages));
   }, [data]);
   return (
-    <section className="mb-[80px]">
+    <section className="sections__padding">
       <Container>
         <h2 className="mb-8 text-3xl font-bold md:mb-10 md:text-[34px] md:leading-10 xl:mb-[4.75rem] xl:text-large">
           Clients
@@ -25,3 +25,4 @@ export const Clients = ({ data }) => {
     </section>
   );
 };
+export default Clients;

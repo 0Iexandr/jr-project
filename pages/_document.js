@@ -15,6 +15,9 @@ export default function Document() {
         <meta name="google" content="notranslate" />
         <meta name="format-detection" content="telephone=no" />
         <meta property="og:title" content="Jazz Render" />
+        <meta property="og:image" content="/linkimg.png" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
         <meta
           property="og:description"
           content="Jazz Render - 3D Architectural Rendering Studio"
@@ -25,11 +28,7 @@ export default function Document() {
         <meta property="og:site_name" content="Jazz Render" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link
           href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
           rel="stylesheet"
@@ -53,6 +52,8 @@ export default function Document() {
         />
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link rel="canonical" href="https://jr-project-lpqw.vercel.app/" />
+        <link rel="alternate" href="https://jr-project-lpqw.vercel.app/" />
       </Head>
 
       <body>

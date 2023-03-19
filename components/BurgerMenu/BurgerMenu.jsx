@@ -1,6 +1,6 @@
-import { Logo } from 'components/Logo/Logo';
-import { ModalBtn } from 'components/ModalBtn/ModalBtn';
-import { NavSections } from 'components/NavSections/NavSections';
+import Logo from 'components/Logo/Logo';
+import ModalBtn from 'components/ModalBtn/ModalBtn';
+import NavSections from 'components/NavSections/NavSections';
 import Image from 'next/image';
 
 export const BurgerMenu = ({ isNavOpen, setIsNavOpen }) => {
@@ -19,7 +19,7 @@ export const BurgerMenu = ({ isNavOpen, setIsNavOpen }) => {
             : 'hidden'
         }
       >
-        <div className="container absolute top-[17px] right-0 flex justify-between">
+        <div className="container absolute top-[13px] right-0 flex justify-between">
           <Logo
             isClickable={true}
             className="h-[24px] w-[40px] md:h-[30px] md:w-[50px] xl:h-[48px] xl:w-[80px]"
@@ -40,3 +40,5 @@ export const BurgerMenu = ({ isNavOpen, setIsNavOpen }) => {
     </div>
   );
 };
+
+export default BurgerMenu;

@@ -1,6 +1,6 @@
 import Logo from 'public/logo.svg';
 
-export const Spinner = () => {
+const Spinner = () => {
   return (
     <div className="lds-ellipsis-container">
       <Logo className="h-[100px] w-[150px]" />
@@ -13,3 +13,4 @@ export const Spinner = () => {
     </div>
   );
 };
+export default Spinner;

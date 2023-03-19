@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useForm as useFormspree } from '@formspree/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { contactFormSchema as schema } from '../../utils/schema';
-import Comments from './Comments';
+import Comments from '../Comments/Comments';
 import Check from 'public/check.svg';
 import Plus from 'public/plus.svg';
 import Minus from 'public/minus.svg';

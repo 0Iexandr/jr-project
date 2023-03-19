@@ -8,7 +8,7 @@ import Close from 'public/close.svg';
 
 const FORMSPREE_API_KEY = process.env.NEXT_PUBLIC_FORMSPREE_QUESTIONS_API_KEY;
 
-export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
+const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
   const [serverState, sendToFormspree] = useFormspree(`${FORMSPREE_API_KEY}`);
 
   const {
@@ -27,7 +27,7 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
         setIsModalOpen(false);
       }, 3000);
     }
-  }, [serverState.succeeded, reset]);
+  }, [serverState.succeeded, reset, setIsModalOpen]);
 
   return (
     <Modal
@@ -128,3 +128,5 @@ export const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
     </Modal>
   );
 };
+
+export default ModalForm;

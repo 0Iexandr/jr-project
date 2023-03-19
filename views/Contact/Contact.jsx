@@ -1,15 +1,21 @@
-import { Container } from '../../components';
-import Form from './Form';
+import Container from 'components/Container/Container';
+import Form from '../../components/Form/Form';
+import { useInView } from 'react-intersection-observer';
 
-export const Contact = ({ data }) => {
+const Contact = ({ data }) => {
+  const { ref, inView } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+
   if (!data) {
     return null;
   }
 
   return (
-    <section id="contact">
+    <section id="contact" className="sections__padding" ref={ref}>
       <Container>
-        <h2 className="sectionTitle mb-[24px] font-bold tracking-wide md:mb-[32px] md:text-left xl:mb-[76px]">
+        <h2 className="sectionTitle mb-[24px] text-center font-bold tracking-wide md:mb-[32px] md:text-left xl:mb-[76px]">
           Contacts
         </h2>
         <p className="contact__text">
@@ -21,8 +27,9 @@ export const Contact = ({ data }) => {
             {data.email}
           </a>
         </p>
-        <Form price={data.price} projectTypes={data.projectTypes} />
+        {inView && <Form price={data.price} projectTypes={data.projectTypes} />}
       </Container>
     </section>
   );
 };
+export default Contact;

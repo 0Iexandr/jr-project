@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const FilterBtnList = ({ clickAction }) => {
+const FilterBtnList = ({ clickAction }) => {
   const btnNames = ['All', 'Interior', 'Exterior'];
   const [activeBtn, setActiveBtn] = useState(btnNames[0]);
   const onBtnClick = e => {
@@ -29,3 +29,5 @@ export const FilterBtnList = ({ clickAction }) => {
     </ul>
   );
 };
+
+export default FilterBtnList;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Pagination, Autoplay, Controller } from 'swiper';
 import { useState } from 'react';
@@ -5,13 +6,14 @@ import Image from 'next/image';
 import Counter from 'components/Counter/Counter';
 import NextBtn from '../../public/nextBtn.svg';
 import PrevBtn from '../../public/prevBtn.svg';
+import { convertImage, toBase64 } from 'utils/blur';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
-import { convertImage, toBase64 } from 'utils/blur';
+import Markdown from 'markdown-to-jsx';
 
-export default function WorkSlider({ data }) {
+const WorkSlider = ({ data }) => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [textInstance, setTextInstance] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -72,7 +74,9 @@ export default function WorkSlider({ data }) {
                 <h2 className="sectionSubtitle mb-[16px] font-bold xl:mb-[24px] xl:leading-[36px]  ">
                   {post.title}
                 </h2>
-                <p className=" text-middle text-gray">{post.description}</p>
+                <div className=" prose text-middle text-gray">
+                  <Markdown>{post.description}</Markdown>
+                </div>
               </SwiperSlide>
             );
           })}
@@ -98,7 +102,7 @@ export default function WorkSlider({ data }) {
                 loading="lazy"
                 className="min-h-[159px] object-cover md:h-[368px] xl:h-[540px] xl:w-[945px]"
                 alt={step.title}
-                src={step.image.url}
+                src={step.image.secure_url}
                 width={step.image.width}
                 height={step.image.height}
                 placeholder="blur"
@@ -106,11 +110,27 @@ export default function WorkSlider({ data }) {
                   convertImage(step.image.width, step.image.height),
                 )}`}
               />
-              <div className="swiper-lazy-preloader"></div>
             </SwiperSlide>
           );
         })}
       </Swiper>
     </div>
   );
-}
+};
+
+export default WorkSlider;
+
+WorkSlider.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string,
+      title: PropTypes.string,
+      id: PropTypes.string,
+      image: PropTypes.shape({
+        height: PropTypes.number,
+        url: PropTypes.string,
+        width: PropTypes.number,
+      }),
+    }),
+  ),
+};

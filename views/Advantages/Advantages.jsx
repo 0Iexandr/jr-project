@@ -1,13 +1,13 @@
-import { Container } from '@/components';
+import Container from 'components/Container/Container';
 import Image from 'next/image';
 
-export const Advantages = ({ data }) => {
+const Advantages = ({ data }) => {
   if (!data) {
     return null;
   }
 
   return (
-    <section id="about us" className="mb-[80px] md:mb-[100px] xl:mb-[120px]">
+    <section id="advantages" className="sections__padding">
       <Container>
         <h2 className="mb-[40px] text-[30px] font-[700] leading-[1.2] md:mb-[50px] md:text-[34px] xl:mb-[76px] xl:text-[54px]">
           Why choose us
@@ -19,7 +19,7 @@ export const Advantages = ({ data }) => {
               className="flex flex-col justify-start md:w-[calc((100%-60px)/2)] xl:w-[calc((100%-180px)/4)]"
             >
               <Image
-                src={image.url}
+                src={image.secure_url}
                 alt={title}
                 width={54}
                 height={54}
@@ -36,3 +36,4 @@ export const Advantages = ({ data }) => {
     </section>
   );
 };
+export default Advantages;

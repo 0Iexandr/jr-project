@@ -1,4 +1,6 @@
-function CVButton({ href, text }) {
+import PropTypes from 'prop-types';
+
+const CVButton = ({ href, text }) => {
   return (
     <a
       href={href}
@@ -7,6 +9,11 @@ function CVButton({ href, text }) {
       {text}
     </a>
   );
-}
+};
 
 export default CVButton;
+
+CVButton.propTypes = {
+  href: PropTypes.string.isRequired,
+  text: PropTypes.node.isRequired,
+};

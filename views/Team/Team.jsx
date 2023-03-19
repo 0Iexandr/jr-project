@@ -1,11 +1,11 @@
-import { Container } from '@/components';
-import Image from 'next/image';
+import PropTypes from 'prop-types';
+import Container from 'components/Container/Container';
 import React from 'react';
-import { ModalBtn } from 'components/ModalBtn/ModalBtn';
+import TeamMember from 'components/TeamMember/TeamMember';
 
-export const Team = ({ data }) => {
+const Team = ({ data }) => {
   return (
-    <section id="team" className="mb-[80px]">
+    <section id="team" className="sections__padding">
       <Container>
         <h2 className="sectionTitle mb-[32px] font-bold md:mb-[50px] xl:mb-[76px]">
           Team
@@ -17,24 +17,7 @@ export const Team = ({ data }) => {
                 key={person.id}
                 className="mx-auto text-start md:w-[412px] xl:w-[386px]"
               >
-                <Image
-                  loading="lazy"
-                  src={person.photo.url}
-                  alt={person.name}
-                  width={person.photo.width}
-                  height={person.photo.height}
-                  className="mb-[24px]"
-                />
-                <p className="mb-[14px] text-[14px] leading-[20px] text-gray">
-                  {person.role}
-                </p>
-                <h3 className="sectionSubtitle mb-[14px] font-bold">
-                  {person.name}
-                </h3>
-                <p className="mb-[24px] text-middle font-normal text-gray">
-                  {person.description}
-                </p>
-                <ModalBtn text="send message" className="whiteBtn" />
+                <TeamMember person={person} />
               </li>
             );
           })}
@@ -42,4 +25,10 @@ export const Team = ({ data }) => {
       </Container>
     </section>
   );
+};
+
+export default Team;
+
+Team.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape),
 };
