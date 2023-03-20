@@ -54,6 +54,7 @@ export default function Document() {
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
         <link rel="canonical" href="https://jr-project-lpqw.vercel.app/" />
         <link rel="alternate" href="https://jr-project-lpqw.vercel.app/" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
       <body>

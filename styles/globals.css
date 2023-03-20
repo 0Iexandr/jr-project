@@ -262,5 +262,5 @@ textarea:focus {
 }
 
 .sections__padding {
-  @apply sm:pb-[80px] md:pb-[100px] xl:pb-[120px];
+  @apply pb-[80px] md:pb-[100px] xl:pb-[120px];
 }

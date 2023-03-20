@@ -5,11 +5,11 @@ import Mouse from '../../public/mouse.svg';
 
 const Hero = ({ data }) => {
   return (
-    <section className="relative">
+    <section className="relative pb-[80px] xl:pb-[100px]">
       <Container>
         <h2 className="hidden">Hero Slider</h2>
         <Slider sliderImages={data} />
-        <div className="absolute bottom-[-48px] left-1/2 -translate-x-1/2 transform max-[1320px]:hidden">
+        <div className="absolute bottom-[32px] left-1/2 -translate-x-1/2 transform max-[1320px]:hidden">
           <Mouse className="slide-bottom" />
         </div>
       </Container>
