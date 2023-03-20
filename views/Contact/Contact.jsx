@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import Container from 'components/Container/Container';
-import Form from '../../components/Form/Form';
 import { useInView } from 'react-intersection-observer';
+import Container from 'components/Container/Container';
+import Form from 'components/Form/Form';
 
 const Contact = ({ data }) => {
   const { ref, inView } = useInView({

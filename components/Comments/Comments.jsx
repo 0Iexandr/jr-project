@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-const Comments = ({ register, className }) => {
+const Comments = ({ className, comments, setComments }) => {
   return (
     <>
       <label htmlFor="comments" className={`mb-[4px] text-gray ${className}`}>
@@ -8,7 +8,8 @@ const Comments = ({ register, className }) => {
       </label>
       <textarea
         id="comments"
-        {...register('comments')}
+        value={comments}
+        onChange={e => setComments(e.target.value)}
         className={`mb-[60px] h-[226px] w-full resize-none border-[1px] border-additionalGray px-2 py-2 outline-none md:h-[160px] xl:mb-[0] xl:h-full ${className}`}
       />
     </>
