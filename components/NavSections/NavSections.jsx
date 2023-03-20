@@ -14,7 +14,7 @@ const NavSections = ({ className, setIsNavOpen }) => {
         return (
           <li key={idx}>
             <Link
-              offset={-77}
+              offset={20}
               href="/"
               activeClass="nav-active"
               smooth={true}

@@ -11,7 +11,7 @@ const Services = ({ data }) => {
     Aos.init();
   }, []);
   return (
-    <section id="services" className="sections__padding">
+    <section id="services" className="pt-[80px] xl:pt-[100px]">
       <Container className="overflow-hidden">
         <h2 className="mb-8 text-3xl font-bold md:mb-10 md:text-[34px] md:leading-10 xl:mb-[4.75rem] xl:text-large">
           Services
