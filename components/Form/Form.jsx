@@ -17,6 +17,7 @@ const Form = ({ price, projectTypes }) => {
   const [aerial, setAerial] = useState(0);
   const [exterior, setExterior] = useState(0);
   const [interior, setInterior] = useState(0);
+  const [comments, setComments] = useState('');
   const [startDate, setStartDate] = useState('');
   const [serverState, sendToFormspree] = useFormspree(`${FORMSPREE_API_KEY}`);
 
@@ -38,6 +39,7 @@ const Form = ({ price, projectTypes }) => {
       setAerial(0);
       setExterior(0);
       setInterior(0);
+      setComments('');
       setStartDate('');
     }
   }, [serverState.succeeded, reset]);
@@ -70,6 +72,7 @@ const Form = ({ price, projectTypes }) => {
   const onSubmitForm = data => {
     const form = {
       ...data,
+      comments,
       deadline: startDate,
       aerial,
       exterior,
@@ -133,7 +136,12 @@ const Form = ({ price, projectTypes }) => {
               </p>
             )}
           </div>
-          <Comments register={register} className="max-xl:hidden" />
+          <Comments
+            register={register}
+            className="max-xl:hidden"
+            comments={comments}
+            setComments={setComments}
+          />
         </div>
         <div className="w-full xl:w-1/2">
           <div className="relative mb-[46px] md:mb-[60px] xl:mb-[40px]">
@@ -152,7 +160,7 @@ const Form = ({ price, projectTypes }) => {
                       className="peer absolute h-0 w-0 cursor-pointer opacity-0"
                     />
                     <Check className="absolute top-0 left-0 hidden h-[24px] w-[24px] peer-checked:block peer-focus:outline" />
-                    <span className="absolute top-0 left-0 h-[24px] w-[24px] border-[1.5px] border-additionalGray peer-checked:border-mainBlack"></span>
+                    <span className="absolute top-0 left-0 h-[24px] w-[24px] border-[1.5px] border-additionalGray peer-checked:border-mainBlack peer-focus:border-[3px] peer-focus:border-mainBlack"></span>
                     <span className="ml-[35px]">{item.projectType}</span>
                   </label>
                 </li>
@@ -244,7 +252,12 @@ const Form = ({ price, projectTypes }) => {
             <p>Total Image Quantity</p>
             <span>{totalImgQty}</span>
           </div>
-          <Comments register={register} className="xl:hidden" />
+          <Comments
+            register={register}
+            className="xl:hidden"
+            comments={comments}
+            setComments={setComments}
+          />
         </div>
       </div>
       <div className="relative">
@@ -273,11 +286,11 @@ const Form = ({ price, projectTypes }) => {
 export default Form;
 
 Form.propTypes = {
-  price: PropTypes.number.isRequired,
+  price: PropTypes.number,
   projectTypes: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
+      id: PropTypes.string,
+      title: PropTypes.string,
     }),
-  ).isRequired,
+  ),
 };

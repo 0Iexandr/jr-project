@@ -25,7 +25,7 @@ export const MasonryGallery = ({ itemData }) => {
               onImageClick(item.url);
             }}
             key={item.id}
-            className="group relative"
+            className="group relative hover:cursor-pointer"
           >
             <Image
               className="h-auto w-full "
