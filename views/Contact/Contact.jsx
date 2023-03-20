@@ -1,20 +1,14 @@
 import PropTypes from 'prop-types';
-import { useInView } from 'react-intersection-observer';
 import Container from 'components/Container/Container';
 import Form from 'components/Form/Form';
 
 const Contact = ({ data }) => {
-  const { ref, inView } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-
   if (!data) {
     return null;
   }
 
   return (
-    <section id="contact" className="sections__padding" ref={ref}>
+    <section id="contact" className="sections__padding">
       <Container>
         <h2 className="sectionTitle mb-[24px] text-center font-bold tracking-wide md:mb-[32px] md:text-left xl:mb-[76px]">
           Contacts
@@ -28,7 +22,7 @@ const Contact = ({ data }) => {
             {data.email}
           </a>
         </p>
-        {inView && <Form price={data.price} projectTypes={data.projectTypes} />}
+        <Form price={data.price} projectTypes={data.projectTypes} />
       </Container>
     </section>
   );

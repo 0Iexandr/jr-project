@@ -4,7 +4,6 @@ import MasonryGallery from 'components/MasonryGallery/MasonryGallery';
 import MobileGallery from 'components/MasonryGallery/MobileGallery';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useInView } from 'react-intersection-observer';
 
 const Works = ({ data }) => {
   const [allImages, setAllImages] = useState();
@@ -12,10 +11,6 @@ const Works = ({ data }) => {
   const [renderImages, setRenderImages] = useState(null);
   const [showMoreBtnShouldRender, setshowMoreBtnShouldRender] = useState(false);
 
-  const { ref, inView } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
   const isDesctop = useMediaQuery({
     query: '(min-width: 1320px)',
   });
@@ -81,33 +76,29 @@ const Works = ({ data }) => {
   };
 
   return (
-    <section ref={ref} id="works" className="sections__padding">
+    <section id="works" className="sections__padding">
       <Container>
-        {inView && (
-          <div>
-            <div className="mb-[24px] flex flex-col gap-8 md:mb-[17px] md:flex-row md:items-baseline md:justify-between md:gap-0">
-              <h2 className=" text-3xl font-bold md:text-[34px] md:leading-10 xl:text-large">
-                Works
-              </h2>
+        <div className="mb-[24px] flex flex-col gap-8 md:mb-[17px] md:flex-row md:items-baseline md:justify-between md:gap-0">
+          <h2 className=" text-3xl font-bold md:text-[34px] md:leading-10 xl:text-large">
+            Works
+          </h2>
 
-              <FilterBtnList clickAction={onFilterBtnClick} />
-            </div>
+          <FilterBtnList clickAction={onFilterBtnClick} />
+        </div>
 
-            {isDesctop && renderImages && (
-              <MasonryGallery itemData={renderImages} />
-            )}
-            {!isDesctop && renderImages && (
-              <MobileGallery itemData={renderImages} />
-            )}
-            {showMoreBtnShouldRender && (
-              <button
-                className="mx-auto mt-[60px] block text-small font-bold uppercase tracking-wider text-gray hover:text-[#333333] md:mt-[100px]"
-                onClick={onShowMoreBtnClick}
-              >
-                show more
-              </button>
-            )}
-          </div>
+        {isDesctop && renderImages && (
+          <MasonryGallery itemData={renderImages} />
+        )}
+        {!isDesctop && renderImages && (
+          <MobileGallery itemData={renderImages} />
+        )}
+        {showMoreBtnShouldRender && (
+          <button
+            className="mx-auto mt-[60px] block text-small font-bold uppercase tracking-wider text-gray hover:text-[#333333] md:mt-[100px]"
+            onClick={onShowMoreBtnClick}
+          >
+            show more
+          </button>
         )}
       </Container>
     </section>
