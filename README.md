@@ -1,46 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with
-[`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Лендінг сторінка [JazzRender](https://jr-project.vercel.app/)
 
-## Getting Started
+Сторінка демострує сайт компанії яка займається 3D візуалізацією інтер'єрів та
+єкстер'єрів. На сайті є можливість переглянути ознайомитись із компанією та її
+роботами, а також оформити замовлення або заповнити форму для зворотнього
+зв'язку. Проект був розроблений з використанням Next.js, DatoCMS та Tailwind
+(CSS framework). Була реалізована респонсивна верстка для усіх видів пристроїв.
 
-First, run the development server:
+## Про проект
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Технології та сервіси:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the
-result.
+- Next.js
+- Tailwind CSS
+- DatoCMS
+- Cloudinary
 
-You can start editing the page by modifying `pages/index.js`. The page
-auto-updates as you edit the file.
+**Деякі з пакетів що використовувалися:**
 
-This project uses
-[`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to
-automatically optimize and load Inter, a custom Google Font.
+- swiper
+- prop-types
+- react-datepicker
+- yup
+- basiclightbox
+- body-scroll-lock
+- ...
 
-## Learn More
+### DatoCMS Scheme
 
-To learn more about Next.js, take a look at the following resources:
+DatoCMS була використана у якості бекенду для цього проекту з можливістю
+редагування усього контенту який знаходиться на сторінці.  
+Для зберігання зображень був використаний сервіс Cloudinary, який пов'язаний з
+адмін панеллю у DatoCMS.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[Діаграма](https://drive.google.com/file/d/1cKA40VmMyREg-TWOMuVbesJ0N6A82cQ9/view?usp=sharing),
+що ілюструє схему адмін панелі DatoCMS.
 
-You can check out
-[the Next.js GitHub repository](https://github.com/vercel/next.js/) - your
-feedback and contributions are welcome!
+## Команда
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the
-[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js.
-
-Check out our
-[Next.js deployment documentation](https://nextjs.org/docs/deployment) for more
-details.
+- SCRUM-Майстер Надія Євтушенко
+- Ментор Надія Хоптюк
+- Володимир Бабич
+- Юрій Зарицький
+- Антон Науменко
+- Олександр Кривонюк (Team Leader) <br/> <br/> <br/>
+  <img src="https://github.com/0Iexandr/jr-project/blob/main/public/logo.svg" width="70px">
