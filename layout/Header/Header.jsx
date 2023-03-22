@@ -1,10 +1,28 @@
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import Container from 'components/Container/Container';
 import HeaderTitle from 'components/HeaderTitle/HeaderTitle';
 import Logo from 'components/Logo/Logo';
 import ModalBtn from 'components/ModalBtn/ModalBtn';
 import NavBar from 'components/NavBar/NavBar';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+
+const DynamicBurgerMenu = dynamic(() =>
+  import(
+    /* webpackChunkName: "BurgerMenu" */ '../../components/BurgerMenu/BurgerMenu'
+  ),
+);
 
 const Header = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  useEffect(() => {
+    isNavOpen
+      ? disableBodyScroll(DynamicBurgerMenu)
+      : enableBodyScroll(DynamicBurgerMenu);
+  }, [isNavOpen]);
+
   return (
     <header className="sticky top-0 z-30 flex h-[50px] w-full items-center bg-white xl:h-[64px]">
       <Container>
@@ -20,9 +38,21 @@ const Header = () => {
             <NavBar />
             <ModalBtn text="start project" className="blackBtn max-xl:hidden" />
           </div>
+          <button
+            onClick={() => setIsNavOpen(prev => !prev)}
+            aria-label="next-element"
+            className="ml-auto xl:hidden"
+          >
+            <Image src="/burger.svg" alt="menu" width={35} height={18} />
+          </button>
+          <DynamicBurgerMenu
+            isNavOpen={isNavOpen}
+            setIsNavOpen={setIsNavOpen}
+          />
         </div>
       </Container>
     </header>
   );
 };
+
 export default Header;

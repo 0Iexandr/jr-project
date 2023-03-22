@@ -34,5 +34,6 @@ const NavSections = ({ className, setIsNavOpen }) => {
 export default NavSections;
 
 NavSections.propTypes = {
+  setIsNavOpen: PropTypes.func,
   className: PropTypes.string,
 };
