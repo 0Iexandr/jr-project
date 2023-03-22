@@ -6,12 +6,6 @@ import Image from 'next/image';
 export const BurgerMenu = ({ isNavOpen, setIsNavOpen }) => {
   return (
     <div className="flex xl:hidden ">
-      <button
-        onClick={() => setIsNavOpen(prev => !prev)}
-        aria-label="next-element"
-      >
-        <Image src="/burger.svg" alt="menu" width={35} height={18} />
-      </button>
       <div
         className={
           isNavOpen
